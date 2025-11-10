@@ -128,7 +128,7 @@ header h1 {
 
 /* ===== SCRAPBOOK ELEMENTS ===== */
 .paper {
-  background: #fff9f0 url('images/notebook-paper.png');
+  background: #fff9f0 url('images/notebook-paper.jpeg');
   border: 1px solid #d6c5a9;
   box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
   margin-bottom: 20px;
@@ -165,7 +165,7 @@ textarea {
   padding: 10px 14px;
   border: 2px solid #d2b48c; /* tan border */
   border-radius: 10px;
-  background: #fffaf0 url('images/paper-texture.jpg'); /* parchment-like */
+  background: #fffaf0 url('images/parchment-texture.jpg'); /* parchment-like */
   background-size: cover;
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 15px;
