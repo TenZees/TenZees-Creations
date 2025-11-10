@@ -211,3 +211,70 @@ footer {
   margin-top: 30px;
   font-size: 0.9em;
 }
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+   ========================================================== */
+
+/* --- For tablets and smaller laptops --- */
+@media (max-width: 1024px) {
+  #wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  aside {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  main {
+    width: 95%;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+  }
+}
+
+/* --- For phones and small screens --- */
+@media (max-width: 768px) {
+  #wrapper {
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  aside {
+    width: 100%;
+    order: 2; /* moves sidebar below main content if you want */
+    padding: 15px;
+  }
+
+  main {
+    width: 100%;
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  .polaroid {
+    max-width: 100%;
+    width: 100%;
+    transform: none;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  input[type="submit"], button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+  }
+}
