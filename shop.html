@@ -6,6 +6,70 @@
   <title>Shop | TenZees Creations</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Gloria+Hallelujah&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    /* === CAROUSEL STYLES === */
+    .carousel-container {
+      position: relative;
+      max-width: 420px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #ddd;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .carousel-active {
+      display: block;
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Carousel Controls */
+    .carousel-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .carousel-btn {
+      background: #e7dbc7;
+      border: 1px solid #c1ad8f;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0 5px;
+      font-family: 'Gloria Hallelujah', cursive;
+      color: #3b2d2a;
+      box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+
+    .carousel-btn:hover {
+      background: #d9c9ae;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 
 <body>
@@ -57,11 +121,23 @@
       </section>
 
       <section class="paper pinned">
-        <h2>Featured Product</h2>
-        <img src="images/angel_decal.jpg" alt="Featured TenZees Product" class="polaroid">
-        <p style="text-align:center; margin-top:10px;">
-          Just a sneak peek! Visit the shop for more designs and surprises.
-        </p>
+        <h2>Product Showcase</h2>
+        <div class="carousel-container">
+          <div class="carousel-slide carousel-active">
+            <img src="images/shop1.jpg" alt="Art Print Sample">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/shop2.jpeg" alt="Sticker Pack">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/shop3.jpg" alt="Mug Design">
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <span class="carousel-btn" onclick="plusSlides(-1)">‹</span>
+          <span class="carousel-btn" onclick="plusSlides(1)">›</span>
+        </div>
       </section>
 
       <footer>
@@ -85,6 +161,23 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // === CAROUSEL SCRIPT ===
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    function showSlides(n) {
+      slides.forEach(slide => slide.classList.remove('carousel-active'));
+      slideIndex = (n + slides.length) % slides.length;
+      slides[slideIndex].classList.add('carousel-active');
+    }
+
+    function plusSlides(n) {
+      showSlides(slideIndex + n);
+    }
+
+    // Auto slide every 5 seconds
+    setInterval(() => plusSlides(1), 5000);
   </script>
 </body>
 </html>
