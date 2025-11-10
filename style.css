@@ -2,9 +2,17 @@
    TenZees Creations - Artist’s Scrapbook Theme
    ========================================================== */
 
+/* ===== CUSTOM CURSOR ===== */
+body {
+  cursor: url('images/cursor.png') 4 4, auto;
+}
+a, button, input[type="submit"] {
+  cursor: url('images/cursor-hover.png') 4 4, pointer;
+}
+
 /* ===== GLOBAL ===== */
 body {
-  background: #f3efe6 url('images/paper-texture.jpg');
+  background: #f3efe6 url('images/paper-texture.jpeg');
   background-size: cover;
   font-family: 'Playfair Display', serif;
   color: #3b2d2a;
