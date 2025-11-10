@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TenZees Creations</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&amp;family=Gloria+Hallelujah&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div id="wrapper">
+    <!-- Left Sidebar -->
+    <aside id="sidebar-left">
+      <h2>Sketchbook</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="content">
+      <header>
+        <h1>TenZees Creations</h1>
+        <p class="subtitle">Art • Imagination • Expression</p>
+      </header>
+
+      <section id="intro" class="paper">
+        <h2>Welcome</h2>
+        <p>Welcome to <strong>TenZees Creations</strong> — a cozy corner of the web where creativity comes to life. Every doodle, brushstroke, and color tells a story of imagination and joy.</p>
+      </section>
+
+      <section id="updates" class="paper">
+        <h2>Studio Updates</h2>
+        <ul>
+          <li><strong>Nov 9:</strong> Website launch! 🎨</li>
+          <li><strong>Coming soon:</strong> Stickers Galore</li>
+        </ul>
+      </section>
+
+      <section id="featured" class="paper pinned">
+        <h2>Featured Artwork</h2>
+        <img src="images/Anxiety_line.png" alt="Anxiety" class="polaroid">
+      </section>
+
+      <footer>
+        <p>© <span id="year"></span> TenZees Creations | Made with ❤️ and coffee</p>
+      </footer>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside id="sidebar-right">
+      <h2>Studio Notes</h2>
+      <blockquote>“Art is just another way of keeping a diary.”<br>– Picasso</blockquote>
+      <div class="tape"></div>
+    </aside>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
