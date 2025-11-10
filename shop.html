@@ -1,16 +1,90 @@
-<main>
-  <header>
-    <h1>The TenZees Shop</h1>
-    <p class="subtitle">Art prints, mugs, and more — handcrafted with love.</p>
-  </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | TenZees Creations</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Gloria+Hallelujah&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
 
-  <div class="paper">
-    <p>My full collection is available on my Printify store! Click below to browse or purchase items securely.</p>
-    <a href="https://tenzees.printify.me/" 
-       class="shop-button"
-       target="_blank"
-       style="display:inline-block; padding:12px 24px; background:#e7dbc7; border-radius:10px; text-decoration:none; font-family:'Gloria Hallelujah', cursive; color:#3e3e3e; font-size:1.2em;">
-       🛍️ Visit the TenZees Shop
-    </a>
+<body>
+  <div id="wrapper">
+    <!-- Left Sidebar -->
+    <aside id="sidebar-left">
+      <h2>Sketchbook</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="shop.html" class="active">Shop</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="content">
+      <header>
+        <h1>The TenZees Shop</h1>
+        <p class="subtitle">Art • Prints • Stickers • Gifts</p>
+      </header>
+
+      <section class="paper">
+        <h2>Welcome to the Shop!</h2>
+        <p>
+          Every item in the TenZees shop is designed with love, creativity, and a touch of whimsy. 
+          From art prints and stickers to cozy mugs and accessories — each piece is made to bring a smile to your day.
+        </p>
+        <p>
+          You can browse and purchase items securely through our official Printify storefront.
+        </p>
+
+        <div style="text-align:center; margin: 30px 0;">
+          <a href="https://tenzees.printify.me/" target="_blank" 
+             style="display:inline-block; padding:12px 28px; background:#e7dbc7; border:2px solid #c1ad8f; border-radius:25px; text-decoration:none; 
+                    font-family:'Gloria Hallelujah', cursive; color:#3b2d2a; font-size:1.3em; box-shadow:3px 3px 8px rgba(0,0,0,0.15); 
+                    transition: all 0.3s ease;">
+            🛍️ Visit the Printify Shop
+          </a>
+        </div>
+
+        <p style="text-align:center; font-family:'Caveat', cursive; font-size:1.3em;">
+          Thank you for supporting handmade art — every purchase helps fuel more creativity!
+        </p>
+      </section>
+
+      <section class="paper pinned">
+        <h2>Featured Product</h2>
+        <img src="images/featured-product.jpg" alt="Featured TenZees Product" class="polaroid">
+        <p style="text-align:center; margin-top:10px;">
+          Just a sneak peek! Visit the shop for more designs and surprises.
+        </p>
+      </section>
+
+      <footer>
+        <p>© <span id="year"></span> TenZees Creations | Made with ❤️ and imagination</p>
+      </footer>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside id="sidebar-right">
+      <h2>Shop Notes</h2>
+      <ul style="list-style:none; padding:0;">
+        <li><strong>Secure Checkout:</strong> Powered by Printify</li>
+        <li><strong>Shipping:</strong> Available worldwide</li>
+        <li><strong>New Designs:</strong> Added monthly!</li>
+      </ul>
+      <p style="margin-top:10px; font-family:'Gloria Hallelujah', cursive;">
+        Keep checking back for new art drops and limited editions!
+      </p>
+    </aside>
   </div>
-</main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
