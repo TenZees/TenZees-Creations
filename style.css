@@ -12,7 +12,7 @@ a, button, input[type="submit"] {
 
 /* ===== GLOBAL ===== */
 body {
-  background: #f3efe6 url('images/parchment-texture.png');
+  background: #f3efe6 url('images/banner.png');
   background-size: cover;
   font-family: 'Playfair Display', serif;
   color: #3b2d2a;
