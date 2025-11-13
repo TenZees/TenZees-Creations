@@ -1,5 +1,5 @@
 /* ==========================================================
-   TenZees Creations - Artist’s Scrapbook Theme
+   TenZees Creations - Night Sketchbook Theme (with Glow)
    ========================================================== */
 
 /* ===== CUSTOM CURSOR ===== */
@@ -12,12 +12,13 @@ a, button, input[type="submit"] {
 
 /* ===== GLOBAL ===== */
 body {
-  background: #f3efe6 url('images/bckground.png');
+  background: #1a1425 url('images/bckground.png');
   background-size: cover;
   font-family: 'Playfair Display', serif;
-  color: #3b2d2a;
+  color: #e8e6f5;
   margin: 0;
   padding: 0;
+  text-shadow: 0 0 4px rgba(180, 160, 255, 0.25);
 }
 
 /* ===== WRAPPER LAYOUT ===== */
@@ -27,24 +28,24 @@ body {
   align-items: flex-start;
   max-width: 1200px;
   margin: 40px auto;
-  background: rgba(255, 255, 255, 0.85);
-  border: 2px solid #d3c4a8;
-  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  background: rgba(40, 30, 70, 0.6);
+  border: 2px solid #8f83b8;
+  box-shadow: 5px 5px 25px rgba(0,0,0,0.4);
   padding: 10px;
-  backdrop-filter: blur(3px);
-  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
 }
 
 /* ===== SIDEBARS ===== */
 aside {
   width: 220px;
-  background: #fdfaf5;
-  border: 2px dashed #cbbfa9;
+  background: #2b2440;
+  border: 2px dashed #8f83b8;
   padding: 20px;
   margin: 10px;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 3px 3px 12px rgba(0,0,0,0.3);
   position: relative;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 /* Decorative tape effect */
@@ -56,20 +57,24 @@ aside {
   left: 50%;
   width: 80px;
   height: 25px;
-  background: rgba(240, 228, 200, 0.8);
+  background: rgba(170, 160, 210, 0.6);
   transform: translateX(-50%) rotate(-2deg);
   border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 /* Sidebar Titles */
 aside h2 {
   font-family: 'Caveat', cursive;
   font-size: 1.8em;
-  color: #6a5143;
+  color: #c3baf5;
   margin-bottom: 10px;
-  border-bottom: 1px dashed #b59b83;
+  border-bottom: 1px dashed #9c90cc;
   padding-bottom: 5px;
+  transition: 0.3s;
+}
+aside h2:hover {
+  text-shadow: 0 0 10px rgba(200, 190, 255, 0.7);
 }
 
 /* Sidebar Links */
@@ -82,29 +87,32 @@ aside ul {
 aside a {
   display: block;
   text-decoration: none;
-  color: #4a372c;
-  background: #f7f3ec;
-  border: 1px solid #d2c1a8;
+  color: #dcd6ff;
+  background: #352d53;
+  border: 1px solid #6a5a99;
   border-radius: 6px;
   margin: 6px 0;
   padding: 8px;
   font-family: 'Gloria Hallelujah', cursive;
   transition: 0.3s;
+  box-shadow: 0 0 6px rgba(160, 130, 255, 0.15);
 }
 
 aside a:hover, aside .active {
-  background: #e7dbc7;
-  color: #6b4b3d;
+  background: #5b4a84;
+  color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(180, 160, 255, 0.6),
+              inset 0 0 8px rgba(200, 180, 255, 0.3);
 }
 
 /* ===== MAIN CONTENT ===== */
 main {
   flex: 1;
   padding: 20px 40px;
-  background: #fffdf9;
+  background: rgba(30, 25, 55, 0.7);
   border-radius: 10px;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
 }
 
 header {
@@ -115,26 +123,30 @@ header {
 header h1 {
   font-family: 'Caveat', cursive;
   font-size: 3em;
-  color: #5d4a3f;
-  text-shadow: 2px 2px #e6d3b8;
+  color: #d5ccff;
+  text-shadow: 0 0 12px rgba(170, 150, 255, 0.8),
+               2px 2px #392c5a;
   margin: 0;
 }
 
 .subtitle {
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 1.1em;
-  color: #7a6b5a;
+  color: #bfb6f5;
+  text-shadow: 0 0 6px rgba(180, 170, 255, 0.4);
 }
 
 /* ===== SCRAPBOOK ELEMENTS ===== */
 .paper {
-  background: #fff9f0 url('images/notebook-paper.jpeg');
-  border: 1px solid #d6c5a9;
-  box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+  background: #2a2442 url('images/notebook-paper.jpeg');
+  border: 1px solid #7d70a8;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.3),
+              0 0 8px rgba(150, 130, 255, 0.15);
   margin-bottom: 20px;
   padding: 15px;
-  border-radius: 6px;
+  border-radius: 8px;
   position: relative;
+  color: #e9e7ff;
 }
 
 /* ===== POLAROID IMAGES ===== */
@@ -142,20 +154,21 @@ header h1 {
   display: block;
   margin: 15px auto;
   padding: 10px;
-  background: #fff;
-  border: 2px solid #ddd;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  background: #3b3360;
+  border: 2px solid #8b7bc8;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.4),
+              0 0 10px rgba(160, 140, 255, 0.2);
   transform: rotate(-2deg);
-  max-width: 400px; /* limits width */
+  max-width: 400px;
   width: 90%;
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effect - gentle lift and tilt */
 .polaroid:hover {
   transform: rotate(0deg) scale(1.03);
-  box-shadow: 5px 8px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px rgba(200, 180, 255, 0.7),
+              0 0 40px rgba(180, 160, 255, 0.3);
 }
 
 /* ===== MESSAGE BOX ===== */
@@ -163,68 +176,68 @@ textarea {
   width: 95%;
   height: 120px;
   padding: 10px 14px;
-  border: 2px solid #d2b48c; /* tan border */
+  border: 2px solid #7d70a8;
   border-radius: 10px;
-  background: #fffaf0 url('images/parchment-texture.jpg'); /* parchment-like */
+  background: #2f284a url('images/parchment-texture.jpg');
   background-size: cover;
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 15px;
-  color: #5c3d2e;
+  color: #e8e6f5;
   resize: vertical;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 textarea:focus {
   outline: none;
-  border-color: #c49b66;
-  background-color: #fffdf5;
-  box-shadow: 0 0 6px rgba(196, 155, 102, 0.7),
-              inset 0 0 6px rgba(0, 0, 0, 0.15);
+  border-color: #9f8fff;
+  background-color: #352d56;
+  box-shadow: 0 0 15px rgba(160, 140, 255, 0.7),
+              inset 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== STYLIZED BUTTON ===== */
 input[type="submit"], button {
   display: inline-block;
   padding: 8px 20px;
-  background: linear-gradient(to bottom, #d2b48c, #bfa06a);
-  border: 2px solid #a9824b;
+  background: linear-gradient(to bottom, #6c5ba7, #55468b);
+  border: 2px solid #423672;
   border-radius: 25px;
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 15px;
-  color: #3e2a18;
+  color: #eae6ff;
   cursor: pointer;
-  text-shadow: 1px 1px #f5f1e9;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 6px rgba(200, 190, 255, 0.5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3),
+              0 0 6px rgba(160, 140, 255, 0.3);
   transition: all 0.3s ease;
 }
 
 input[type="submit"]:hover, button:hover {
-  background: linear-gradient(to bottom, #e8d1a8, #caa96b);
+  background: linear-gradient(to bottom, #7e6cc5, #6757a4);
   transform: translateY(-2px);
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 15px rgba(200, 180, 255, 0.8),
+              0 0 30px rgba(170, 150, 255, 0.5);
 }
 
 input[type="submit"]:active, button:active {
   transform: translateY(1px);
-  box-shadow: inset 0 3px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 3px 4px rgba(0, 0, 0, 0.3);
 }
-
 
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
   font-family: 'Gloria Hallelujah', cursive;
-  color: #6b4b3d;
+  color: #c5bfff;
   margin-top: 30px;
   font-size: 0.9em;
+  text-shadow: 0 0 6px rgba(190, 180, 255, 0.5);
 }
 
 /* ==========================================================
    RESPONSIVE DESIGN
    ========================================================== */
-
-/* --- For tablets and smaller laptops --- */
 @media (max-width: 1024px) {
   #wrapper {
     flex-direction: column;
@@ -247,7 +260,6 @@ footer {
   }
 }
 
-/* --- For phones and small screens --- */
 @media (max-width: 768px) {
   #wrapper {
     flex-direction: column;
@@ -257,7 +269,7 @@ footer {
 
   aside {
     width: 100%;
-    order: 2; /* moves sidebar below main content if you want */
+    order: 2;
     padding: 15px;
   }
 
@@ -285,8 +297,4 @@ footer {
     padding: 10px;
     font-size: 1em;
   }
-}
-
-@media (max-width: 768px) {
-  body { background-color: purple !important; }
 }
