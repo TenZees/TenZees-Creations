@@ -108,6 +108,17 @@ body {
 .pink { background: #ffd6e6; }
 .blue { background: #d9e8ff; }
 .green { background: #d8fae8; }
+.purple { background: #e3d4ff; }
+.yellow { background: #fff3bf; }
+.orange { background: #ffd8b5; }
+.teal   { background: #c6fff5; }
+.red    { background: #ffb6b6; }
+
+/* hidden card behavior */
+.card-hidden {
+  display: none !important;
+}
+
 
 /* hidden state (useful for toggles) */
 .card-hidden { display: none !important; }

@@ -1,99 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Element Mixer</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="mixer.css">
 </head>
 <body>
-  <div class="mixer-container">
 
-    <button class="back-btn" aria-label="Go back">←</button>
-    <h1 class="mixer-title">Element Mixer</h1>
+<div class="mixer-container">
 
-    <section class="config-box" aria-labelledby="configTitle">
-      <h2 id="configTitle" class="config-title">⚙️ CONFIGURE MIX</h2>
+  <!-- Back Button -->
+  <button class="back-btn">←</button>
 
-      <div class="config-grid">
-        <label class="toggle-row">
-          <span>Color Palette</span>
-          <input type="checkbox" checked>
-          <span class="toggle-slider"></span>
-        </label>
+  <!-- Page Title -->
+  <h1 class="mixer-title">Element Mixer</h1>
 
-        <label class="toggle-row">
-          <span>Object</span>
-          <input type="checkbox" checked>
-          <span class="toggle-slider"></span>
-        </label>
+  <!-- CONFIGURE MIX -->
+  <div class="config-box">
+    <h2 class="config-title">⚙️ CONFIGURE MIX</h2>
 
-        <label class="toggle-row">
-          <span>Location</span>
-          <input type="checkbox" checked>
-          <span class="toggle-slider"></span>
-        </label>
+    <div class="config-grid">
 
-        <label class="toggle-row">
-          <span>Theme/Culture</span>
-          <input type="checkbox">
-          <span class="toggle-slider"></span>
-        </label>
+      <!-- COLOR PALETTE -->
+      <label class="toggle-row">
+        <span>Color Palette</span>
+        <input type="checkbox" id="toggle-palette" checked>
+        <span class="toggle-slider"></span>
+      </label>
 
-        <label class="toggle-row">
-          <span>Mood</span>
-          <input type="checkbox">
-          <span class="toggle-slider"></span>
-        </label>
+      <!-- OBJECT -->
+      <label class="toggle-row">
+        <span>Object</span>
+        <input type="checkbox" id="toggle-object" checked>
+        <span class="toggle-slider"></span>
+      </label>
 
-        <label class="toggle-row">
-          <span>Art Style</span>
-          <input type="checkbox">
-          <span class="toggle-slider"></span>
-        </label>
+      <!-- LOCATION -->
+      <label class="toggle-row">
+        <span>Location</span>
+        <input type="checkbox" id="toggle-location" checked>
+        <span class="toggle-slider"></span>
+      </label>
 
-        <label class="toggle-row">
-          <span>Season/Holiday</span>
-          <input type="checkbox">
-          <span class="toggle-slider"></span>
-        </label>
+      <!-- THEME / CULTURE -->
+      <label class="toggle-row">
+        <span>Theme / Culture</span>
+        <input type="checkbox" id="toggle-theme">
+        <span class="toggle-slider"></span>
+      </label>
 
-        <label class="toggle-row">
-          <span>Person/Character</span>
-          <input type="checkbox">
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
-    </section>
+      <!-- MOOD -->
+      <label class="toggle-row">
+        <span>Mood</span>
+        <input type="checkbox" id="toggle-mood">
+        <span class="toggle-slider"></span>
+      </label>
 
-    <!-- Results area -->
-    <div class="results-container">
-      <div class="result-row">
-        <div class="result-card pink" data-key="COLOR PALETTE">
-          <h3>COLOR PALETTE</h3>
-          <p class="value">Ready to roll...</p>
-        </div>
+      <!-- ART STYLE -->
+      <label class="toggle-row">
+        <span>Art Style</span>
+        <input type="checkbox" id="toggle-art">
+        <span class="toggle-slider"></span>
+      </label>
 
-        <div class="result-card blue" data-key="OBJECT">
-          <h3>OBJECT</h3>
-          <p class="value">Ready to roll...</p>
-        </div>
-      </div>
+      <!-- SEASON / HOLIDAY -->
+      <label class="toggle-row">
+        <span>Season / Holiday</span>
+        <input type="checkbox" id="toggle-season">
+        <span class="toggle-slider"></span>
+      </label>
 
-      <div class="result-row">
-        <div class="result-card green" data-key="LOCATION">
-          <h3>LOCATION</h3>
-          <p class="value">Ready to roll...</p>
-        </div>
-      </div>
+      <!-- PERSON / CHARACTER -->
+      <label class="toggle-row">
+        <span>Person / Character</span>
+        <input type="checkbox" id="toggle-person">
+        <span class="toggle-slider"></span>
+      </label>
+
     </div>
-
-    <button class="mix-btn" id="mixBtn" aria-pressed="false">
-      <span class="mix-icon">⟳</span> Mix Elements
-    </button>
-
   </div>
 
-  <script src="mixer.js"></script>
+  <!-- RESULT CARDS -->
+  <div class="result-row">
+    <div class="result-card pink" id="card-palette">
+      <h3>COLOR PALETTE</h3>
+      <p class="value-palette">Ready to roll...</p>
+    </div>
+
+    <div class="result-card blue" id="card-object">
+      <h3>OBJECT</h3>
+      <p class="value-object">Ready to roll...</p>
+    </div>
+  </div>
+
+  <div class="result-row">
+    <div class="result-card green" id="card-location">
+      <h3>LOCATION</h3>
+      <p class="value-location">Ready to roll...</p>
+    </div>
+  </div>
+
+  <div class="result-row">
+    <div class="result-card purple" id="card-theme">
+      <h3>THEME / CULTURE</h3>
+      <p class="value-theme">Ready to roll...</p>
+    </div>
+  </div>
+
+  <div class="result-row">
+    <div class="result-card yellow" id="card-mood">
+      <h3>MOOD</h3>
+      <p class="value-mood">Ready to roll...</p>
+    </div>
+  </div>
+
+  <div class="result-row">
+    <div class="result-card orange" id="card-art">
+      <h3>ART STYLE</h3>
+      <p class="value-art">Ready to roll...</p>
+    </div>
+  </div>
+
+  <div class="result-row">
+    <div class="result-card teal" id="card-season">
+      <h3>SEASON / HOLIDAY</h3>
+      <p class="value-season">Ready to roll...</p>
+    </div>
+  </div>
+
+  <div class="result-row">
+    <div class="result-card red" id="card-person">
+      <h3>PERSON / CHARACTER</h3>
+      <p class="value-person">Ready to roll...</p>
+    </div>
+  </div>
+
+  <!-- MIX BUTTON -->
+  <button class="mix-btn" id="mix-btn">
+    <span class="mix-icon">⟳</span> Mix Elements
+  </button>
+
+</div>
+
+<!-- JavaScript -->
+<script src="mixer.js"></script>
+
 </body>
 </html>
