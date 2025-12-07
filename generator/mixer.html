@@ -1,141 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Element Mixer</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-  <!-- External CSS -->
   <link rel="stylesheet" href="mixer.css">
 </head>
-
 <body>
-  <div class="container">
 
-    <header>
-      <button class="back-btn" title="Back">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18L9 12L15 6" stroke="#231f20" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <h1>Element Mixer</h1>
-    </header>
+<div class="mixer-container">
 
-    <!-- CONFIG PANEL -->
-    <section class="panel">
-      <div class="title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M12 1v2M12 21v2M4.2 4.2L5.6 5.6M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" 
-                stroke="#9aa0a6" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>
-        <span>CONFIGURE MIX</span>
-      </div>
+  <!-- Back Button -->
+  <button class="back-btn">←</button>
 
-      <div class="options">
-        <div class="option-row">
-          <div class="option-label">Color Palette</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-color" checked>
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
+  <!-- Title -->
+  <h1 class="mixer-title">Element Mixer</h1>
 
-        <div class="option-row">
-          <div class="option-label">Object</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-object" checked>
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
+  <!-- CONFIGURE MIX -->
+  <div class="config-box">
+    <h2 class="config-title">⚙️ CONFIGURE MIX</h2>
 
-        <div class="option-row">
-          <div class="option-label">Location</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-location" checked>
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
+    <div class="config-grid">
 
-        <div class="option-row">
-          <div class="option-label">Theme/Culture</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-theme">
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
+      <label class="toggle-row">
+        <span>Color Palette</span>
+        <input type="checkbox" checked>
+        <span class="toggle-slider"></span>
+      </label>
 
-        <div class="option-row">
-          <div class="option-label">Mood</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-mood">
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
+      <label class="toggle-row">
+        <span>Object</span>
+        <input type="checkbox" checked>
+        <span class="toggle-slider"></span>
+      </label>
 
-        <div class="option-row">
-          <div class="option-label">Art Style</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-art">
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
+      <label class="toggle-row">
+        <span>Location</span>
+        <input type="checkbox" checked>
+        <span class="toggle-slider"></span>
+      </label>
 
-        <div class="option-row">
-          <div class="option-label">Season/Holiday</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-season">
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
+      <label class="toggle-row">
+        <span>Theme/Culture</span>
+        <input type="checkbox">
+        <span class="toggle-slider"></span>
+      </label>
 
-        <div class="option-row">
-          <div class="option-label">Person/Character</div>
-          <label class="toggle">
-            <input type="checkbox" id="tog-person">
-            <span class="track"><span class="thumb"></span></span>
-          </label>
-        </div>
-      </div>
-    </section>
+      <label class="toggle-row">
+        <span>Mood</span>
+        <input type="checkbox">
+        <span class="toggle-slider"></span>
+      </label>
 
-    <!-- RESULT CARDS -->
-    <section class="results">
-      <div class="card pink">
-        <div class="label">Color Palette</div>
-        <div class="value" id="val-color">Ready to roll...</div>
-      </div>
+      <label class="toggle-row">
+        <span>Art Style</span>
+        <input type="checkbox">
+        <span class="toggle-slider"></span>
+      </label>
 
-      <div class="card blue">
-        <div class="label">Object</div>
-        <div class="value" id="val-object">Ready to roll...</div>
-      </div>
+      <label class="toggle-row">
+        <span>Season/Holiday</span>
+        <input type="checkbox">
+        <span class="toggle-slider"></span>
+      </label>
 
-      <div class="card green">
-        <div class="label">Location</div>
-        <div class="value" id="val-location">Ready to roll...</div>
-      </div>
-    </section>
+      <label class="toggle-row">
+        <span>Person/Character</span>
+        <input type="checkbox">
+        <span class="toggle-slider"></span>
+      </label>
 
-    <!-- MIX BUTTON -->
-    <div class="mix-wrap">
-      <button id="mixBtn" class="mix-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M21 12a9 9 0 10-7.6 8.9" stroke="#063544" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21 3v6h-6" stroke="#063544" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Mix Elements
-      </button>
+    </div>
+  </div>
+
+  <!-- OUTPUT CARDS -->
+  <div class="result-row">
+
+    <div class="result-card pink">
+      <h3>COLOR PALETTE</h3>
+      <p>Ready to roll...</p>
+    </div>
+
+    <div class="result-card blue">
+      <h3>OBJECT</h3>
+      <p>Ready to roll...</p>
     </div>
 
   </div>
 
-  <!-- External JS -->
-  <script src="mixer.js"></script>
+  <div class="result-row">
+    <div class="result-card green">
+      <h3>LOCATION</h3>
+      <p>Ready to roll...</p>
+    </div>
+  </div>
+
+  <!-- MIX BUTTON -->
+  <button class="mix-btn">
+    <span class="mix-icon">⟳</span> Mix Elements
+  </button>
+
+</div>
+
 </body>
 </html>
