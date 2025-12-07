@@ -149,19 +149,16 @@
 
   // ----- Helpers to change card text and visuals -----
   function setDisabled(valueEl, cardEl) {
-    valueEl.textContent = 'Disabled';
-    fadeText(valueEl, 180);
-    cardEl.classList.add('disabled');
-    // remove any swatch container
-    const sw = cardEl.querySelector('.palette-swatches');
-    if (sw) sw.remove();
+    valueEl.textContent = '';
+    cardEl.classList.add('card-hidden');
   }
 
   function setReady(valueEl, cardEl) {
     valueEl.textContent = 'Ready to roll...';
     fadeText(valueEl, 180);
-    cardEl.classList.remove('disabled');
+    cardEl.classList.remove('card-hidden');
   }
+
 
   // Smooth fade on text changes
   function fadeText(el, ms=200) {

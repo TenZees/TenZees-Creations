@@ -108,6 +108,11 @@ body {
 }
 
 /* ========= RESULT CARDS ========= */
+
+.card-hidden {
+  display: none !important;
+} 
+
 .result-row {
   display: flex;
   justify-content: center;
