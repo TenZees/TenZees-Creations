@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generators | Zylah's Creative Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Logo Area -->
+        <header class="header">
+            <img src="assets/logo.png" alt="Zylah Logo" class="logo">
+            <h1 class="site-title">Zylah's Generators</h1>
+            <p class="subtitle">Unleash your creativity anytime ✨</p>
+        </header>
+
+        <!-- Main Menu -->
+        <section class="menu">
+            <a href="prompt.html" class="menu-card">
+                <div class="icon">🎨</div>
+                <h2>Prompt Spark</h2>
+                <p>Get inspired with curated scenarios, character ideas, and surreal concepts.</p>
+            </a>
+
+            <a href="mixer.html" class="menu-card">
+                <div class="icon">🧩</div>
+                <h2>Element Mixer</h2>
+                <p>Roll for colors, objects, locations, moods, and more.</p>
+            </a>
+        </section>
+
+        <!-- Brainfog Button + Expandable Box -->
+        <section class="brainfog-section">
+            <button id="brainfog-btn" class="brainfog-btn">🧠 Brainfog?</button>
+
+            <div id="brainfog-box" class="brainfog-box hidden">
+                <p id="brainfog-message">Click again to get an idea!</p>
+                <button id="brainfog-roll" class="roll-btn">Roll Again</button>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Zylah • All Rights Reserved</p>
+        </footer>
+
+    </div>
+
+    <!-- Brainfog Script -->
+    <script>
+        const ideas = [
+            "Draw a creature using only circles.",
+            "Pick 3 random colors and make a character.",
+            "Create a hybrid animal you've never seen.",
+            "Take a 20-second screen break and stretch.",
+            "Turn a random object near you into a character.",
+            "Draw your current mood as a weather pattern.",
+            "Make a doodle with your nondominant hand.",
+            "Drink a sip of water and breathe in for 4 seconds.",
+            "Draw a blob and turn it into a creature.",
+            "Write a 6-word story about your OC.",
+            "Sketch something tiny—1 inch only!",
+            "Redraw a favorite character in a silly style.",
+            "Imagine a world made of candy. Draw a piece of it."
+        ];
+
+        const btn = document.getElementById("brainfog-btn");
+        const box = document.getElementById("brainfog-box");
+        const msg = document.getElementById("brainfog-message");
+        const roll = document.getElementById("brainfog-roll");
+
+        function newIdea() {
+            msg.textContent = ideas[Math.floor(Math.random() * ideas.length)];
+        }
+
+        btn.addEventListener("click", () => {
+            box.classList.toggle("hidden");
+            if (!box.classList.contains("hidden")) newIdea();
+        });
+
+        roll.addEventListener("click", newIdea);
+    </script>
+
+</body>
+</html>
