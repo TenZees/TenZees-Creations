@@ -1,153 +1,65 @@
-/* -------------------------
-   GENERAL PAGE STYLE
---------------------------*/
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    background: #faf7ff; /* very soft lavender-white */
-    color: #4a355d; /* cozy purple/brown text */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brainfog Generator | TenZees Creations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrapper">
 
-.page-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 20px;
-}
+    <!-- Header -->
+    <header class="header">
+      <img src="logo.png" alt="TenZees Logo" class="logo">
+      <h1 class="site-title">Brainfog Generator</h1>
+      <p class="subtitle">Get random ideas to beat the brainfog!</p>
+    </header>
 
-/* -------------------------
-   HEADER
---------------------------*/
-.header {
-    text-align: center;
-    margin-bottom: 35px;
-}
+    <!-- Brainfog Generator Section -->
+    <section class="brainfog-section">
+      <button class="brainfog-btn" id="generate-btn">Get Idea</button>
+      <div class="brainfog-box hidden" id="brainfog-message"></div>
+      <button class="roll-btn hidden" id="roll-again-btn">Roll Again</button>
+    </section>
 
-.logo {
-    width: 95px;
-    height: auto;
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));
-}
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© <span id="year"></span> TenZees Creations | Made with ❤️ and coffee</p>
+    </footer>
 
-.site-title {
-    font-size: 2.4rem;
-    color: #6f4fa1;
-    margin: 10px 0 5px;
-    font-weight: 700;
-}
+  </div>
 
-.subtitle {
-    font-size: 1.1rem;
-    color: #7b629b;
-}
+  <!-- Script to handle generator -->
+  <script>
+    const ideas = [
+      "Draw a creature using only circles.",
+      "Pick 3 random colors and make a character.",
+      "Create a hybrid animal you've never seen.",
+      "Take a 20-second screen break and stretch.",
+      "Turn a random object near you into a character.",
+      "Draw your current mood as a weather pattern.",
+      "Make a doodle with your nondominant hand."
+    ];
 
-/* -------------------------
-   MAIN MENU CARDS
---------------------------*/
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
+    const generateBtn = document.getElementById("generate-btn");
+    const brainfogBox = document.getElementById("brainfog-message");
+    const rollBtn = document.getElementById("roll-again-btn");
 
-.menu-card {
-    background: #ffffff;
-    padding: 25px 20px;
-    border-radius: 22px;
-    text-decoration: none;
-    color: #4a355d;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-    border: 3px solid #e7d8ff; /* soft pastel outline */
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-}
+    generateBtn.addEventListener("click", () => {
+      const idea = ideas[Math.floor(Math.random() * ideas.length)];
+      brainfogBox.textContent = idea;
+      brainfogBox.classList.remove("hidden");
+      rollBtn.classList.remove("hidden");
+    });
 
-.menu-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-}
+    rollBtn.addEventListener("click", () => {
+      const idea = ideas[Math.floor(Math.random() * ideas.length)];
+      brainfogBox.textContent = idea;
+    });
 
-.menu-card .icon {
-    font-size: 2rem;
-    margin-bottom: 8px;
-}
-
-.menu-card h2 {
-    margin: 0;
-    font-size: 1.6rem;
-    color: #6f4fa1;
-}
-
-.menu-card p {
-    margin-top: 8px;
-    color: #5e4b76;
-}
-
-/* -------------------------
-   BRAINFOG BUTTON + BOX
---------------------------*/
-.brainfog-section {
-    text-align: center;
-    margin-top: 45px;
-}
-
-.brainfog-btn {
-    background: #bfa7ff;
-    color: #ffffff;
-    border: none;
-    padding: 12px 26px;
-    font-size: 1.1rem;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: background 0.2s;
-}
-
-.brainfog-btn:hover {
-    background: #a88df6;
-}
-
-/* hidden panel */
-.brainfog-box {
-    margin-top: 20px;
-    padding: 20px;
-    background: #fff5ff;
-    border-radius: 20px;
-    border: 3px solid #f3d4ff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeIn 0.3s ease;
-}
-
-.hidden {
-    display: none;
-}
-
-#brainfog-message {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-    color: #6a4d85;
-}
-
-/* Roll again button */
-.roll-btn {
-    background: #ffd6f4;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    color: #4a355d;
-    font-size: 1rem;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-}
-
-.roll-btn:hover {
-    background: #ffbce7;
-}
-
-/* -------------------------
-   FOOTER
---------------------------*/
-.footer
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
