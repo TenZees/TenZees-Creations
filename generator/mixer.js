@@ -1,121 +1,117 @@
-// ===============================
-// Mixer JS v2 - works with toggles & color swatches
-// ===============================
+// DATA LISTS
+const OBJECTS = ["Lantern", "Key", "Feather", "Crystal", "Mask", "Compass"];
+const LOCATIONS = ["Forest", "Temple", "Castle Gate", "Marketplace", "Harbor"];
+const THEMES = ["Viking", "Cyberpunk", "Witchcraft", "Egyptian", "Steampunk"];
+const MOODS  = ["Serene", "Chaotic", "Cozy", "Mysterious", "Energetic"];
+const ART    = ["Pixel", "Watercolor", "Oil Paint", "Sketch", "Low Poly"];
+const SEASON = ["Spring", "Summer", "Halloween", "Winter", "New Year"];
+const PERSON = ["Knight", "Scientist", "Wizard", "Villager", "Explorer"];
 
-// ELEMENT DATA
-const colors = ["#FF6B6B", "#6BCB77", "#4D96FF", "#FFD93D", "#FF6EC7", "#00C2A0", "#FF9F1C"];
-const objects = ["Crystal", "Bottle", "Key", "Feather", "Book", "Candle", "Mask"];
-const locations = ["Forest", "Desert", "City", "Mountain", "Beach", "Cave", "Castle"];
-const themes = ["Fantasy", "Cyberpunk", "Steampunk", "Gothic", "Nature", "Post-Apocalyptic"];
-const moods = ["Happy", "Calm", "Exciting", "Spooky", "Sad", "Energetic"];
-const artStyles = ["Pixel", "Digital", "Watercolor", "Illustration", "3D", "Sketch"];
-const seasons = ["Spring", "Summer", "Autumn", "Winter", "Halloween", "Christmas"];
-const characters = ["Elf", "Robot", "Dragon", "Ghost", "Witch", "Pirate"];
-
-// CHECKBOX ELEMENTS
-const toggles = {
-    palette: document.getElementById("toggle-palette"),
-    object: document.getElementById("toggle-object"),
-    location: document.getElementById("toggle-location"),
-    theme: document.getElementById("toggle-theme"),
-    mood: document.getElementById("toggle-mood"),
-    art: document.getElementById("toggle-art"),
-    season: document.getElementById("toggle-season"),
-    person: document.getElementById("toggle-person")
-};
-
-// CARD ELEMENTS
-const cards = {
-    palette: document.getElementById("card-palette"),
-    object: document.getElementById("card-object"),
-    location: document.getElementById("card-location"),
-    theme: document.getElementById("card-theme"),
-    mood: document.getElementById("card-mood"),
-    art: document.getElementById("card-art"),
-    season: document.getElementById("card-season"),
-    person: document.getElementById("card-person")
-};
-
-// MIX BUTTON
-const mixBtn = document.getElementById("mix-btn");
-
-// HELPER: Pick random from array
-function pickRandom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+// Random helper
+function pick(list) {
+  return list[Math.floor(Math.random() * list.length)];
 }
 
-// FUNCTION: Generate color swatches
-function generateColorPalette(arr) {
-    return arr.map(color => `<span class="swatch" style="background-color: ${color}"></span>`).join('');
+// Palette generator
+function generatePalette() {
+  const colors = [];
+  for (let i = 0; i < 5; i++) {
+    const c = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6,"0");
+    colors.push(c);
+  }
+  return colors;
 }
 
-// FUNCTION: Mix Elements
-function mixElements() {
-    // Palette
-    if (toggles.palette.checked) {
-        const paletteColors = [pickRandom(colors), pickRandom(colors), pickRandom(colors)];
-        cards.palette.querySelector(".value-palette").innerHTML = generateColorPalette(paletteColors);
-        cards.palette.style.display = "block";
-    } else {
-        cards.palette.style.display = "none";
-    }
+// Apply toggle visibility
+function applyToggles() {
+  const map = [
+    ["toggle-palette", "card-palette"],
+    ["toggle-object", "card-object"],
+    ["toggle-location", "card-location"],
+    ["toggle-theme", "card-theme"],
+    ["toggle-mood", "card-mood"],
+    ["toggle-art", "card-art"],
+    ["toggle-season", "card-season"],
+    ["toggle-person", "card-person"]
+  ];
 
-    // Object
-    if (toggles.object.checked) {
-        cards.object.querySelector(".value-object").textContent = pickRandom(objects);
-        cards.object.style.display = "block";
-    } else {
-        cards.object.style.display = "none";
-    }
-
-    // Location
-    if (toggles.location.checked) {
-        cards.location.querySelector(".value-location").textContent = pickRandom(locations);
-        cards.location.style.display = "block";
-    } else {
-        cards.location.style.display = "none";
-    }
-
-    // Theme
-    if (toggles.theme.checked) {
-        cards.theme.querySelector(".value-theme").textContent = pickRandom(themes);
-        cards.theme.style.display = "block";
-    } else {
-        cards.theme.style.display = "none";
-    }
-
-    // Mood
-    if (toggles.mood.checked) {
-        cards.mood.querySelector(".value-mood").textContent = pickRandom(moods);
-        cards.mood.style.display = "block";
-    } else {
-        cards.mood.style.display = "none";
-    }
-
-    // Art Style
-    if (toggles.art.checked) {
-        cards.art.querySelector(".value-art").textContent = pickRandom(artStyles);
-        cards.art.style.display = "block";
-    } else {
-        cards.art.style.display = "none";
-    }
-
-    // Season
-    if (toggles.season.checked) {
-        cards.season.querySelector(".value-season").textContent = pickRandom(seasons);
-        cards.season.style.display = "block";
-    } else {
-        cards.season.style.display = "none";
-    }
-
-    // Person
-    if (toggles.person.checked) {
-        cards.person.querySelector(".value-person").textContent = pickRandom(characters);
-        cards.person.style.display = "block";
-    } else {
-        cards.person.style.display = "none";
-    }
+  map.forEach(([toggleId, cardId]) => {
+    const on = document.getElementById(toggleId).checked;
+    const card = document.getElementById(cardId);
+    card.classList.toggle("card-hidden", !on);
+  });
 }
 
-// EVENT LISTENER
-mixBtn.addEventListener("click", mixElements);
+// FLASH animation
+function flash(card) {
+  card.classList.add("flash");
+  setTimeout(() => card.classList.remove("flash"), 250);
+}
+
+// MIX MAIN FUNCTION
+function doMix() {
+  // PALETTE
+  if (document.getElementById("toggle-palette").checked) {
+    const palette = generatePalette();
+    const box = document.querySelector(".value-palette");
+    box.innerHTML = `<div class="palette-swatches">${palette
+      .map(c => `<div class="swatch" style="background:${c}"></div>`)
+      .join("")}</div>`;
+    flash(document.getElementById("card-palette"));
+  }
+
+  // OBJECT
+  if (document.getElementById("toggle-object").checked) {
+    document.querySelector(".value-object").textContent = pick(OBJECTS);
+    flash(document.getElementById("card-object"));
+  }
+
+  // LOCATION
+  if (document.getElementById("toggle-location").checked) {
+    document.querySelector(".value-location").textContent = pick(LOCATIONS);
+    flash(document.getElementById("card-location"));
+  }
+
+  // THEME
+  if (document.getElementById("toggle-theme").checked) {
+    document.querySelector(".value-theme").textContent = pick(THEMES);
+    flash(document.getElementById("card-theme"));
+  }
+
+  // MOOD
+  if (document.getElementById("toggle-mood").checked) {
+    document.querySelector(".value-mood").textContent = pick(MOODS);
+    flash(document.getElementById("card-mood"));
+  }
+
+  // ART STYLE
+  if (document.getElementById("toggle-art").checked) {
+    document.querySelector(".value-art").textContent = pick(ART);
+    flash(document.getElementById("card-art"));
+  }
+
+  // SEASON
+  if (document.getElementById("toggle-season").checked) {
+    document.querySelector(".value-season").textContent = pick(SEASON);
+    flash(document.getElementById("card-season"));
+  }
+
+  // PERSON
+  if (document.getElementById("toggle-person").checked) {
+    document.querySelector(".value-person").textContent = pick(PERSON);
+    flash(document.getElementById("card-person"));
+  }
+}
+
+// BUTTON + TOGGLES
+document.getElementById("mix-btn").addEventListener("click", doMix);
+
+[
+  "toggle-palette","toggle-object","toggle-location","toggle-theme",
+  "toggle-mood","toggle-art","toggle-season","toggle-person"
+].forEach(id => {
+  document.getElementById(id).addEventListener("change", applyToggles);
+});
+
+// initial update
+applyToggles();

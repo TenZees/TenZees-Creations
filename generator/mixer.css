@@ -3,13 +3,15 @@
   --bg: #f7f6f0;
 }
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Poppins", sans-serif;
   background: var(--bg);
   color: #222;
-  -webkit-font-smoothing: antialiased;
 }
+
+/* CONTAINER */
 .mixer-container {
   max-width: 720px;
   margin: 24px auto;
@@ -32,7 +34,10 @@ body {
   cursor: pointer;
   font-size: 18px;
 }
-.mixer-title { margin: 6px 0 18px; font-size: 30px; }
+.mixer-title {
+  margin: 6px 0 18px;
+  font-size: 30px;
+}
 
 /* CONFIG BOX */
 .config-box {
@@ -42,7 +47,12 @@ body {
   box-shadow: 0 8px 18px rgba(0,0,0,.06);
   text-align: left;
 }
-.config-title { font-size: 14px; margin: 0 0 12px; opacity: .8; }
+
+.config-title {
+  font-size: 14px;
+  margin: 0 0 12px;
+  opacity: .8;
+}
 
 /* grid */
 .config-grid {
@@ -58,10 +68,14 @@ body {
   align-items: center;
   padding: 6px;
   cursor: pointer;
-  user-select: none;
   font-size: 14px;
 }
-.toggle-row input { position: absolute; opacity: 0; pointer-events: auto; }
+
+.toggle-row input {
+  position: absolute;
+  opacity: 0;
+}
+
 .toggle-slider {
   width: 46px;
   height: 24px;
@@ -70,6 +84,7 @@ body {
   position: relative;
   transition: background .18s ease;
 }
+
 .toggle-slider::after {
   content: "";
   width: 20px;
@@ -82,24 +97,27 @@ body {
   transition: transform .18s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,.12);
 }
+
 .toggle-row input:checked + .toggle-slider {
   background: linear-gradient(90deg,#ff7bac,#ff4c9d);
 }
+
 .toggle-row input:checked + .toggle-slider::after {
   transform: translateX(22px);
 }
 
-/* results */
-.results-container { margin-top: 20px; }
+/* RESULTS */
 .result-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 18px;
-  justify-content: center; /* center the cards */
-  margin-bottom: 12px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:12px;
 }
+
 .result-card {
-  width: 240px;
+  flex: 1 1 220px;
+  max-width: 240px;
   min-height: 92px;
   padding: 18px;
   border-radius: 12px;
@@ -107,55 +125,54 @@ body {
   box-shadow: 0 8px 14px rgba(0,0,0,.09);
   transition: transform .22s ease, opacity .22s ease;
 }
-.result-card h3 { margin: 0; font-size: 12px; letter-spacing: 1px; color: rgba(0,0,0,.6); }
-.result-card .value { margin-top: 8px; font-style: italic; color: rgba(0,0,0,.6); }
+
+.result-card h3 {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: rgba(0,0,0,.6);
+}
+
+.value-box {
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* flash animation */
 .result-card.flash {
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(0,0,0,0.25);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.result-card {
-  flex: 1 1 220px; /* allows cards to shrink/grow */
-  max-width: 240px;
 }
 
-
-/* colors */
-.pink { background: #ffd6e6; }
-.blue { background: #d9e8ff; }
-.green { background: #d8fae8; }
-.purple { background: #e3d4ff; }
-.yellow { background: #fff3bf; }
-.orange { background: #ffd8b5; }
-.teal   { background: #c6fff5; }
-.red    { background: #ffb6b6; }
-
-/* hidden card behavior */
-.card-hidden {
-  display: none !important;
-}
-
-
-/* hidden state (useful for toggles) */
-.card-hidden { display: none !important; }
-
-/* palette swatches container created by JS */
+/* palette swatches */
 .palette-swatches {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:10px;
 }
 
 .palette-swatches .swatch {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  border: 1px solid #00000033;
+  width:24px;
+  height:24px;
+  border-radius:6px;
+  border:1px solid #0003;
 }
 
+/* card colors */
+.pink { background:#ffd6e6; }
+.blue { background:#d9e8ff; }
+.green { background:#d8fae8; }
+.purple { background:#e3d4ff; }
+.yellow { background:#fff3bf; }
+.orange { background:#ffd8b5; }
+.teal { background:#c6fff5; }
+.red { background:#ffb6b6; }
 
-/* mix button */
+/* hidden */
+.card-hidden { display:none !important; }
+
+/* MIX BUTTON */
 .mix-btn {
   margin-top: 18px;
   padding: 14px 36px;
@@ -167,7 +184,10 @@ body {
   cursor: pointer;
   font-size: 16px;
 }
-.mix-btn:active { transform: scale(.98); }
+
+.mix-btn:active {
+  transform: scale(.98);
+}
 
 /* responsive */
 @media (max-width:600px) {
