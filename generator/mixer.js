@@ -34,10 +34,12 @@ function generateSmartPalette() {
 
 const lockPaletteBtn = document.getElementById("lock-palette");
 
-lockPaletteBtn.addEventListener("click", () => {
-  paletteLocked = !paletteLocked;
-  lockPaletteBtn.textContent = paletteLocked ? "🔒" : "🔓";
-});
+if (lockPaletteBtn) {
+  lockPaletteBtn.addEventListener("click", () => {
+    paletteLocked = !paletteLocked;
+    lockPaletteBtn.textContent = paletteLocked ? "🔒" : "🔓";
+  });
+}
 
 
 /* =================================================
@@ -75,17 +77,16 @@ function doMix() {
   }
 
   box.innerHTML = `
-    <div class="palette-swatches">
-      ${currentPalette
-        .map(color => {
-          const textColor =
-            parseInt(color.slice(1), 16) < 0x888888 ? "#fff" : "#333";
-          return `<div class="swatch" style="background:${color};color:${textColor}">${color}</div>`;
-        })
-        .join("")}
-    </div>
-  `;
-}
+  ${currentPalette.name ? `<span class="palette-name">${currentPalette.name}</span>` : ""}
+  <div class="palette-swatches">
+    ${currentPalette.colors
+      .map(color => {
+        return `<div class="swatch" style="background:${color}"></div>`;
+      })
+      .join("")}
+  </div>
+`;
+
 
 
   if (document.getElementById("toggle-object").checked)
