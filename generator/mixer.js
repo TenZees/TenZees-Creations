@@ -27,6 +27,13 @@ function generatePalette() {
   return generateSmartPalette(); // 30% chance to generate a random palette
 }
 
+// Function to check if any checkboxes are selected
+function hasAnyEnabled() {
+  const isChecked = [...document.querySelectorAll("input[type=checkbox]")].some(cb => cb.checked);
+  console.log('Any checkbox checked?', isChecked); // Debugging output
+  return isChecked;
+}
+
 /* =================================================
    HSL to Hex Conversion
 ================================================= */
