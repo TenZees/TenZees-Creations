@@ -40,6 +40,10 @@ h1, h2, h3 {
 .paint {
   position: absolute;
   opacity: 0.9;
+
+   /* Optional polish */
+  filter: blur(0.5px);
+  transform: rotate(-5deg);
 }
 
 /* Bottom-left blue splat */
