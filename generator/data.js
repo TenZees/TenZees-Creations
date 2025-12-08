@@ -1,7 +1,7 @@
 /* =================================================
    CENTRAL DATA SOURCE
 ================================================= */
-const DATA = {
+export const DATA = {
   objects: [
   "Lantern",
   "Key",

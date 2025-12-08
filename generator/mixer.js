@@ -4,6 +4,7 @@ import { DATA } from "./data.js";
    HELPERS
 ================================================= */
 function pick(arr) {
+  if (!arr || !arr.length) return "—";
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
@@ -22,21 +23,22 @@ function generatePalette() {
 /* =================================================
    TOGGLES
 ================================================= */
-function applyToggles() {
-  const map = [
-    ["toggle-palette", "card-palette"],
-    ["toggle-object", "card-object"],
-    ["toggle-location", "card-location"],
-    ["toggle-theme", "card-theme"],
-    ["toggle-mood", "card-mood"],
-    ["toggle-art", "card-art"],
-    ["toggle-season", "card-season"],
-    ["toggle-person", "card-person"]
-  ];
+const TOGGLE_MAP = [
+  ["toggle-palette", "card-palette"],
+  ["toggle-object", "card-object"],
+  ["toggle-location", "card-location"],
+  ["toggle-theme", "card-theme"],
+  ["toggle-mood", "card-mood"],
+  ["toggle-art", "card-art"],
+  ["toggle-season", "card-season"],
+  ["toggle-person", "card-person"]
+];
 
-  map.forEach(([toggleId, cardId]) => {
+function applyToggles() {
+  TOGGLE_MAP.forEach(([toggleId, cardId]) => {
     const toggle = document.getElementById(toggleId);
     const card = document.getElementById(cardId);
+    if (!toggle || !card) return;
     card.classList.toggle("card-hidden", !toggle.checked);
   });
 }
@@ -45,17 +47,7 @@ function applyToggles() {
    MIX LOGIC
 ================================================= */
 function doMix() {
-  const toggle_palette  = document.getElementById("toggle-palette");
-  const toggle_object   = document.getElementById("toggle-object");
-  const toggle_location = document.getElementById("toggle-location");
-  const toggle_theme    = document.getElementById("toggle-theme");
-  const toggle_mood     = document.getElementById("toggle-mood");
-  const toggle_art      = document.getElementById("toggle-art");
-  const toggle_season   = document.getElementById("toggle-season");
-  const toggle_person   = document.getElementById("toggle-person");
-
-  // COLOR PALETTE
-  if (toggle_palette.checked) {
+  if (document.getElementById("toggle-palette").checked) {
     const box = document.querySelector(".value-palette");
     const palette = generatePalette();
 
@@ -65,42 +57,38 @@ function doMix() {
           .map(color => {
             const textColor =
               parseInt(color.slice(1), 16) < 0x888888 ? "#fff" : "#333";
-            return `
-              <div class="swatch" style="background:${color}; color:${textColor}">
-                ${color}
-              </div>
-            `;
+            return `<div class="swatch" style="background:${color};color:${textColor}">${color}</div>`;
           })
           .join("")}
       </div>
     `;
   }
 
-  if (toggle_object.checked)
+  if (document.getElementById("toggle-object").checked)
     document.querySelector(".value-object").textContent =
       pickFromData("objects");
 
-  if (toggle_location.checked)
+  if (document.getElementById("toggle-location").checked)
     document.querySelector(".value-location").textContent =
       pickFromData("locations");
 
-  if (toggle_theme.checked)
+  if (document.getElementById("toggle-theme").checked)
     document.querySelector(".value-theme").textContent =
       pickFromData("themes");
 
-  if (toggle_mood.checked)
+  if (document.getElementById("toggle-mood").checked)
     document.querySelector(".value-mood").textContent =
       pickFromData("moods");
 
-  if (toggle_art.checked)
+  if (document.getElementById("toggle-art").checked)
     document.querySelector(".value-art").textContent =
       pickFromData("artStyles");
 
-  if (toggle_season.checked)
+  if (document.getElementById("toggle-season").checked)
     document.querySelector(".value-season").textContent =
       pickFromData("seasons");
 
-  if (toggle_person.checked)
+  if (document.getElementById("toggle-person").checked)
     document.querySelector(".value-person").textContent =
       pickFromData("people");
 }
