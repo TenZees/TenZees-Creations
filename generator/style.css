@@ -33,33 +33,31 @@
   <!-- Script to handle generator -->
   <script>
     const ideas = [
-      "Draw a creature using only circles.",
-      "Pick 3 random colors and make a character.",
-      "Create a hybrid animal you've never seen.",
-      "Take a 20-second screen break and stretch.",
-      "Turn a random object near you into a character.",
-      "Draw your current mood as a weather pattern.",
-      "Make a doodle with your nondominant hand."
+        "Draw a creature using only circles.",
+        "Pick 3 random colors and make a character.",
+        "Create a hybrid animal you've never seen.",
+        "Take a 20-second screen break and stretch.",
+        "Turn a random object near you into a character.",
+        "Draw your current mood as a weather pattern.",
+        "Make a doodle with your nondominant hand.",
     ];
 
-    const generateBtn = document.getElementById("generate-btn");
-    const brainfogBox = document.getElementById("brainfog-message");
-    const rollBtn = document.getElementById("roll-again-btn");
+    const btn = document.getElementById("artblock-btn");
+    const box = document.getElementById("artblock-box");
+    const msg = document.getElementById("artblock-message");
+    const roll = document.getElementById("artblock-roll");
 
-    generateBtn.addEventListener("click", () => {
-      const idea = ideas[Math.floor(Math.random() * ideas.length)];
-      brainfogBox.textContent = idea;
-      brainfogBox.classList.remove("hidden");
-      rollBtn.classList.remove("hidden");
+    function newIdea() {
+        msg.textContent = ideas[Math.floor(Math.random() * ideas.length)];
+    }
+
+    btn.addEventListener("click", () => {
+        box.classList.toggle("hidden");
+        if (!box.classList.contains("hidden")) newIdea();
     });
 
-    rollBtn.addEventListener("click", () => {
-      const idea = ideas[Math.floor(Math.random() * ideas.length)];
-      brainfogBox.textContent = idea;
-    });
+    roll.addEventListener("click", newIdea);
+</script>
 
-    // Update year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

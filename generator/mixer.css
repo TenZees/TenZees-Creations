@@ -20,6 +20,28 @@ body {
   position: relative;
 }
 
+/* CARD GRID */
+#cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
 /* header/back */
 .back-btn {
   position: absolute;
