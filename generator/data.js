@@ -222,7 +222,7 @@ export const DATA = {
       colors: ["#7DC2E8", "#F48AB3", "#E1466C", "#CBA76D", "#1A1A1A"]
     },
     {
-      name: "Blue-Eyed Dreamer",
+      name: "Sleepy Dreamer",
       colors: ["#69816C", "#C69C6E", "#DE8DDD", "#886247", "#1A1718"]
     },
     {
