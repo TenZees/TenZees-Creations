@@ -1,70 +1,76 @@
-.popup-body {
-  background: #faf7f2;
-  margin: 0;
-}
-
-.popup-wrapper {
-  text-align: center;
-  padding: 20px;
-}
-
-.popup-title {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-}
-
-.popup-message {
-  background: #fff;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 15px;
-}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Art Block Helper</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Beat the Brainfog</title>
+
+  <!-- CSS MUST be inside <style> tags -->
+  <style>
+    body {
+      background: #faf7f2;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .popup-wrapper {
+      text-align: center;
+      padding: 20px;
+    }
+    .popup-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .popup-message {
+      background: #fff;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 18px;
+      border: none;
+      background: #6b5ce7;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #5749c9;
+    }
+  </style>
+
 </head>
+<body>
 
-<body class="popup-body">
+<div class="popup-wrapper">
+  <div class="popup-title">Beat the Brainfog ✨</div>
 
-  <div class="popup-wrapper">
-
-    <h2 class="popup-title">Beat the Brainfog ✨</h2>
-
-    <p id="artblock-message" class="popup-message">
-      Click the button to get an idea!
-    </p>
-
-    <button id="artblock-roll" class="roll-btn">Get Idea</button>
-
+  <div class="popup-message">
+    Click the button to get an idea!
   </div>
 
-  <script>
-    const ideas = [
-      "Draw a creature using only circles.",
-      "Pick 3 random colors and make a character.",
-      "Create a hybrid animal you've never seen.",
-      "Take a 20-second stretch break.",
-      "Turn a random object near you into a character.",
-      "Draw your mood as a weather pattern.",
-      "Make a doodle with your nondominant hand.",
-    ];
+  <button onclick="generateTip()">Get Idea</button>
 
-    const msg = document.getElementById("artblock-message");
-    const roll = document.getElementById("artblock-roll");
+  <p id="tip-output" style="margin-top:15px; font-weight:bold;"></p>
+</div>
 
-    function newIdea() {
-      msg.textContent = ideas[Math.floor(Math.random() * ideas.length)];
-    }
+<script>
+  const tips = [
+    "Draw your character as a chibi.",
+    "Pick two random colors and make a quick sketch.",
+    "Draw something using only sharp shapes.",
+    "Redraw something old in your current style.",
+    "Draw your OC wearing something totally out-of-character.",
+    "Sketch using your non-dominant hand.",
+  ];
 
-    roll.addEventListener("click", newIdea);
-  </script>
+  function generateTip() {
+    const random = tips[Math.floor(Math.random() * tips.length)];
+    document.getElementById("tip-output").textContent = random;
+  }
+</script>
 
 </body>
 </html>
