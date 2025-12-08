@@ -69,59 +69,104 @@ function applyToggles() {
    MIX LOGIC
 ================================================= */
 function doMix() {
-  if (document.getElementById("toggle-palette").checked) {
-  const box = document.querySelector(".value-palette");
+  /* ===============================
+     PALETTE
+  =============================== */
+  const paletteToggle = document.getElementById("toggle-palette");
+  const paletteBox = document.querySelector(".value-palette");
 
-  if (!paletteLocked || !currentPalette) {
-    currentPalette = generatePalette();
+  if (paletteToggle && paletteToggle.checked && paletteBox) {
+    if (!paletteLocked || !currentPalette) {
+      currentPalette = generatePalette();
+    }
+
+    paletteBox.innerHTML = `
+      ${currentPalette.name ? `<span class="palette-name">${currentPalette.name}</span>` : ""}
+      <div class="palette-swatches">
+        ${currentPalette.colors
+          .map(color => `<div class="swatch" style="background:${color}"></div>`)
+          .join("")}
+      </div>
+    `;
   }
 
-  box.innerHTML = `
-  ${currentPalette.name ? `<span class="palette-name">${currentPalette.name}</span>` : ""}
-  <div class="palette-swatches">
-    ${currentPalette.colors
-      .map(color => {
-        return `<div class="swatch" style="background:${color}"></div>`;
-      })
-      .join("")}
-  </div>
-`;
+  /* ===============================
+     OBJECT
+  =============================== */
+  const objectToggle = document.getElementById("toggle-object");
+  const objectBox = document.querySelector(".value-object");
 
+  if (objectToggle?.checked && objectBox) {
+    objectBox.textContent = pickFromData("objects");
+  }
 
+  /* ===============================
+     LOCATION
+  =============================== */
+  const locationToggle = document.getElementById("toggle-location");
+  const locationBox = document.querySelector(".value-location");
 
-  if (document.getElementById("toggle-object").checked)
-    document.querySelector(".value-object").textContent =
-      pickFromData("objects");
+  if (locationToggle?.checked && locationBox) {
+    locationBox.textContent = pickFromData("locations");
+  }
 
-  if (document.getElementById("toggle-location").checked)
-    document.querySelector(".value-location").textContent =
-      pickFromData("locations");
+  /* ===============================
+     THEME
+  =============================== */
+  const themeToggle = document.getElementById("toggle-theme");
+  const themeBox = document.querySelector(".value-theme");
 
-  if (document.getElementById("toggle-theme").checked)
-    document.querySelector(".value-theme").textContent =
-      pickFromData("themes");
+  if (themeToggle?.checked && themeBox) {
+    themeBox.textContent = pickFromData("themes");
+  }
 
-  if (document.getElementById("toggle-mood").checked)
-    document.querySelector(".value-mood").textContent =
-      pickFromData("moods");
+  /* ===============================
+     MOOD
+  =============================== */
+  const moodToggle = document.getElementById("toggle-mood");
+  const moodBox = document.querySelector(".value-mood");
 
-  if (document.getElementById("toggle-art").checked)
-    document.querySelector(".value-art").textContent =
-      pickFromData("artStyles");
+  if (moodToggle?.checked && moodBox) {
+    moodBox.textContent = pickFromData("moods");
+  }
 
-  if (document.getElementById("toggle-season").checked)
-    document.querySelector(".value-season").textContent =
-      pickFromData("seasons");
+  /* ===============================
+     ART STYLE
+  =============================== */
+  const artToggle = document.getElementById("toggle-art");
+  const artBox = document.querySelector(".value-art");
 
-  if (document.getElementById("toggle-person").checked)
-    document.querySelector(".value-person").textContent =
-      pickFromData("people");
+  if (artToggle?.checked && artBox) {
+    artBox.textContent = pickFromData("artStyles");
+  }
+
+  /* ===============================
+     SEASON
+  =============================== */
+  const seasonToggle = document.getElementById("toggle-season");
+  const seasonBox = document.querySelector(".value-season");
+
+  if (seasonToggle?.checked && seasonBox) {
+    seasonBox.textContent = pickFromData("seasons");
+  }
+
+  /* ===============================
+     PERSON
+  =============================== */
+  const personToggle = document.getElementById("toggle-person");
+  const personBox = document.querySelector(".value-person");
+
+  if (personToggle?.checked && personBox) {
+    personBox.textContent = pickFromData("people");
+  }
 }
+
 
 /* =================================================
    EVENTS
 ================================================= */
-document.getElementById("mix-btn").addEventListener("click", doMix);
+const mixBtn = document.getElementById("mix-btn");
+if (mixBtn) mixBtn.addEventListener("click", doMix);
 
 document
   .querySelectorAll("input[type=checkbox]")
