@@ -59,7 +59,7 @@ export const DATA = {
   ],
 
   /* ========================
-     THEME
+     THEMES
      A list of themes that can be randomly selected.
   ======================== */
   themes: [
@@ -91,6 +91,92 @@ export const DATA = {
     "Graveyard Elegy", "Fogbound Streets", "Churchyard Mystery", "Candlelit Catacombs", 
     "Occult Gothic", "Ritual Gothic", "Forbidden Abbey", "Monastery of Secrets", 
     "Moonlit Ruins", "Echoes of the Dead", "Whispering Corridors", "Veiled Mourning"
+  ],
+
+  /* ========================
+     MOODS
+     A list of moods that can be randomly selected.
+  ======================== */
+  moods: [
+    "Serene", "Chaotic", "Cozy", "Mysterious", "Energetic", "Melancholic", "Ethereal", 
+    "Somber", "Tranquil", "Haunting", "Dreamy", "Foreboding", "Whimsical", "Introspective", 
+    "Nostalgic", "Tense", "Brooding", "Anxious", "Unsettling", "Suspenseful", "Oppressive", 
+    "Claustrophobic", "Paranoid", "Dreadful", "Uneasy", "Romantic", "Bittersweet", "Tender", 
+    "Longing", "Yearning", "Soft", "Warm", "Affectionate", "Heartfelt", "Comforting", "Eerie",
+    "Sinister", "Macabre", "Morbid", "Creeping", "Nocturnal", "Shadowy", "Funereal", "Grim", 
+    "Bleak", "Epic", "Heroic", "Triumphant", "Mythic", "Legendary", "Grand", "Majestic", 
+    "Awe-Inspiring", "Monumental", "Cinematic", "Playful", "Lighthearted", "Quirky", "Cheerful", 
+    "Bubbly", "Silly", "Joyful", "Lively", "Upbeat", "Optimistic", "Surreal", "Abstract", 
+    "Hypnotic", "Disorienting", "Otherworldly", "Psychedelic", "Hallucinatory", "Liminal", 
+    "Trance-like", "Unreal"
+  ],
+
+  /* ========================
+     ART STYLES
+     A list of art styles that can be randomly selected.
+  ======================== */
+  artStyles: [
+    "Pixel", "Watercolor", "Oil Paint", "Sketch", "Low Poly", "Charcoal Drawing", "Ink Illustration", 
+    "Line Art", "Cross-Hatching", "Graphite Drawing", "Digital Painting", "Concept Art", "Matte Painting", 
+    "Photobashing", "Illustrative Realism", "Impressionist", "Expressionist", "Surrealist", "Abstract", 
+    "Cubist", "Gothic Illustration", "Dark Fantasy", "Grimdark", "Occult Art", "Macabre Illustration", 
+    "Anime", "Manga", "Chibi", "Visual Novel Style", "Cel Shaded", "Vaporwave", "Synthwave", "Cyberpunk Neon", 
+    "Glitch Art", "Datamosh", "Minimalist", "Flat Design", "Geometric", "Monoline", "Modernist", 
+    "Fantasy Illustration", "High Fantasy", "Mythological Art", "Epic Fantasy", "Storybook Illustration", 
+    "Art Nouveau", "Art Deco", "Victorian Illustration", "Baroque", "Rococo", "Collage", "Mixed Media", 
+    "Assemblage", "Paper Cutout", "Found Object Art", "Graffiti", "Street Art", "Stencil Art", "Spray Paint", 
+    "Urban Illustration", "Photorealistic", "Hyperrealism", "Cinematic Lighting", "Dramatic Lighting", 
+    "Volumetric Lighting", "Isometric", "Blueprint Style", "Technical Illustration", "Architectural Rendering", 
+    "Game Asset Style", "Pop Art", "Retro Poster", "Comic Book Style", "Graphic Novel", "Screen Print"
+  ],
+
+  /* ========================
+     SEASONS / HOLIDAY
+     A list of seasons and holidays that can be randomly selected.
+  ======================== */
+  seasons: [
+    "Spring", "Summer", "Halloween", "Winter", "New Year", "Early Spring", "Late Spring", "High Summer",
+    "Late Summer", "Early Autumn", "Mid Autumn", "Late Autumn", "Early Winter", "Mid Winter", "Late Winter",
+    "Harvest Season", "Monsoon Season", "Dry Season", "Wet Season", "Storm Season", "Hurricane Season", 
+    "Blizzard Season", "Heatwave", "Cold Snap", "Frost Season", "Autumn Equinox", "Spring Equinox", "Summer Solstice",
+    "Winter Solstice", "Day of the Dead", "All Souls’ Night", "Samhain", "Yule", "Beltane", "Lunar New Year", 
+    "Valentine’s Day", "Easter", "Thanksgiving", "Christmas Eve", "Christmas Morning", "Midnight Mass", 
+    "New Year’s Eve", "Festival of Lights", "Carnival", "Mardi Gras", "Golden Hour", "Blue Hour", "Twilight",
+    "Dusk", "Dawn", "Midnight", "Witching Hour", "Long Night", "Endless Day", "Eternal Sunset", "Blood Moon", 
+    "Harvest Moon", "Full Moon", "New Moon", "Lunar Eclipse", "Solar Eclipse", "Meteor Shower", "Stargazing Night",
+    "Aurora Season", "Comet Passing", "Fog Season", "Rainy Evening", "Snowfall", "First Snow", "Last Snow", 
+    "Falling Leaves", "Bloom Season", "Thaw", "Freeze", "After the Storm"
+  ],
+
+  /* ========================
+     PEOPLE
+     A list of different characters, professions, and roles that can be randomly selected.
+  ======================== */
+  people: [
+    "Knight", "Scientist", "Wizard", "Villager", "Explorer", "Alchemist", "Necromancer", "Summoner", 
+    "Warlock", "Enchantress", "Sorcerer", "Witch", "Rune Keeper", "Spellblade", "Oracle", "Assassin", "Mercenary",
+    "Bounty Hunter", "Rogue", "Thief", "Smuggler", "Pirate", "Corsair", "Privateer", "Outlaw", "Monk", "Priest",
+    "Inquisitor", "Cultist", "Zealot", "Prophet", "Heretic", "Exorcist", "Confessor", "Acolyte", "King", "Queen",
+    "Prince", "Princess", "Duke", "Empress", "Regent", "Noble", "Courtier", "Diplomat", "Blacksmith", "Armorer",
+    "Cartographer", "Scholar", "Librarian", "Scribe", "Engineer", "Inventor", "Clockmaker", "Artificer", "Hunter",
+    "Tracker", "Ranger", "Beastmaster", "Falconer", "Druid", "Herbalist", "Shaman", "Warden", "Pathfinder", 
+    "Detective", "Inspector", "Archivist", "Historian", "Anthropologist", "Professor", "Researcher", "Archaeologist",
+    "Linguist", "Theorist", "Android", "Cyborg", "Clone", "AI Entity", "Synthetic Being", "Time Traveler", 
+    "Dimension Hopper", "Reality Walker", "Void Wanderer", "Starseer", "Renaissance Polymath (Leonardo da Vinci-inspired)", 
+    "Civil Rights Leader", "Freedom Fighter Poet", "Philosopher of Reason", "Enlightenment Scientist", 
+    "Pioneering Mathematician", "Abolitionist Speaker", "Women’s Rights Activist", "Labor Movement Organizer",
+    "Peace Negotiator", "Romantic Era Poet", "Modernist Novelist", "Surrealist Painter", "Visionary Playwright", 
+    "Political Satirist", "Beat Generation Writer", "Queer Memoirist", "Poet of Resistance", "Experimental Filmmaker", 
+    "Counterculture Artist", "Computing Pioneer", "Space Race Engineer", "Astrophysicist Communicator", 
+    "Medical Breakthrough Researcher", "Environmental Scientist", "Climate Activist Scientist", "AI Ethics Researcher", 
+    "Physics Educator", "Biotech Innovator", "Accessibility Technology Designer", "Gender-Bending Rock Icon",
+    "Soul Music Trailblazer", "Jazz Revolutionary", "Folk Protest Singer", "Disco Era Icon", "Electronic Music Pioneer", 
+    "Queer Pop Superstar", "Theatrical Performance Artist", "Avant-Garde Composer", "Ballroom Scene Legend", 
+    "Classic Hollywood Rebel", "Method Acting Icon", "Indie Film Star", "Queer Cinema Pioneer", "Genre-Breaking Actor", 
+    "Sci-Fi Franchise Hero", "Award-Winning Character Actor", "Experimental Theatre Performer", 
+    "International Art-House Star", "Stage-to-Screen Visionary", "LGBTQ+ Rights Activist", "Trans Rights Advocate",
+    "Intersectional Feminist Leader", "Anti-Apartheid Organizer", "Humanitarian Organizer", "Refugee Rights Advocate", 
+    "Disability Rights Activist", "Youth Climate Organizer", "Grassroots Community Builder", "Nonviolent Resistance Leader"
   ],
 
   /* ========================
