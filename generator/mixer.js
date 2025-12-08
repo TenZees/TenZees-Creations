@@ -13,11 +13,21 @@ function pickFromData(key) {
 }
 
 function generatePalette() {
-  return Array.from({ length: 5 }, () =>
-    "#" + Math.floor(Math.random() * 16777215)
-      .toString(16)
-      .padStart(6, "0")
-  );
+  // 70% curated, 30% generated
+  if (Math.random() < 0.7) {
+    return pickFromData("palettes");
+  }
+  return generateSmartPalette();
+}
+
+function generateSmartPalette() {
+  const baseHue = Math.floor(Math.random() * 360);
+  return {
+    name: "Generated Palette",
+    colors: Array.from({ length: 5 }, (_, i) => {
+      return `hsl(${(baseHue + i * 20) % 360}, 70%, 55%)`;
+    })
+  };
 }
 
 /* =================================================
@@ -48,21 +58,27 @@ function applyToggles() {
 ================================================= */
 function doMix() {
   if (document.getElementById("toggle-palette").checked) {
-    const box = document.querySelector(".value-palette");
-    const palette = generatePalette();
+  const box = document.querySelector(".value-palette");
+  const palette = generatePalette();
 
-    box.innerHTML = `
-      <div class="palette-swatches">
-        ${palette
-          .map(color => {
-            const textColor =
-              parseInt(color.slice(1), 16) < 0x888888 ? "#fff" : "#333";
-            return `<div class="swatch" style="background:${color};color:${textColor}">${color}</div>`;
-          })
-          .join("")}
-      </div>
-    `;
-  }
+  box.innerHTML = `
+    <strong class="palette-name">${palette.name}</strong>
+    <div class="palette-swatches">
+      ${palette.colors
+        .map(color => {
+          const textColor =
+            parseInt(color.replace("#", ""), 16) < 0x888888
+              ? "#fff"
+              : "#333";
+          return `<div class="swatch" style="background:${color};color:${textColor}">
+            ${color}
+          </div>`;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
 
   if (document.getElementById("toggle-object").checked)
     document.querySelector(".value-object").textContent =

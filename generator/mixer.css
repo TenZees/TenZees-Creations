@@ -139,6 +139,12 @@ body {
   font-family: monospace;
   padding-bottom: 4px;
 }
+.palette-name {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  opacity: 0.85;
+}
 
 /* Button */
 .mix-btn {

@@ -706,6 +706,7 @@ export const DATA = {
   "Reality Walker",
   "Void Wanderer",
   "Starseer",
+  
   // --- Historical & Cultural Figures ---
   "Renaissance Polymath (Leonardo da Vinci-inspired)",
   "Civil Rights Leader",
@@ -779,4 +780,32 @@ export const DATA = {
   "Nonviolent Resistance Leader"
 ]
 
+/* =================================================
+   COLOR PALETTES DATA SOURCE
+================================================= */
+palettes: [
+  {
+    name: "Gothic Rose",
+    colors: ["#1B1B3A", "#3A0F2E", "#6D2E46", "#A23B72", "#E2C2C6"]
+  },
+  {
+    name: "Cathedral Glass",
+    colors: ["#2E2A4F", "#4E4A8C", "#8E9AAF", "#C9ADA7", "#F2E9E4"]
+  },
+  {
+    name: "Neon Alley",
+    colors: ["#0B0C10", "#1F2833", "#66FCF1", "#45A29E", "#C5C6C7"]
+  },
+  {
+    name: "Witching Hour",
+    colors: ["#120F2E", "#3A1C71", "#6D2E8D", "#A24FCF", "#E4C1F9"]
+  },
+  {
+    name: "Old Manuscript",
+    colors: ["#2B1D0E", "#5A3E2B", "#8C6E54", "#C2A878", "#EFE6D8"]
+  }
+]
+
 };
+
+
