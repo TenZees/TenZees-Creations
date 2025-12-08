@@ -91,7 +91,13 @@ body {
 
 /* results */
 .results-container { margin-top: 20px; }
-.result-row { display:flex; gap:18px; justify-content:center; margin-bottom:12px; flex-wrap:wrap; }
+.result-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  justify-content: center; /* center the cards */
+  margin-bottom: 12px;
+}
 .result-card {
   width: 240px;
   min-height: 92px;
@@ -103,6 +109,16 @@ body {
 }
 .result-card h3 { margin: 0; font-size: 12px; letter-spacing: 1px; color: rgba(0,0,0,.6); }
 .result-card .value { margin-top: 8px; font-style: italic; color: rgba(0,0,0,.6); }
+.result-card.flash {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.result-card {
+  flex: 1 1 220px; /* allows cards to shrink/grow */
+  max-width: 240px;
+}
+
 
 /* colors */
 .pink { background: #ffd6e6; }
@@ -124,7 +140,20 @@ body {
 .card-hidden { display: none !important; }
 
 /* palette swatches container created by JS */
-.palette-swatches { display:flex; justify-content:center; gap:8px; margin-top:10px; }
+.palette-swatches {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.palette-swatches .swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid #00000033;
+}
+
 
 /* mix button */
 .mix-btn {

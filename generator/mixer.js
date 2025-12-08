@@ -1,5 +1,5 @@
 // ===============================
-// Mixer JS
+// Mixer JS v2 - works with toggles & color swatches
 // ===============================
 
 // ELEMENT DATA
@@ -13,24 +13,28 @@ const seasons = ["Spring", "Summer", "Autumn", "Winter", "Halloween", "Christmas
 const characters = ["Elf", "Robot", "Dragon", "Ghost", "Witch", "Pirate"];
 
 // CHECKBOX ELEMENTS
-const togglePalette = document.getElementById("toggle-palette");
-const toggleObject = document.getElementById("toggle-object");
-const toggleLocation = document.getElementById("toggle-location");
-const toggleTheme = document.getElementById("toggle-theme");
-const toggleMood = document.getElementById("toggle-mood");
-const toggleArt = document.getElementById("toggle-art");
-const toggleSeason = document.getElementById("toggle-season");
-const togglePerson = document.getElementById("toggle-person");
+const toggles = {
+    palette: document.getElementById("toggle-palette"),
+    object: document.getElementById("toggle-object"),
+    location: document.getElementById("toggle-location"),
+    theme: document.getElementById("toggle-theme"),
+    mood: document.getElementById("toggle-mood"),
+    art: document.getElementById("toggle-art"),
+    season: document.getElementById("toggle-season"),
+    person: document.getElementById("toggle-person")
+};
 
 // CARD ELEMENTS
-const cardPalette = document.querySelector(".value-palette");
-const cardObject = document.querySelector(".value-object");
-const cardLocation = document.querySelector(".value-location");
-const cardTheme = document.querySelector(".value-theme");
-const cardMood = document.querySelector(".value-mood");
-const cardArt = document.querySelector(".value-art");
-const cardSeason = document.querySelector(".value-season");
-const cardPerson = document.querySelector(".value-person");
+const cards = {
+    palette: document.getElementById("card-palette"),
+    object: document.getElementById("card-object"),
+    location: document.getElementById("card-location"),
+    theme: document.getElementById("card-theme"),
+    mood: document.getElementById("card-mood"),
+    art: document.getElementById("card-art"),
+    season: document.getElementById("card-season"),
+    person: document.getElementById("card-person")
+};
 
 // MIX BUTTON
 const mixBtn = document.getElementById("mix-btn");
@@ -40,48 +44,77 @@ function pickRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
+// FUNCTION: Generate color swatches
+function generateColorPalette(arr) {
+    return arr.map(color => `<span class="swatch" style="background-color: ${color}"></span>`).join('');
+}
+
 // FUNCTION: Mix Elements
 function mixElements() {
-    if (togglePalette.checked) {
-        const palette = `${pickRandom(colors)}, ${pickRandom(colors)}, ${pickRandom(colors)}`;
-        cardPalette.textContent = palette;
-        cardPalette.parentElement.classList.add("flash");
-    }
-    if (toggleObject.checked) {
-        cardObject.textContent = pickRandom(objects);
-        cardObject.parentElement.classList.add("flash");
-    }
-    if (toggleLocation.checked) {
-        cardLocation.textContent = pickRandom(locations);
-        cardLocation.parentElement.classList.add("flash");
-    }
-    if (toggleTheme.checked) {
-        cardTheme.textContent = pickRandom(themes);
-        cardTheme.parentElement.classList.add("flash");
-    }
-    if (toggleMood.checked) {
-        cardMood.textContent = pickRandom(moods);
-        cardMood.parentElement.classList.add("flash");
-    }
-    if (toggleArt.checked) {
-        cardArt.textContent = pickRandom(artStyles);
-        cardArt.parentElement.classList.add("flash");
-    }
-    if (toggleSeason.checked) {
-        cardSeason.textContent = pickRandom(seasons);
-        cardSeason.parentElement.classList.add("flash");
-    }
-    if (togglePerson.checked) {
-        cardPerson.textContent = pickRandom(characters);
-        cardPerson.parentElement.classList.add("flash");
+    // Palette
+    if (toggles.palette.checked) {
+        const paletteColors = [pickRandom(colors), pickRandom(colors), pickRandom(colors)];
+        cards.palette.querySelector(".value-palette").innerHTML = generateColorPalette(paletteColors);
+        cards.palette.style.display = "block";
+    } else {
+        cards.palette.style.display = "none";
     }
 
-    // Remove flash after animation
-    setTimeout(() => {
-        document.querySelectorAll(".result-card").forEach(card => {
-            card.classList.remove("flash");
-        });
-    }, 500);
+    // Object
+    if (toggles.object.checked) {
+        cards.object.querySelector(".value-object").textContent = pickRandom(objects);
+        cards.object.style.display = "block";
+    } else {
+        cards.object.style.display = "none";
+    }
+
+    // Location
+    if (toggles.location.checked) {
+        cards.location.querySelector(".value-location").textContent = pickRandom(locations);
+        cards.location.style.display = "block";
+    } else {
+        cards.location.style.display = "none";
+    }
+
+    // Theme
+    if (toggles.theme.checked) {
+        cards.theme.querySelector(".value-theme").textContent = pickRandom(themes);
+        cards.theme.style.display = "block";
+    } else {
+        cards.theme.style.display = "none";
+    }
+
+    // Mood
+    if (toggles.mood.checked) {
+        cards.mood.querySelector(".value-mood").textContent = pickRandom(moods);
+        cards.mood.style.display = "block";
+    } else {
+        cards.mood.style.display = "none";
+    }
+
+    // Art Style
+    if (toggles.art.checked) {
+        cards.art.querySelector(".value-art").textContent = pickRandom(artStyles);
+        cards.art.style.display = "block";
+    } else {
+        cards.art.style.display = "none";
+    }
+
+    // Season
+    if (toggles.season.checked) {
+        cards.season.querySelector(".value-season").textContent = pickRandom(seasons);
+        cards.season.style.display = "block";
+    } else {
+        cards.season.style.display = "none";
+    }
+
+    // Person
+    if (toggles.person.checked) {
+        cards.person.querySelector(".value-person").textContent = pickRandom(characters);
+        cards.person.style.display = "block";
+    } else {
+        cards.person.style.display = "none";
+    }
 }
 
 // EVENT LISTENER
