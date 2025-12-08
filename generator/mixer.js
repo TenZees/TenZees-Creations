@@ -1,147 +1,88 @@
 // ===============================
-// Element Mixer JS
+// Mixer JS
 // ===============================
 
-// DOM elements
-const tabs = document.querySelectorAll('.tab'); // Tabs for sections
-const sections = document.querySelectorAll('.section'); // Section containers
-const cardsContainer = document.querySelector('.cards-container'); // Container for element cards
-const generateBtn = document.getElementById('generate-btn'); // Random element generator
-const colorBtn = document.getElementById('color-btn'); // Random color generator
-const colorOutput = document.getElementById('color-output'); // Display random color
+// ELEMENT DATA
+const colors = ["#FF6B6B", "#6BCB77", "#4D96FF", "#FFD93D", "#FF6EC7", "#00C2A0", "#FF9F1C"];
+const objects = ["Crystal", "Bottle", "Key", "Feather", "Book", "Candle", "Mask"];
+const locations = ["Forest", "Desert", "City", "Mountain", "Beach", "Cave", "Castle"];
+const themes = ["Fantasy", "Cyberpunk", "Steampunk", "Gothic", "Nature", "Post-Apocalyptic"];
+const moods = ["Happy", "Calm", "Exciting", "Spooky", "Sad", "Energetic"];
+const artStyles = ["Pixel", "Digital", "Watercolor", "Illustration", "3D", "Sketch"];
+const seasons = ["Spring", "Summer", "Autumn", "Winter", "Halloween", "Christmas"];
+const characters = ["Elf", "Robot", "Dragon", "Ghost", "Witch", "Pirate"];
 
-// ===============================
-// Section Toggle Functionality
-// ===============================
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const target = tab.dataset.target;
+// CHECKBOX ELEMENTS
+const togglePalette = document.getElementById("toggle-palette");
+const toggleObject = document.getElementById("toggle-object");
+const toggleLocation = document.getElementById("toggle-location");
+const toggleTheme = document.getElementById("toggle-theme");
+const toggleMood = document.getElementById("toggle-mood");
+const toggleArt = document.getElementById("toggle-art");
+const toggleSeason = document.getElementById("toggle-season");
+const togglePerson = document.getElementById("toggle-person");
 
-        // Hide all sections
-        sections.forEach(sec => sec.classList.add('hidden'));
+// CARD ELEMENTS
+const cardPalette = document.querySelector(".value-palette");
+const cardObject = document.querySelector(".value-object");
+const cardLocation = document.querySelector(".value-location");
+const cardTheme = document.querySelector(".value-theme");
+const cardMood = document.querySelector(".value-mood");
+const cardArt = document.querySelector(".value-art");
+const cardSeason = document.querySelector(".value-season");
+const cardPerson = document.querySelector(".value-person");
 
-        // Show target section
-        const activeSection = document.querySelector(`#${target}`);
-        if (activeSection) activeSection.classList.remove('hidden');
+// MIX BUTTON
+const mixBtn = document.getElementById("mix-btn");
 
-        // Update active tab styling
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-    });
-});
-
-// ===============================
-// Element Card Data
-// Example structure: customize as needed
-// ===============================
-const elements = [
-    {
-        name: 'Sunset Forest',
-        theme: 'Nature',
-        mood: 'Calm',
-        artStyle: 'Digital',
-        season: 'Summer',
-        character: 'Elf',
-        color: '#FF8C42'
-    },
-    {
-        name: 'Cyber City',
-        theme: 'Futuristic',
-        mood: 'Exciting',
-        artStyle: 'Pixel',
-        season: 'Night',
-        character: 'Robot',
-        color: '#1F1F2E'
-    },
-    {
-        name: 'Haunted Manor',
-        theme: 'Gothic',
-        mood: 'Spooky',
-        artStyle: 'Illustration',
-        season: 'Autumn',
-        character: 'Ghost',
-        color: '#4B1A1A'
-    },
-    // Add more cards here...
-];
-
-// ===============================
-// Render Cards
-// ===============================
-function renderCards(filteredElements) {
-    cardsContainer.innerHTML = '';
-    if (filteredElements.length === 0) {
-        cardsContainer.innerHTML = '<p>No matching elements found.</p>';
-        return;
-    }
-
-    filteredElements.forEach(el => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.style.borderColor = el.color;
-        card.innerHTML = `
-            <h3>${el.name}</h3>
-            <p>Theme: ${el.theme}</p>
-            <p>Mood: ${el.mood}</p>
-            <p>Art Style: ${el.artStyle}</p>
-            <p>Season: ${el.season}</p>
-            <p>Character: ${el.character}</p>
-        `;
-        cardsContainer.appendChild(card);
-    });
+// HELPER: Pick random from array
+function pickRandom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// ===============================
-// Filter Cards
-// ===============================
-function filterCards() {
-    let filtered = [...elements];
+// FUNCTION: Mix Elements
+function mixElements() {
+    if (togglePalette.checked) {
+        const palette = `${pickRandom(colors)}, ${pickRandom(colors)}, ${pickRandom(colors)}`;
+        cardPalette.textContent = palette;
+        cardPalette.parentElement.classList.add("flash");
+    }
+    if (toggleObject.checked) {
+        cardObject.textContent = pickRandom(objects);
+        cardObject.parentElement.classList.add("flash");
+    }
+    if (toggleLocation.checked) {
+        cardLocation.textContent = pickRandom(locations);
+        cardLocation.parentElement.classList.add("flash");
+    }
+    if (toggleTheme.checked) {
+        cardTheme.textContent = pickRandom(themes);
+        cardTheme.parentElement.classList.add("flash");
+    }
+    if (toggleMood.checked) {
+        cardMood.textContent = pickRandom(moods);
+        cardMood.parentElement.classList.add("flash");
+    }
+    if (toggleArt.checked) {
+        cardArt.textContent = pickRandom(artStyles);
+        cardArt.parentElement.classList.add("flash");
+    }
+    if (toggleSeason.checked) {
+        cardSeason.textContent = pickRandom(seasons);
+        cardSeason.parentElement.classList.add("flash");
+    }
+    if (togglePerson.checked) {
+        cardPerson.textContent = pickRandom(characters);
+        cardPerson.parentElement.classList.add("flash");
+    }
 
-    sections.forEach(sec => {
-        const select = sec.querySelector('select');
-        if (select && select.value !== 'any') {
-            const key = select.dataset.key;
-            filtered = filtered.filter(el => el[key] === select.value);
-        }
-    });
-
-    renderCards(filtered);
+    // Remove flash after animation
+    setTimeout(() => {
+        document.querySelectorAll(".result-card").forEach(card => {
+            card.classList.remove("flash");
+        });
+    }, 500);
 }
 
-// Attach change event to all selects
-sections.forEach(sec => {
-    const select = sec.querySelector('select');
-    if (select) select.addEventListener('change', filterCards);
-});
-
-// ===============================
-// Random Element Generator
-// ===============================
-generateBtn.addEventListener('click', () => {
-    const randomIndex = Math.floor(Math.random() * elements.length);
-    const randomElement = elements[randomIndex];
-    renderCards([randomElement]);
-});
-
-// ===============================
-// Random Color Generator
-// ===============================
-colorBtn.addEventListener('click', () => {
-    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-    colorOutput.style.backgroundColor = randomColor;
-    colorOutput.textContent = randomColor.toUpperCase();
-});
-
-// ===============================
-// Initial Render
-// ===============================
-renderCards(elements);
-
-// ===============================
-// Smooth animations for cards (fade-in)
-// ===============================
-cardsContainer.addEventListener('DOMNodeInserted', e => {
-    if (e.target.classList && e.target.classList.contains('card')) {
-        e.target.classList.add('fade-in');
-    }
-});
+// EVENT LISTENER
+mixBtn.addEventListener("click", mixElements);
