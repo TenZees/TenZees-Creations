@@ -33,14 +33,9 @@
             </a>
         </section>
 
-        <!-- Brainfog Button + Expandable Box -->
+        <!-- Art Block Button -->
         <section class="artblock-section">
             <button id="artblock-btn" class="artblock-btn">🧠 Art Block?</button>
-
-            <div id="artblock-box" class="artblock-box hidden">
-                <p id="artblock-message">Click again to get an idea!</p>
-                <button id="artblock-roll" class="roll-btn">Roll Again</button>
-            </div>
         </section>
 
         <footer class="footer">
@@ -49,143 +44,15 @@
 
     </div>
 
-    <!-- Brainfog Script -->
     <script>
-        const ideas = [
-            "Draw a creature using only circles.",
-            "Pick 3 random colors and make a character.",
-            "Create a hybrid animal you've never seen.",
-            "Take a 20-second screen break and stretch.",
-            "Turn a random object near you into a character.",
-            "Draw your current mood as a weather pattern.",
-            "Make a doodle with your nondominant hand.",
-            "Drink a sip of water and breathe in for 4 seconds.",
-            "Draw a blob and turn it into a creature.",
-            "Write a 6-word story about your OC.",
-            "Sketch something tiny—1 inch only!",
-            "Redraw a favorite character in a silly style.",
-            "Imagine a world made of candy. Draw a piece of it."
-            "Draw your favorite animal as a robot.",
-            "Make a doodle using only triangles.",
-            "Write a 10-second poem about the weather.",
-            "Recreate an emoji by hand.",
-            "Draw a cup of coffee with a face.",
-            "Invent a magical plant and name it.",
-            "Write three things you can hear right now.",
-            "Draw a dragon the size of a mouse.",
-            "Pick an object and redesign it to look futuristic.",
-            "Take 5 slow breaths while counting backward.",
-            "Make a tiny comic strip with 2 panels.",
-            "Draw a random squiggle and turn it into a creature.",
-            "Write a name for a superhero with your initials.",
-            "Draw your favorite snack as a fantasy monster.",
-            "Close your eyes and draw a cat.",
-            "Write a list of 5 things you can see.",
-            "Create a cozy room layout in 30 seconds.",
-            "Draw a ghost doing something mundane.",
-            "Turn a letter of the alphabet into a creature.",
-            "Write a short note to your future self.",
-            "Draw what your brain feels like right now.",
-            "Make up a potion and list its ingredients.",
-            "Draw your hand as a dragon wing.",
-            "Write a silly title for a movie that doesn’t exist.",
-            "Draw a flower that could never exist in nature.",
-            "Turn your water bottle into a character.",
-            "Write a haiku about how you’re feeling.",
-            "Draw an animal wearing fancy clothes.",
-            "Doodle a magical doorway.",
-            "Write down 3 small things you're grateful for.",
-            "Combine two foods into one creature.",
-            "Draw a snail with a decorative shell.",
-            "Redesign a household object to be cuter.",
-            "Stretch your arms overhead for 10 seconds.",
-            "Draw the tiniest landscape possible.",
-            "Write the first word that pops into your mind.",
-            "Draw a cloud with a personality.",
-            "Make a mini mandala.",
-            "Turn your coffee/tea mug stain into art.",
-            "Imagine a creature that lives under your bed.",
-            "Write 3 alternate names for yourself.",
-            "Draw a monster that is actually friendly.",
-            "Give a random object superpowers.",
-            "Draw your favorite season as a character.",
-            "Write a one-sentence dream you'd like to have.",
-            "Draw something using only straight lines.",
-            "Make a constellation out of random dots.",
-            "Sketch what your pet would look like as a wizard.",
-            "Draw a treasure chest full of weird items.",
-            "Write 5 words that describe your mood.",
-            "Draw a penguin in a silly hat.",
-            "Turn your phone into a tiny robot.",
-            "Create a new shape—like a square, but cooler.",
-            "Draw a potion bottle with glowing liquid.",
-            "Write a mini to-do list of 3 easy wins.",
-            "Draw your comfort food as a magical creature.",
-            "Take a 20-second posture reset.",
-            "Imagine your brain as a room—sketch it.",
-            "Draw a plant with eyes.",
-            "Write a short affirmation you need today.",
-            "Combine your favorite animal with your least favorite.",
-            "Redesign your favorite childhood toy.",
-            "Draw a set of tiny wings on something random.",
-            "Write 3 things you'd like to feel today.",
-            "Draw a robot whose job is to help you.",
-            "Make a tiny pattern—dots, lines, shapes.",
-            "Draw a fish that can live in the sky.",
-            "Write a 3-word mantra.",
-            "Create a mythical creature based on your mood.",
-            "Draw your favorite drink as a character.",
-            "Take 3 deep breaths and shrug your shoulders.",
-            "Draw a whimsical key that unlocks anything.",
-            "Write down a random sound effect (“zap!”).",
-            "Draw a happy mushroom.",
-            "Create a mini map of an imaginary island.",
-            "Write a weird but harmless superpower.",
-            "Draw a bird with an unusual tail.",
-            "Make a border design for a journal page.",
-            "Write what you wish you were doing right now.",
-            "Draw your OC as a chibi.",
-            "Draw your favorite number as a creature.",
-            "Write a silly fanfic sentence about your pet.",
-            "Doodle a landscape using only dots.",
-            "Draw a bug with a fancy hat.",
-            "Write 3 goals for the next hour.",
-            "Draw a unicorn with an unexpected twist.",
-            "Create a monster made of kitchen utensils.",
-            "Draw a weird little house that defies physics.",
-            "Write a secret message to your future self.",
-            "Draw the view outside your window simplified.",
-            "Imagine your emotion as a dessert—draw it.",
-            "Draw a hat you'd never actually wear.",
-            "Write a new name for the day of the week.",
-            "Draw a jellyfish with gears and cogs.",
-            "Make up a new holiday and doodle its mascot.",
-            "Write down one thing you’re proud of today.",
-            "Draw a bottle that contains a captured dream.",
-            "Combine two letters to make a creature.",
-            "Draw a friendly creature to guard your desk.",
-            "Write a note of encouragement to yourself.",
-            "Go for a walk.",
-            "Try something new.",
-            "Try a different medium.",
-            "Read for 5-10 minutes."
-        ];
-
-        const btn = document.getElementById("brainfog-btn");
-        const box = document.getElementById("brainfog-box");
-        const msg = document.getElementById("brainfog-message");
-        const roll = document.getElementById("brainfog-roll");
-
-        function newIdea() {
-            msg.textContent = ideas[Math.floor(Math.random() * ideas.length)];
-        }
-
-        btn.addEventListener("click", () => {
-            box.classList.toggle("hidden");
-            if (!box.classList.contains("hidden")) newIdea();
+        // Open small popup window
+        document.getElementById("artblock-btn").addEventListener("click", () => {
+            window.open(
+                "brainfog.html",
+                "ArtBlockPopup",
+                "width=420,height=500,resizable=no"
+            );
         });
-
-        roll.addEventListener("click", newIdea);
     </script>
 
 </body>
