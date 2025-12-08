@@ -27,23 +27,6 @@ function generatePalette() {
   return generateSmartPalette(); // 30% chance to generate a random palette
 }
 
-// Generate a "smart" random palette based on HSL color model
-function generateSmartPalette() {
-  const baseHue = Math.floor(Math.random() * 360); // Randomize the hue for colors
-  return {
-    name: "Generated Palette", // Name for the generated palette
-    colors: Array.from({ length: 5 }, (_, i) => {
-      return `hsl(${(baseHue + i * 20) % 360}, 70%, 55%)`; // Generate 5 related colors
-    })
-  };
-}
-
-// Check if any checkbox is checked
-function hasAnyEnabled() {
-  return [...document.querySelectorAll("input[type=checkbox]")]
-    .some(cb => cb.checked); // Returns true if any checkbox is checked
-}
-
 /* =================================================
    HSL to Hex Conversion
 ================================================= */
@@ -107,7 +90,6 @@ function generateSmartPalette() {
     })
   };
 }
-
 
 /* =================================================
    LOCK PALETTE
