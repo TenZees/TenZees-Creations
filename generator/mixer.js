@@ -1,14 +1,6 @@
-/* =================================================
-   IMPORTS (MUST BE FIRST)
-================================================= */
-import { DATA } from "./data.js";
-
-/* =================================================
-   STATE
-================================================= */
 let paletteLocked = false;
 let currentPalette = null;
-
+import { DATA } from "./data.js";
 
 /* =================================================
    HELPERS
@@ -40,15 +32,25 @@ function generateSmartPalette() {
   };
 }
 
+function hasAnyEnabled() {
+  return [...document.querySelectorAll("input[type=checkbox]")]
+    .some(cb => cb.checked); // Checks if any checkbox is selected
+}
+
 const lockPaletteBtn = document.getElementById("lock-palette");
 
 if (lockPaletteBtn) {
   lockPaletteBtn.addEventListener("click", () => {
+    // Toggle the lock state for the palette
     paletteLocked = !paletteLocked;
+    
+    // Update the lock button's text and visual state
     lockPaletteBtn.textContent = paletteLocked ? "🔒" : "🔓";
+    
+    // Toggle the "locked" class on the button for additional visual feedback
+    lockPaletteBtn.classList.toggle("locked", paletteLocked);
   });
 }
-
 
 /* =================================================
    TOGGLES
@@ -86,6 +88,12 @@ function doMix() {
   if (paletteToggle && paletteToggle.checked && paletteBox) {
     if (!paletteLocked || !currentPalette) {
       currentPalette = generatePalette();
+    }
+
+    // SAFEGUARD to ensure currentPalette.colors is an array
+    if (!currentPalette.colors || !Array.isArray(currentPalette.colors)) {
+      console.warn("Invalid palette format", currentPalette);
+      return;
     }
 
     paletteBox.innerHTML = `
@@ -169,12 +177,19 @@ function doMix() {
   }
 }
 
-
 /* =================================================
    EVENTS
 ================================================= */
 const mixBtn = document.getElementById("mix-btn");
-if (mixBtn) mixBtn.addEventListener("click", doMix);
+if (mixBtn) {
+  mixBtn.addEventListener("click", () => {
+    if (!hasAnyEnabled()) {
+      console.log("No options selected, cannot mix.");
+      return;
+    }
+    doMix();
+  });
+}
 
 document
   .querySelectorAll("input[type=checkbox]")

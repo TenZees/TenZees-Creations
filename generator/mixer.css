@@ -1,115 +1,133 @@
+/* General body styles */
 body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f8f5ef;
-  color: #333;
+  margin: 0; /* Removes default margins */
+  font-family: "Segoe UI", Arial, sans-serif; /* Sets font style */
+  background: #f8f5ef; /* Light background color */
+  color: #333; /* Dark text color */
 }
 
 /* Paint Background */
 .paint-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  position: fixed; /* Fixes the paint to the background */
+  inset: 0; /* Ensures it covers the full viewport */
+  z-index: 0; /* Makes sure it’s behind other elements */
+  pointer-events: none; /* Disables interaction with the background */
 }
+
 .paint {
-  position: absolute;
+  position: absolute; /* Positions paint elements absolutely */
 }
+
 .paint-blue {
-  left: -120px;
-  bottom: -140px;
-  width: 420px;
+  left: -120px; /* Positions blue paint off-screen */
+  bottom: -140px; /* Positions blue paint off-screen */
+  width: 420px; /* Sets width */
 }
+
 .paint-pink {
-  right: -130px;
-  top: -120px;
-  width: 380px;
+  right: -130px; /* Positions pink paint off-screen */
+  top: -120px; /* Positions pink paint off-screen */
+  width: 380px; /* Sets width */
 }
 
+/* Mixer container styles */
 .mixer-container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  position: relative;
-  z-index: 2;
+  max-width: 900px; /* Limits max width */
+  margin: auto; /* Centers the container */
+  padding: 20px; /* Adds padding */
+  position: relative; /* Allows layering with z-index */
+  z-index: 2; /* Makes sure it’s above the paint background */
 }
 
+/* Mixer title */
 .mixer-title {
-  text-align: center;
-  margin-bottom: 24px;
+  text-align: center; /* Centers the title */
+  margin-bottom: 24px; /* Adds space below the title */
 }
 
-/* Config */
+/* Configuration Section */
 .config-box {
-  background: #fff;
-  padding: 16px;
-  border-radius: 14px;
-  margin-bottom: 24px;
+  background: #fff; /* White background */
+  padding: 16px; /* Padding around content */
+  border-radius: 14px; /* Rounded corners */
+  margin-bottom: 24px; /* Adds space below */
 }
+
 .config-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  display: grid; /* Uses grid layout for toggle rows */
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: 12px; /* Adds space between grid items */
 }
+
 .toggle-row {
-  background: #f5f1ea;
-  padding: 8px 12px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: #f5f1ea; /* Light background for toggle rows */
+  padding: 8px 12px; /* Padding around toggle content */
+  border-radius: 10px; /* Rounded corners */
+  display: flex; /* Flexbox for centering content */
+  justify-content: space-between; /* Space between label and checkbox */
+  align-items: center; /* Centers items vertically */
 }
+
 .toggle-row input {
-  display: none;
+  display: none; /* Hides the checkbox */
 }
+
 .toggle-slider {
-  width: 36px;
-  height: 18px;
-  background: #ccc;
-  border-radius: 20px;
-  position: relative;
+  width: 36px; /* Sets slider width */
+  height: 18px; /* Sets slider height */
+  background: #ccc; /* Gray slider background */
+  border-radius: 20px; /* Rounds the slider */
+  position: relative; /* Positions the slider handle */
 }
+
 .toggle-slider::after {
-  content: "";
+  content: ""; /* Adds a circle inside the slider */
   position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #fff;
-  top: 2px;
-  left: 2px;
-  border-radius: 50%;
-  transition: 0.2s;
+  width: 14px; /* Circle width */
+  height: 14px; /* Circle height */
+  background: #fff; /* White color for the circle */
+  top: 2px; /* Positions circle */
+  left: 2px; /* Positions circle */
+  border-radius: 50%; /* Makes the circle round */
+  transition: 0.2s; /* Smooth transition */
 }
+
+/* Changes the background when checkbox is checked */
 .toggle-row input:checked + .toggle-slider {
-  background: #b79e7f;
+  background: #b79e7f; /* Changes background color */
 }
+
+/* Moves the circle to the right when checked */
 .toggle-row input:checked + .toggle-slider::after {
-  transform: translateX(18px);
+  transform: translateX(18px); /* Moves circle */
 }
 
-/* Results */
+/* Results Section */
 .results-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-.result-card {
-  padding: 18px;
-  border-radius: 20px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
-}
-.result-card h3 {
-  text-align: center;
-  font-size: 0.85rem;
-}
-.value-box {
-  background: #fff;
-  border-radius: 14px;
-  padding: 12px;
-  text-align: center;
+  display: grid; /* Uses grid layout for results */
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 14px; /* Adds space between cards */
 }
 
-/* Pastels */
+.result-card {
+  padding: 18px; /* Padding inside cards */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06); /* Subtle shadow effect */
+}
+
+.result-card h3 {
+  text-align: center; /* Centers the heading */
+  font-size: 0.85rem; /* Reduces font size */
+}
+
+.value-box {
+  background: #fff; /* White background */
+  border-radius: 14px; /* Rounded corners */
+  padding: 12px; /* Padding inside the box */
+  text-align: center; /* Centers text */
+}
+
+/* Color Scheme for result cards */
 .pink { background: #ffe0ec; }
 .blue { background: #e3efff; }
 .green { background: #e6faef; }
@@ -119,52 +137,74 @@ body {
 .teal { background: #e0f7f4; }
 .red { background: #ffe0e0; }
 
+/* Hide cards when toggled off */
 .card-hidden {
-  display: none;
+  display: none; /* Hides elements with this class */
 }
 
-/* Palette */
+/* Palette Display */
 .palette-swatches {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
+  display: grid; /* Grid layout for color swatches */
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  gap: 6px; /* Adds space between swatches */
 }
+
 .swatch {
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  font-size: 0.65rem;
-  font-family: monospace;
-  padding-bottom: 4px;
+  height: 40px; /* Fixed height for color swatches */
+  border-radius: 8px; /* Rounded corners */
+  display: flex; /* Flexbox layout for centering text */
+  align-items: flex-end; /* Aligns text to the bottom */
+  justify-content: center; /* Centers text horizontally */
+  font-size: 0.65rem; /* Reduces font size */
+  font-family: monospace; /* Monospace font */
+  padding-bottom: 4px; /* Adds space below text */
 }
+
 .palette-name {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  opacity: 0.85;
+  display: block; /* Makes the name block level */
+  margin-bottom: 8px; /* Adds space below the name */
+  font-weight: 600; /* Bold text */
+  opacity: 0.85; /* Slightly transparent */
 }
 
-/* Button */
+/* Button Styles */
 .mix-btn {
-  margin: 24px auto 0;
-  display: block;
-  padding: 12px 24px;
-  font-size: 1.1rem;
-  border-radius: 14px;
-  border: none;
-  cursor: pointer;
-  background: #d9c6a6;
+  margin: 24px auto 0; /* Adds space above and centers the button */
+  display: block; /* Makes the button block level */
+  padding: 12px 24px; /* Padding inside button */
+  font-size: 1.1rem; /* Font size */
+  border-radius: 14px; /* Rounded corners */
+  border: none; /* Removes border */
+  cursor: pointer; /* Adds pointer cursor */
+  background: #d9c6a6; /* Background color */
 }
 
+.lock-btn {
+  background: none; /* No background */
+  border: none; /* No border */
+  cursor: pointer; /* Adds pointer cursor */
+  font-size: 1rem; /* Font size */
+}
 
+/* Locked state style for the lock button */
+.locked {
+  color: #a07bff; /* Purple color when locked */
+}
+
+/* Footer for the ad */
 body {
-  padding-bottom: 70px; /* 50px ad + breathing room */
+  padding-bottom: 70px; /* 50px for the ad and 20px padding */
+}
+
+/* Ad footer styling */
+.ad-footer {
+  background: rgba(248, 245, 239, 0.95); /* Light background with transparency */
+  backdrop-filter: blur(4px); /* Adds blur effect to the background */
 }
 
 .ad-footer {
-  background: rgba(248, 245, 239, 0.95);
-  backdrop-filter: blur(4px);
+  position: fixed; /* Keeps the ad fixed at the bottom */
+  bottom: 0; /* Positions at the bottom */
+  width: 100%; /* Full width */
+  z-index: 1; /* Ensures the ad is below the mixer content */
 }
-
