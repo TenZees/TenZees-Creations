@@ -706,7 +706,7 @@ export const DATA = {
   "Reality Walker",
   "Void Wanderer",
   "Starseer",
-  
+
   // --- Historical & Cultural Figures ---
   "Renaissance Polymath (Leonardo da Vinci-inspired)",
   "Civil Rights Leader",
@@ -803,6 +803,10 @@ palettes: [
   {
     name: "Old Manuscript",
     colors: ["#2B1D0E", "#5A3E2B", "#8C6E54", "#C2A878", "#EFE6D8"]
+  }
+  {
+  name: "Blood Cathedral",
+  colors: ["#0B0A0F", "#2A0F14", "#5A1C22", "#8E2F39", "#E6A4A8"]
   }
 ]
 

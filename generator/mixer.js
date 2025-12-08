@@ -1,3 +1,5 @@
+let paletteLocked = false;
+let currentPalette = null;
 import { DATA } from "./data.js";
 
 /* =================================================
@@ -30,6 +32,14 @@ function generateSmartPalette() {
   };
 }
 
+const lockPaletteBtn = document.getElementById("lock-palette");
+
+lockPaletteBtn.addEventListener("click", () => {
+  paletteLocked = !paletteLocked;
+  lockPaletteBtn.textContent = paletteLocked ? "🔒" : "🔓";
+});
+
+
 /* =================================================
    TOGGLES
 ================================================= */
@@ -59,20 +69,18 @@ function applyToggles() {
 function doMix() {
   if (document.getElementById("toggle-palette").checked) {
   const box = document.querySelector(".value-palette");
-  const palette = generatePalette();
+
+  if (!paletteLocked || !currentPalette) {
+    currentPalette = generatePalette();
+  }
 
   box.innerHTML = `
-    <strong class="palette-name">${palette.name}</strong>
     <div class="palette-swatches">
-      ${palette.colors
+      ${currentPalette
         .map(color => {
           const textColor =
-            parseInt(color.replace("#", ""), 16) < 0x888888
-              ? "#fff"
-              : "#333";
-          return `<div class="swatch" style="background:${color};color:${textColor}">
-            ${color}
-          </div>`;
+            parseInt(color.slice(1), 16) < 0x888888 ? "#fff" : "#333";
+          return `<div class="swatch" style="background:${color};color:${textColor}">${color}</div>`;
         })
         .join("")}
     </div>
