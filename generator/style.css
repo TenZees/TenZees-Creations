@@ -1,7 +1,6 @@
 /* ================================================
-   Global Page Styling
+   Global Styles
 =================================================== */
-
 body {
   margin: 0;
   padding: 0;
@@ -16,165 +15,197 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* ================================================
-   Header
-=================================================== */
-
-.header {
-  text-align: center;
-  padding: 25px 10px;
-  background: #fff;
-  border-bottom: 3px solid #d4c9b9;
-}
-
-.header img {
-  max-width: 200px;
-}
-
-.header h1 {
-  margin-top: 10px;
-  font-size: 2rem;
-}
-
-/* ================================================
-   Generator Layout
-=================================================== */
-
-.container {
+.mixer-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.section-title {
-  font-size: 1.4rem;
-  margin: 25px 0 10px;
-  text-align: center;
-}
-
 /* ================================================
-   Buttons
+   Back Button
 =================================================== */
-
-.btn {
-  background: #e8dccc;
-  border: 2px solid #b8ab95;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 1rem;
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
   cursor: pointer;
-  display: inline-block;
-  transition: 0.2s ease;
-  margin: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
-.btn:hover {
-  background: #f3ece2;
-  transform: scale(1.03);
-}
-
-.btn-primary {
-  background: #d9c6a6;
-  border-color: #a89471;
-}
-
-.btn-primary:hover {
-  background: #e7d7b8;
+.back-btn:hover {
+  transform: scale(1.1);
 }
 
 /* ================================================
-   Card Display Boxes
+   Page Title
 =================================================== */
+.mixer-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
 
-.card-box {
+/* ================================================
+   Config Section
+=================================================== */
+.config-box {
   background: #ffffff;
-  border-radius: 12px;
   padding: 15px;
-  margin: 12px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border-radius: 12px;
   border: 1px solid #e6ded1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+  margin-bottom: 25px;
 }
 
-.card-box-title {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-  font-weight: 600;
+.config-title {
   text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
 }
 
-.card-result {
-  font-size: 1.1rem;
-  padding: 6px;
+/* grid layout */
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
   background: #f7f3ec;
-  border-radius: 8px;
   border: 1px solid #ddd2c4;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Hide raw checkbox */
+.toggle-row input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider dot */
+.toggle-slider {
+  width: 38px;
+  height: 20px;
+  background: #d0c4b3;
+  border-radius: 20px;
+  position: relative;
+}
+
+.toggle-slider::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  transition: 0.2s;
+}
+
+/* When checked */
+.toggle-row input:checked + .toggle-slider {
+  background: #b79e7f;
+}
+
+.toggle-row input:checked + .toggle-slider::after {
+  transform: translateX(18px);
 }
 
 /* ================================================
-   Footer
+   Result Cards — 2 Columns!
 =================================================== */
-
-.footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  color: #6b655c;
-}
-
-/* ================================================
-   Popup Window
-=================================================== */
-
-.popup-body {
-  background: #faf7f2;
-  margin: 0;
-}
-
-.popup-wrapper {
-  text-align: center;
-  padding: 25px;
-}
-
-.popup-title {
-  font-size: 1.5rem;
+.result-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
   margin-bottom: 12px;
 }
 
-.popup-message {
-  background: #fff;
-  padding: 14px;
+.result-card {
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #e6ded1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.07);
 }
 
-.popup-btn {
-  background: #d9c6a6;
-  border: 2px solid #a89471;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
+/* Card labels */
+.result-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.popup-btn:hover {
-  background: #e7d7b8;
+/* Info box */
+.value-box {
+  background: #f7f3ec;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ddd2c4;
+}
+
+/* Hide cards when toggled off */
+.card-hidden {
+  display: none !important;
+}
+
+/* FLASH animation */
+.flash {
+  animation: flashAnim 0.25s ease;
+}
+
+@keyframes flashAnim {
+  0% { background: #fff8cc; }
+  100% { background: #ffffff; }
 }
 
 /* ================================================
-   Mobile Fixes
+   Mix Button
 =================================================== */
+.mix-btn {
+  display: block;
+  margin: 25px auto 0;
+  background: #d9c6a6;
+  border: 2px solid #a89471;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
+.mix-btn:hover {
+  background: #e7d7b8;
+  transform: scale(1.05);
+}
+
+.mix-icon {
+  margin-right: 8px;
+}
+
+/* ================================================
+   Mobile
+=================================================== */
 @media (max-width: 600px) {
-  .container {
-    padding: 10px;
+  .config-grid {
+    grid-template-columns: 1fr;
   }
 
-  .btn {
+  .result-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mix-btn {
     width: 100%;
-  }
-
-  .card-box {
-    padding: 12px;
   }
 }
