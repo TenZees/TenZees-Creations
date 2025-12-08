@@ -1,63 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brainfog Generator | TenZees Creations</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="page-wrapper">
+/* ================================================
+   Global Page Styling
+=================================================== */
 
-    <!-- Header -->
-    <header class="header">
-      <img src="logo.png" alt="TenZees Logo" class="logo">
-      <h1 class="site-title">Brainfog Generator</h1>
-      <p class="subtitle">Get random ideas to beat the brainfog!</p>
-    </header>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f8f5ef;
+  color: #333;
+}
 
-    <!-- Brainfog Generator Section -->
-    <section class="brainfog-section">
-      <button class="brainfog-btn" id="generate-btn">Get Idea</button>
-      <div class="brainfog-box hidden" id="brainfog-message"></div>
-      <button class="roll-btn hidden" id="roll-again-btn">Roll Again</button>
-    </section>
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>© <span id="year"></span> TenZees Creations | Made with ❤️ and coffee</p>
-    </footer>
+/* ================================================
+   Header
+=================================================== */
 
-  </div>
+.header {
+  text-align: center;
+  padding: 25px 10px;
+  background: #fff;
+  border-bottom: 3px solid #d4c9b9;
+}
 
-  <!-- Script to handle generator -->
-  <script>
-    const ideas = [
-        "Draw a creature using only circles.",
-        "Pick 3 random colors and make a character.",
-        "Create a hybrid animal you've never seen.",
-        "Take a 20-second screen break and stretch.",
-        "Turn a random object near you into a character.",
-        "Draw your current mood as a weather pattern.",
-        "Make a doodle with your nondominant hand.",
-    ];
+.header img {
+  max-width: 200px;
+}
 
-    const btn = document.getElementById("artblock-btn");
-    const box = document.getElementById("artblock-box");
-    const msg = document.getElementById("artblock-message");
-    const roll = document.getElementById("artblock-roll");
+.header h1 {
+  margin-top: 10px;
+  font-size: 2rem;
+}
 
-    function newIdea() {
-        msg.textContent = ideas[Math.floor(Math.random() * ideas.length)];
-    }
+/* ================================================
+   Generator Layout
+=================================================== */
 
-    btn.addEventListener("click", () => {
-        box.classList.toggle("hidden");
-        if (!box.classList.contains("hidden")) newIdea();
-    });
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-    roll.addEventListener("click", newIdea);
-</script>
+.section-title {
+  font-size: 1.4rem;
+  margin: 25px 0 10px;
+  text-align: center;
+}
 
-</body>
-</html>
+/* ================================================
+   Buttons
+=================================================== */
+
+.btn {
+  background: #e8dccc;
+  border: 2px solid #b8ab95;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  transition: 0.2s ease;
+  margin: 5px;
+}
+
+.btn:hover {
+  background: #f3ece2;
+  transform: scale(1.03);
+}
+
+.btn-primary {
+  background: #d9c6a6;
+  border-color: #a89471;
+}
+
+.btn-primary:hover {
+  background: #e7d7b8;
+}
+
+/* ================================================
+   Card Display Boxes
+=================================================== */
+
+.card-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 12px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: 1px solid #e6ded1;
+}
+
+.card-box-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.card-result {
+  font-size: 1.1rem;
+  padding: 6px;
+  background: #f7f3ec;
+  border-radius: 8px;
+  border: 1px solid #ddd2c4;
+}
+
+/* ================================================
+   Footer
+=================================================== */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #6b655c;
+}
+
+/* ================================================
+   Popup Window
+=================================================== */
+
+.popup-body {
+  background: #faf7f2;
+  margin: 0;
+}
+
+.popup-wrapper {
+  text-align: center;
+  padding: 25px;
+}
+
+.popup-title {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.popup-message {
+  background: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.popup-btn {
+  background: #d9c6a6;
+  border: 2px solid #a89471;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.popup-btn:hover {
+  background: #e7d7b8;
+}
+
+/* ================================================
+   Mobile Fixes
+=================================================== */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .card-box {
+    padding: 12px;
+  }
+}
