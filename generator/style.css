@@ -13,12 +13,22 @@
     box-sizing: border-box;
 }
 
+/* ------------ PAGE BACKGROUND WITH PAINT SPLASHES ------------ */
+
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: url("assets/splash-bg.png") center/cover no-repeat, #f7f7f7;
+
+    /* Multiple layered background images */
+    background:
+        url("assets/PinkPaint.png") top right / 320px no-repeat,
+        url("assets/BluePaint.png") bottom left / 320px no-repeat,
+        url("assets/splatter.png") center / cover no-repeat,
+        #f7f7f7;
+
     color: var(--text-dark);
 }
+
 
 /* Page center wrapper */
 .page {
