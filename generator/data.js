@@ -194,6 +194,10 @@ export const DATA = {
       colors: ["#2E2A4F", "#4E4A8C", "#8E9AAF", "#C9ADA7", "#F2E9E4"]
     },
     {
+      name: "Enchanted Orchid Mist",
+      colors: ["#B6BBC8", "#5A2E63", "#E8DDCB", "#2C2322", "#4C857F"]
+    },
+    {
       name: "Neon Alley",
       colors: ["#0B0C10", "#1F2833", "#66FCF1", "#45A29E", "#C5C6C7"]
     },
@@ -214,7 +218,31 @@ export const DATA = {
       colors: ["#3E5A80", "#6B8E8D", "#9AC4D8", "#B9A9C7", "#E0D1DB"]
     },
     {
+      name: "Retro POP",
+      colors: ["#7DC2E8", "#F48AB3", "#E1466C", "#CBA76D", "#1A1A1A"]
+    },
+    {
+      name: "Blue-Eyed Dreamer",
+      colors: ["#69816C", "#C69C6E", "#DE8DDD", "#886247", "#1A1718"]
+    },
+    {
       name: "Sunset Boulevard",
+      colors: ["#FAD02E", "#F28D35", "#D83367", "#F2A7B4", "#9A5C6D"]
+    },
+    {
+      name: "",
+      colors: ["#EDDA2B", "#2E2E2E", "#26FFF1", "#FCFFE8", "#58AD7D"]
+    },
+    {
+      name: "NEW NAME HERE",
+      colors: ["#628A73", "#A3C0FF", "#3BC4A2", "#242424", "#499ABA"]
+    },
+    {
+      name: "",
+      colors: ["#FAD02E", "#F28D35", "#D83367", "#F2A7B4", "#9A5C6D"]
+    },
+    {
+      name: "",
       colors: ["#FAD02E", "#F28D35", "#D83367", "#F2A7B4", "#9A5C6D"]
     }
   ]
