@@ -33,9 +33,14 @@
             </a>
         </section>
 
-        <!-- Art Block Button -->
+        <!-- Art Block Button + Popup -->
         <section class="artblock-section">
             <button id="artblock-btn" class="artblock-btn">🧠 Art Block?</button>
+
+            <div id="artblock-box" class="artblock-box hidden">
+                <p id="artblock-message">Click again to get an idea!</p>
+                <button id="artblock-roll" class="roll-btn">Roll Again</button>
+            </div>
         </section>
 
         <footer class="footer">
@@ -44,15 +49,33 @@
 
     </div>
 
+    <!-- Art Block Script -->
     <script>
-        // Open small popup window
-        document.getElementById("artblock-btn").addEventListener("click", () => {
-            window.open(
-                "brainfog.html",
-                "ArtBlockPopup",
-                "width=420,height=500,resizable=no"
-            );
+        const artIdeas = [
+            "Draw a creature using only circles.",
+            "Pick 3 random colors and make a character.",
+            "Turn a random object near you into a character.",
+            "Draw your current mood as a weather pattern.",
+            "Make a doodle with your nondominant hand.",
+            "Draw a blob and turn it into a creature.",
+            "Turn your favorite snack into a monster."
+        ];
+
+        const btn = document.getElementById("artblock-btn");
+        const box = document.getElementById("artblock-box");
+        const msg = document.getElementById("artblock-message");
+        const roll = document.getElementById("artblock-roll");
+
+        function newIdea() {
+            msg.textContent = artIdeas[Math.floor(Math.random() * artIdeas.length)];
+        }
+
+        btn.addEventListener("click", () => {
+            box.classList.toggle("hidden");
+            if (!box.classList.contains("hidden")) newIdea();
         });
+
+        roll.addEventListener("click", newIdea);
     </script>
 
 </body>
