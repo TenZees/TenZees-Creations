@@ -142,29 +142,28 @@ body {
   display: none; /* Hides elements with this class */
 }
 
-/* Palette Display */
+/* Palette Swatches Style */
 .palette-swatches {
-  display: grid; /* Grid layout for color swatches */
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  gap: 6px; /* Adds space between swatches */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 swatches per row */
+  gap: 6px;
 }
 
 .swatch {
-  height: 40px; /* Fixed height for color swatches */
-  border-radius: 8px; /* Rounded corners */
-  display: flex; /* Flexbox layout for centering text */
-  align-items: flex-end; /* Aligns text to the bottom */
-  justify-content: center; /* Centers text horizontally */
-  font-size: 0.65rem; /* Reduces font size */
-  font-family: monospace; /* Monospace font */
-  padding-bottom: 4px; /* Adds space below text */
+  height: 40px; /* Size of the swatch */
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end; /* Align the text to the bottom */
+  justify-content: center; /* Center the text */
+  font-size: 0.65rem; /* Smaller font size for the color code */
+  font-family: monospace; /* Monospace font for the color code */
+  padding-bottom: 4px; /* Space between the text and the bottom of the swatch */
+  color: #333; /* Default text color */
+  transition: 0.3s; /* Optional: smooth transition for hover effects */
 }
 
-.palette-name {
-  display: block; /* Makes the name block level */
-  margin-bottom: 8px; /* Adds space below the name */
-  font-weight: 600; /* Bold text */
-  opacity: 0.85; /* Slightly transparent */
+.swatch:hover {
+  opacity: 0.8; /* Optional: slightly fade on hover */
 }
 
 /* Button Styles */

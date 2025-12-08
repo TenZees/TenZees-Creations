@@ -92,33 +92,44 @@ function applyToggles() {
 
 // Main function that handles the mixing of all the elements
 function doMix() {
-  // PALETTE
+  /* ===============================
+     PALETTE
+  =============================== */
   const paletteToggle = document.getElementById("toggle-palette");
   const paletteBox = document.querySelector(".value-palette");
 
   if (paletteToggle && paletteToggle.checked && paletteBox) {
+    // Generate a new palette if it's not locked
     if (!paletteLocked || !currentPalette) {
-      currentPalette = generatePalette(); // Generate a new palette if it's not locked
+      currentPalette = generatePalette();
     }
 
     // SAFEGUARD to ensure currentPalette.colors is an array
     if (!currentPalette.colors || !Array.isArray(currentPalette.colors)) {
-      console.warn("Invalid palette format", currentPalette); // Warn if the palette format is invalid
+      console.warn("Invalid palette format", currentPalette);
       return;
     }
 
-    // Update the palette display
     paletteBox.innerHTML = `
       ${currentPalette.name ? `<span class="palette-name">${currentPalette.name}</span>` : ""}
       <div class="palette-swatches">
         ${currentPalette.colors
-          .map(color => `<div class="swatch" style="background:${color}"></div>`)
+          .map(color => {
+            const textColor = parseInt(color.slice(1), 16) < 0x888888 ? "#fff" : "#333"; // Check brightness for text color
+            return `
+              <div class="swatch" style="background:${color}; color:${textColor}">
+                ${color} <!-- Display the color code inside the swatch -->
+              </div>
+            `;
+          })
           .join("")}
       </div>
     `;
   }
 
-  // OBJECT
+  /* ===============================
+     OBJECT, LOCATION, THEME, etc...
+  =============================== */
   const objectToggle = document.getElementById("toggle-object");
   const objectBox = document.querySelector(".value-object");
 
