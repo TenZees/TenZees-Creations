@@ -3,80 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generators | TenZee's Creative Hub</title>
+    <title>TenZees | Creative Generators</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="page-wrapper">
+    <div class="page">
 
-        <!-- Logo Area -->
-        <header class="header">
-            <img src="assets/logo.png" alt="Zylah Logo" class="logo">
-            <h1 class="site-title">TenZee's Generators</h1>
-            <p class="subtitle">Unleash your creativity anytime ✨</p>
+        <!-- Logo + Title -->
+        <header class="hero">
+            <img src="assets/logo.png" class="hero-logo" alt="Logo">
+            <h1 class="hero-title">TenZees</h1>
+            <p class="hero-sub">Unleash your creativity anytime ✨</p>
         </header>
 
-        <!-- Main Menu -->
+        <!-- Main Buttons -->
         <section class="menu">
-            <a href="prompt.html" class="menu-card">
-                <div class="icon">🎨</div>
-                <h2>Prompt Spark</h2>
-                <p>Get inspired with curated scenarios, character ideas, and surreal concepts.</p>
+
+            <a href="prompt.html" class="card">
+                <div class="card-icon">✨</div>
+                <h2 class="card-title">Prompt Spark</h2>
+                <p class="card-desc">Get inspired with curated scenarios, character ideas, and surreal concepts.</p>
             </a>
 
-            <a href="mixer.html" class="menu-card">
-                <div class="icon">🧩</div>
-                <h2>Element Mixer</h2>
-                <p>Roll for colors, objects, locations, moods, and more.</p>
+            <a href="mixer.html" class="card">
+                <div class="card-icon">🎛️</div>
+                <h2 class="card-title">Element Mixer</h2>
+                <p class="card-desc">Roll for specific details like colors, locations, objects, and moods.</p>
             </a>
+
         </section>
 
-        <!-- Art Block Button + Popup -->
-        <section class="artblock-section">
-            <button id="artblock-btn" class="artblock-btn">🧠 Art Block?</button>
+        <!-- Art Block Button -->
+        <section class="artblock-area">
+            <button id="artblock-btn" class="art-btn">🧠 Art Block?</button>
 
-            <div id="artblock-box" class="artblock-box hidden">
+            <div id="artblock-box" class="art-popup hidden">
                 <p id="artblock-message">Click again to get an idea!</p>
                 <button id="artblock-roll" class="roll-btn">Roll Again</button>
             </div>
         </section>
 
+        <!-- Footer -->
         <footer class="footer">
             <p>© 2025 TenZees • All Rights Reserved</p>
         </footer>
 
     </div>
 
-    <!-- Art Block Script -->
-    <script>
-        const artIdeas = [
-            "Draw a creature using only circles.",
-            "Pick 3 random colors and make a character.",
-            "Turn a random object near you into a character.",
-            "Draw your current mood as a weather pattern.",
-            "Make a doodle with your nondominant hand.",
-            "Draw a blob and turn it into a creature.",
-            "Turn your favorite snack into a monster."
-        ];
+<script>
+    const artIdeas = [
+        "Draw a creature using only circles.",
+        "Pick 3 random colors and make a character.",
+        "Turn a random object near you into a character.",
+        "Draw your current mood as a weather pattern.",
+        "Make a doodle with your nondominant hand.",
+        "Draw a blob and turn it into a creature.",
+        "Turn your favorite snack into a monster."
+    ];
 
-        const btn = document.getElementById("artblock-btn");
-        const box = document.getElementById("artblock-box");
-        const msg = document.getElementById("artblock-message");
-        const roll = document.getElementById("artblock-roll");
+    const btn = document.getElementById("artblock-btn");
+    const box = document.getElementById("artblock-box");
+    const msg = document.getElementById("artblock-message");
+    const roll = document.getElementById("artblock-roll");
 
-        function newIdea() {
-            msg.textContent = artIdeas[Math.floor(Math.random() * artIdeas.length)];
-        }
+    function newIdea() {
+        msg.textContent = artIdeas[Math.floor(Math.random() * artIdeas.length)];
+    }
 
-        btn.addEventListener("click", () => {
-            box.classList.toggle("hidden");
-            if (!box.classList.contains("hidden")) newIdea();
-        });
+    btn.addEventListener("click", () => {
+        box.classList.toggle("hidden");
+        if (!box.classList.contains("hidden")) newIdea();
+    });
 
-        roll.addEventListener("click", newIdea);
-    </script>
+    roll.addEventListener("click", newIdea);
+</script>
 
 </body>
 </html>

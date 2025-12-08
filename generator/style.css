@@ -1,153 +1,141 @@
-/* =================================================
-   Main Generator Page — Clean, Responsive Styling
-   Drop-in replacement for your main generator stylesheet
-   ================================================= */
+/* =========================================================
+   TenZees Main Page (MuseFuse-style design)
+========================================================= */
 
-/* ---------- Color system & helpers ---------- */
-:root{
-  --bg: #f8f5ef;
-  --card: #ffffff;
-  --muted: #6b655c;
-  --accent-1: #e8dccc; /* buttons */
-  --accent-2: #d9c6a6; /* primary */
-  --border: #e6ded1;
-  --panel: #f7f3ec;
-  --shadow: 0 2px 6px rgba(0,0,0,0.06);
-  --radius: 12px;
-  --maxw: 1100px;
+:root {
+    --card-bg: #ffffff;
+    --shadow: 0 4px 0 #000;
+    --radius: 26px;
+    --text-dark: #222;
 }
 
-/* ---------- Global ---------- */
-* { box-sizing: border-box; }
-html,body { height: 100%; }
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--bg);
-  color: #333;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height: 1.4;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: url("assets/splash-bg.png") center/cover no-repeat, #f7f7f7;
+    color: var(--text-dark);
 }
 
-/* ---------- Layout container ---------- */
-.container {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 24px;
+/* Page center wrapper */
+.page {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+    text-align: center;
 }
 
-/* ---------- Header ---------- */
-.header {
-  background: var(--card);
-  border-radius: 14px;
-  padding: 22px;
-  text-align: center;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  margin-bottom: 18px;
+/* ------------ HERO ------------- */
+
+.hero-logo {
+    width: 110px;
+    margin-bottom: 10px;
 }
 
-.header h1 {
-  margin: 8px 0 0;
-  font-size: 1.9rem;
-  color: #3d3530;
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
 }
 
-/* smaller header image / logo */
-.header img {
-  max-width: 160px;
-  height: auto;
+.hero-sub {
+    margin-top: 4px;
+    font-size: 1.1rem;
+    opacity: 0.8;
 }
 
-/* ---------- Section title ---------- */
-.section-title {
-  font-size: 1.25rem;
-  margin: 18px 0 8px;
-  text-align: center;
-  color: #423a33;
+/* ------------ MAIN MENU CARDS ------------- */
+
+.menu {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-/* ---------- Controls row (filters / toggles / search) ---------- */
-.controls {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 28px 28px 32px;
+    text-decoration: none;
+    color: inherit;
+    border: 3px solid #000;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease;
 }
 
-/* simple control card style */
-.control {
-  background: var(--panel);
-  border-radius: 10px;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+.card:hover {
+    transform: translateY(-6px);
 }
 
-/* ---------- Buttons ---------- */
-.btn {
-  background: var(--accent-1);
-  border: 2px solid #b8ab95;
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-size: 0.98rem;
-  cursor: pointer;
-  transition: transform .12s ease, background .12s ease;
-  color: #2f2a26;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.card-icon {
+    font-size: 2.4rem;
 }
 
-.btn:hover { transform: translateY(-2px); }
-.btn:active { transform: translateY(0); }
-
-/* primary variant */
-.btn-primary {
-  background: var(--accent-2);
-  border-color: #a89471;
-  color: #332a1f;
+.card-title {
+    margin: 12px 0 6px;
+    font-size: 1.7rem;
+    font-weight: 700;
 }
 
-/* full width for mobile */
-.btn.full {
-  width: 100%;
+.card-desc {
+    font-size: 1rem;
+    opacity: 0.85;
 }
 
-/* focus outline for keyboard users */
-.btn:focus {
-  outline: 3px solid rgba(168,142,102,0.18);
-  outline-offset: 2px;
+/* ------------ BRAIN FOG BUTTON ------------- */
+
+.art-btn {
+    margin-top: 40px;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 40px;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.12s ease;
 }
 
-/* ---------- Generator grid: 2 columns ---------- */
-.generator-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
-  gap: 16px;
-  align-items: start;
-  margin-bottom: 22px;
+.art-btn:hover {
+    transform: translateY(-4px);
 }
 
-/* individual generator card */
-.generator-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 14px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  min-height: 120px;
-  transition: transform .08s ease, box-shadow .12s ease;
+/* Pop-up box under button */
+.art-popup {
+    margin-top: 18px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 3px solid #000;
+    box-shadow: var(--shadow);
 }
 
-/* hover lift */
-.generator-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+.hidden {
+    display: none;
+}
+
+.roll-btn {
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 16px;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.roll-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ------------ FOOTER ------------- */
+
+.footer {
+    margin-top: 60px;
+    opacity: 0.6;
+    font-size: 0.85rem;
 }
