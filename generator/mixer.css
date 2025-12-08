@@ -34,13 +34,6 @@ body {
   z-index: 2;
 }
 
-.back-btn {
-  font-size: 1.6rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 .mixer-title {
   text-align: center;
   margin-bottom: 24px;

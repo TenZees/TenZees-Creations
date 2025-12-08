@@ -1,13 +1,70 @@
-const OBJECTS = ["Lantern", "Key", "Feather", "Crystal", "Mask", "Compass"];
-const LOCATIONS = ["Forest", "Temple", "Castle Gate", "Marketplace", "Harbor"];
-const THEMES = ["Viking", "Cyberpunk", "Witchcraft", "Egyptian", "Steampunk"];
-const MOODS = ["Serene", "Chaotic", "Cozy", "Mysterious", "Energetic"];
-const ART = ["Pixel", "Watercolor", "Oil Paint", "Sketch", "Low Poly"];
-const SEASON = ["Spring", "Summer", "Halloween", "Winter", "New Year"];
-const PERSON = ["Knight", "Scientist", "Wizard", "Villager", "Explorer"];
+// CENTRAL DATA SOURCE
+const DATA = {
+  objects: [
+    "Lantern",
+    "Key",
+    "Feather",
+    "Crystal",
+    "Mask",
+    "Compass"
+  ],
+
+  locations: [
+    "Forest",
+    "Temple",
+    "Castle Gate",
+    "Marketplace",
+    "Harbor"
+  ],
+
+  themes: [
+    "Viking",
+    "Cyberpunk",
+    "Witchcraft",
+    "Egyptian",
+    "Steampunk"
+  ],
+
+  moods: [
+    "Serene",
+    "Chaotic",
+    "Cozy",
+    "Mysterious",
+    "Energetic"
+  ],
+
+  artStyles: [
+    "Pixel",
+    "Watercolor",
+    "Oil Paint",
+    "Sketch",
+    "Low Poly"
+  ],
+
+  seasons: [
+    "Spring",
+    "Summer",
+    "Halloween",
+    "Winter",
+    "New Year"
+  ],
+
+  people: [
+    "Knight",
+    "Scientist",
+    "Wizard",
+    "Villager",
+    "Explorer"
+  ]
+};
+
 
 function pick(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function pickFromData(key) {
+  return pick(DATA[key]);
 }
 
 function generatePalette() {
@@ -51,7 +108,8 @@ function doMix() {
       </div>`;
   }
 
-  if (toggle_object.checked) document.querySelector(".value-object").textContent = pick(OBJECTS);
+  if (toggle_object.checked) document.querySelector(".value-object").textContent =
+  pickFromData("objects");
   if (toggle_location.checked) document.querySelector(".value-location").textContent = pick(LOCATIONS);
   if (toggle_theme.checked) document.querySelector(".value-theme").textContent = pick(THEMES);
   if (toggle_mood.checked) document.querySelector(".value-mood").textContent = pick(MOODS);
