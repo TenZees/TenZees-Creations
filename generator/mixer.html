@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="mixer.css">
 </head>
 <body>
-  <div class="paint-bg">
+
+<!-- PAINT BACKGROUND -->
+<div class="paint-bg">
   <img src="assets/BluePaint.png" class="paint paint-blue" alt="">
   <img src="assets/PinkPaint.png" class="paint paint-pink" alt="">
 </div>
-
-<div class="mixer-container">
 
 <div class="mixer-container">
 
@@ -24,62 +24,54 @@
   <!-- Page Title -->
   <h1 class="mixer-title">Element Mixer</h1>
 
-  <!-- CONFIGURE MIX -->
+  <!-- CONFIG BOX -->
   <div class="config-box">
     <h2 class="config-title">⚙️ CONFIGURE MIX</h2>
 
     <div class="config-grid">
 
-      <!-- COLOR PALETTE -->
       <label class="toggle-row">
         <span>Color Palette</span>
         <input type="checkbox" id="toggle-palette" checked>
         <span class="toggle-slider"></span>
       </label>
 
-      <!-- OBJECT -->
       <label class="toggle-row">
         <span>Object</span>
         <input type="checkbox" id="toggle-object" checked>
         <span class="toggle-slider"></span>
       </label>
 
-      <!-- LOCATION -->
       <label class="toggle-row">
         <span>Location</span>
         <input type="checkbox" id="toggle-location" checked>
         <span class="toggle-slider"></span>
       </label>
 
-      <!-- THEME -->
       <label class="toggle-row">
         <span>Theme / Culture</span>
         <input type="checkbox" id="toggle-theme">
         <span class="toggle-slider"></span>
       </label>
 
-      <!-- MOOD -->
       <label class="toggle-row">
         <span>Mood</span>
         <input type="checkbox" id="toggle-mood">
         <span class="toggle-slider"></span>
       </label>
 
-      <!-- ART STYLE -->
       <label class="toggle-row">
         <span>Art Style</span>
         <input type="checkbox" id="toggle-art">
         <span class="toggle-slider"></span>
       </label>
 
-      <!-- SEASON -->
       <label class="toggle-row">
         <span>Season / Holiday</span>
         <input type="checkbox" id="toggle-season">
         <span class="toggle-slider"></span>
       </label>
 
-      <!-- PERSON -->
       <label class="toggle-row">
         <span>Person / Character</span>
         <input type="checkbox" id="toggle-person">
@@ -89,8 +81,9 @@
     </div>
   </div>
 
-  <!-- RESULT CARDS -->
-  <div class="result-row">
+  <!-- RESULTS GRID (NEW) -->
+  <div class="results-grid">
+
     <div class="result-card pink" id="card-palette">
       <h3>COLOR PALETTE</h3>
       <div class="value-box value-palette">Ready to roll...</div>
@@ -100,48 +93,37 @@
       <h3>OBJECT</h3>
       <div class="value-box value-object">Ready to roll...</div>
     </div>
-  </div>
 
-  <div class="result-row">
     <div class="result-card green" id="card-location">
       <h3>LOCATION</h3>
       <div class="value-box value-location">Ready to roll...</div>
     </div>
-  </div>
 
-  <div class="result-row">
     <div class="result-card purple" id="card-theme">
       <h3>THEME / CULTURE</h3>
       <div class="value-box value-theme">Ready to roll...</div>
     </div>
-  </div>
 
-  <div class="result-row">
     <div class="result-card yellow" id="card-mood">
       <h3>MOOD</h3>
       <div class="value-box value-mood">Ready to roll...</div>
     </div>
-  </div>
 
-  <div class="result-row">
     <div class="result-card orange" id="card-art">
       <h3>ART STYLE</h3>
       <div class="value-box value-art">Ready to roll...</div>
     </div>
-  </div>
 
-  <div class="result-row">
     <div class="result-card teal" id="card-season">
       <h3>SEASON / HOLIDAY</h3>
       <div class="value-box value-season">Ready to roll...</div>
     </div>
-  </div>
 
-  <div class="result-row">
     <div class="result-card red" id="card-person">
       <h3>PERSON / CHARACTER</h3>
       <div class="value-box value-person">Ready to roll...</div>
     </div>
+
   </div>
 
   <!-- MIX BUTTON -->

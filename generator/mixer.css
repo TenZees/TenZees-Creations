@@ -16,14 +16,11 @@ h1, h2, h3 {
 }
 
 .mixer-container {
-  position: relative;
-  z-index: 2;
-}
-
-.mixer-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 /* ================================================
@@ -34,42 +31,31 @@ h1, h2, h3 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  overflow: hidden;
 }
 
 .paint {
   position: absolute;
   opacity: 0.9;
-
-   /* Optional polish */
   filter: blur(0.5px);
-  transform: rotate(-5deg);
 }
 
-/* Bottom-left blue splat */
+/* Blue splat */
 .paint-blue {
   left: -120px;
   bottom: -140px;
   width: 420px;
   max-width: 70vw;
+  transform: rotate(3deg);
 }
 
-/* Top-right pink splat */
+/* Pink splat */
 .paint-pink {
   right: -130px;
   top: -120px;
   width: 380px;
   max-width: 65vw;
-}
-
-.paint-blue {
-  transform: rotate(3deg);
-}
-
-.paint-pink {
   filter: blur(1px);
 }
-
 
 /* ================================================
    Back Button
@@ -79,8 +65,8 @@ h1, h2, h3 {
   border: none;
   font-size: 1.6rem;
   cursor: pointer;
-  margin-bottom: 10px;
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 .back-btn:hover {
@@ -88,7 +74,7 @@ h1, h2, h3 {
 }
 
 /* ================================================
-   Page Title
+   Title
 =================================================== */
 .mixer-title {
   text-align: center;
@@ -109,12 +95,11 @@ h1, h2, h3 {
 }
 
 .config-title {
-  text-align: center;
   font-size: 1.4rem;
+  text-align: center;
   margin-bottom: 15px;
 }
 
-/* grid layout */
 .config-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -130,17 +115,14 @@ h1, h2, h3 {
   border: 1px solid #ddd2c4;
   border-radius: 8px;
   cursor: pointer;
-  position: relative;
 }
 
-/* Hide raw checkbox */
 .toggle-row input[type="checkbox"] {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* Slider dot */
 .toggle-slider {
   width: 38px;
   height: 20px;
@@ -153,7 +135,7 @@ h1, h2, h3 {
   content: "";
   width: 16px;
   height: 16px;
-  background: #fff;
+  background: white;
   border-radius: 50%;
   position: absolute;
   left: 2px;
@@ -161,30 +143,45 @@ h1, h2, h3 {
   transition: 0.2s;
 }
 
-/* When checked */
 .toggle-row input:checked + .toggle-slider {
   background: #b79e7f;
 }
-
 .toggle-row input:checked + .toggle-slider::after {
   transform: translateX(18px);
 }
 
 /* ================================================
-   Soft Card Color Themes
+   Result Cards – Pastel Theme
 =================================================== */
 .result-card {
   border-radius: 20px;
   padding: 18px;
   border: 1px solid rgba(0,0,0,0.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: 0.2s ease;
 }
 
-/* Hover (subtle lift) */
 .result-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+}
+
+.result-card h3 {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.value-box {
+  background: rgba(255,255,255,0.65);
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.06);
+  backdrop-filter: blur(2px);
+  font-size: 1.05rem;
 }
 
 /* Pastels */
@@ -198,67 +195,40 @@ h1, h2, h3 {
 .result-card.red    { background: #ffe0e0; }
 
 /* ================================================
-   Result Cards — 2 Columns!
+   Color Palette Display
 =================================================== */
-.result-row {
-  align-items: stretch;
-}
-
-.result-row {
+.palette-swatches {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
 }
 
-.result-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 15px;
-  border: 1px solid #e6ded1;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+.swatch {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-family: monospace;
+  color: #333;
+  padding-bottom: 4px;
+  background-clip: padding-box;
 }
 
-/* Card labels */
-.result-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  text-align: center;
+/* ================================================
+   Results Grid (Fixed 2-Column Layout)
+=================================================== */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
-.result-card h3 {
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  opacity: 0.8;
-}
-
-.value-box {
-  font-size: 1.05rem;
-}
-
-/* Info box */
-.value-box {
-  background: rgba(255,255,255,0.65);
-  padding: 12px;
-  border-radius: 14px;
-  text-align: center;
-  border: 1px solid rgba(0,0,0,0.06);
-  backdrop-filter: blur(2px);
-}
-
-/* Hide cards when toggled off */
 .card-hidden {
   display: none !important;
-}
-
-/* FLASH animation */
-.flash {
-  animation: flashAnim 0.25s ease;
-}
-
-@keyframes flashAnim {
-  0% { background: #fff8cc; }
-  100% { background: #ffffff; }
 }
 
 /* ================================================
@@ -281,37 +251,15 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
-.mix-icon {
-  margin-right: 8px;
-}
-
 /* ================================================
    Mobile
 =================================================== */
-@media (max-width: 600px) {
-  .paint-blue {
-    width: 300px;
-    left: -90px;
-    bottom: -90px;
-  }
-
-  .paint-pink {
-    width: 260px;
-    right: -80px;
-    top: -80px;
-  }
-}
-
 @media (max-width: 600px) {
   .config-grid {
     grid-template-columns: 1fr;
   }
 
-  .result-row {
+  .results-grid {
     grid-template-columns: 1fr;
-  }
-
-  .mix-btn {
-    width: 100%;
   }
 }

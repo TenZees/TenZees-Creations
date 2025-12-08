@@ -51,14 +51,28 @@ function flash(card) {
 // MIX MAIN FUNCTION
 function doMix() {
   // PALETTE
-  if (document.getElementById("toggle-palette").checked) {
-    const palette = generatePalette();
-    const box = document.querySelector(".value-palette");
-    box.innerHTML = `<div class="palette-swatches">${palette
-      .map(c => `<div class="swatch" style="background:${c}"></div>`)
-      .join("")}</div>`;
-    flash(document.getElementById("card-palette"));
-  }
+if (document.getElementById("toggle-palette").checked) {
+  const palette = generatePalette();
+  const box = document.querySelector(".value-palette");
+
+  box.innerHTML = `
+    <div class="palette-swatches">
+      ${palette.map(c => {
+        const value = parseInt(c.slice(1), 16);
+        const textColor = value < 0x888888 ? "#fff" : "#333";
+
+        return `
+          <div class="swatch" style="background:${c}; color:${textColor}">
+            ${c.toUpperCase()}
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+
+  flash(document.getElementById("card-palette"));
+}
+
 
   // OBJECT
   if (document.getElementById("toggle-object").checked) {
