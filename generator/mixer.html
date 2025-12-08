@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Element Mixer</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="mixer.css">
+  <link rel="stylesheet" href="mixer.css" />
 </head>
 <body>
 
-<!-- PAINT BACKGROUND -->
+<!-- Paint Background -->
 <div class="paint-bg">
   <img src="assets/BluePaint.png" class="paint paint-blue" alt="">
   <img src="assets/PinkPaint.png" class="paint paint-pink" alt="">
@@ -18,70 +18,66 @@
 
 <div class="mixer-container">
 
-  <!-- Back Button -->
   <button class="back-btn">←</button>
 
-  <!-- Page Title -->
   <h1 class="mixer-title">Element Mixer</h1>
 
-  <!-- CONFIG BOX -->
+  <!-- CONFIG -->
   <div class="config-box">
     <h2 class="config-title">⚙️ CONFIGURE MIX</h2>
 
     <div class="config-grid">
-
       <label class="toggle-row">
         <span>Color Palette</span>
-        <input type="checkbox" id="toggle-palette" checked>
+        <input type="checkbox" id="toggle-palette" checked />
         <span class="toggle-slider"></span>
       </label>
 
       <label class="toggle-row">
         <span>Object</span>
-        <input type="checkbox" id="toggle-object" checked>
+        <input type="checkbox" id="toggle-object" checked />
         <span class="toggle-slider"></span>
       </label>
 
       <label class="toggle-row">
         <span>Location</span>
-        <input type="checkbox" id="toggle-location" checked>
+        <input type="checkbox" id="toggle-location" checked />
         <span class="toggle-slider"></span>
       </label>
 
       <label class="toggle-row">
         <span>Theme / Culture</span>
-        <input type="checkbox" id="toggle-theme">
+        <input type="checkbox" id="toggle-theme" />
         <span class="toggle-slider"></span>
       </label>
 
       <label class="toggle-row">
         <span>Mood</span>
-        <input type="checkbox" id="toggle-mood">
+        <input type="checkbox" id="toggle-mood" />
         <span class="toggle-slider"></span>
       </label>
 
       <label class="toggle-row">
         <span>Art Style</span>
-        <input type="checkbox" id="toggle-art">
+        <input type="checkbox" id="toggle-art" />
         <span class="toggle-slider"></span>
       </label>
 
       <label class="toggle-row">
         <span>Season / Holiday</span>
-        <input type="checkbox" id="toggle-season">
+        <input type="checkbox" id="toggle-season" />
         <span class="toggle-slider"></span>
       </label>
 
       <label class="toggle-row">
         <span>Person / Character</span>
-        <input type="checkbox" id="toggle-person">
+        <input type="checkbox" id="toggle-person" />
         <span class="toggle-slider"></span>
       </label>
-
     </div>
   </div>
 
-  <!-- RESULTS GRID (NEW) -->
+  <!-- RESULTS -->
   <div class="results-grid">
 
     <div class="result-card pink" id="card-palette">
@@ -126,15 +122,10 @@
 
   </div>
 
-  <!-- MIX BUTTON -->
-  <button class="mix-btn" id="mix-btn">
-    <span class="mix-icon">⟳</span> Mix Elements
-  </button>
+  <button class="mix-btn" id="mix-btn">⟳ Mix Elements</button>
 
 </div>
 
-<!-- JavaScript -->
 <script src="mixer.js"></script>
-
 </body>
 </html>

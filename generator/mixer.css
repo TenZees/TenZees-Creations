@@ -1,148 +1,92 @@
-/* ================================================
-   Global Styles
-=================================================== */
 body {
   margin: 0;
-  padding: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f8f5ef;
   color: #333;
 }
 
-h1, h2, h3 {
-  margin: 0;
-  padding: 0;
-  font-weight: 600;
-}
-
-.mixer-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-  z-index: 2;
-}
-
-/* ================================================
-   Paint Background
-=================================================== */
+/* Paint Background */
 .paint-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
 }
-
 .paint {
   position: absolute;
-  opacity: 0.9;
-  filter: blur(0.5px);
 }
-
-/* Blue splat */
 .paint-blue {
   left: -120px;
   bottom: -140px;
   width: 420px;
-  max-width: 70vw;
-  transform: rotate(3deg);
 }
-
-/* Pink splat */
 .paint-pink {
   right: -130px;
   top: -120px;
   width: 380px;
-  max-width: 65vw;
-  filter: blur(1px);
 }
 
-/* ================================================
-   Back Button
-=================================================== */
+.mixer-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
 .back-btn {
+  font-size: 1.6rem;
   background: none;
   border: none;
-  font-size: 1.6rem;
   cursor: pointer;
-  padding: 5px;
-  margin-bottom: 10px;
 }
 
-.back-btn:hover {
-  transform: scale(1.1);
-}
-
-/* ================================================
-   Title
-=================================================== */
 .mixer-title {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
-/* ================================================
-   Config Section
-=================================================== */
+/* Config */
 .config-box {
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #e6ded1;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.07);
-  margin-bottom: 25px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 24px;
 }
-
-.config-title {
-  font-size: 1.4rem;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
 .config-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
-
 .toggle-row {
+  background: #f5f1ea;
+  padding: 8px 12px;
+  border-radius: 10px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
-  background: #f7f3ec;
-  border: 1px solid #ddd2c4;
-  border-radius: 8px;
-  cursor: pointer;
+  align-items: center;
 }
-
-.toggle-row input[type="checkbox"] {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.toggle-row input {
+  display: none;
 }
-
 .toggle-slider {
-  width: 38px;
-  height: 20px;
-  background: #d0c4b3;
+  width: 36px;
+  height: 18px;
+  background: #ccc;
   border-radius: 20px;
   position: relative;
 }
-
 .toggle-slider::after {
   content: "";
-  width: 16px;
-  height: 16px;
-  background: white;
-  border-radius: 50%;
   position: absolute;
-  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
   top: 2px;
+  left: 2px;
+  border-radius: 50%;
   transition: 0.2s;
 }
-
 .toggle-row input:checked + .toggle-slider {
   background: #b79e7f;
 }
@@ -150,116 +94,67 @@ h1, h2, h3 {
   transform: translateX(18px);
 }
 
-/* ================================================
-   Result Cards – Pastel Theme
-=================================================== */
+/* Results */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
 .result-card {
-  border-radius: 20px;
   padding: 18px;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: 0.2s ease;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
 }
-
-.result-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(0,0,0,0.08);
-}
-
 .result-card h3 {
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  opacity: 0.8;
-  margin-bottom: 12px;
   text-align: center;
+  font-size: 0.85rem;
 }
-
 .value-box {
-  background: rgba(255,255,255,0.65);
-  padding: 12px;
+  background: #fff;
   border-radius: 14px;
+  padding: 12px;
   text-align: center;
-  border: 1px solid rgba(0,0,0,0.06);
-  backdrop-filter: blur(2px);
-  font-size: 1.05rem;
 }
 
 /* Pastels */
-.result-card.pink   { background: #ffe0ec; }
-.result-card.blue   { background: #e3efff; }
-.result-card.green  { background: #e6faef; }
-.result-card.purple { background: #eee4ff; }
-.result-card.yellow { background: #fff6cc; }
-.result-card.orange { background: #ffe7cc; }
-.result-card.teal   { background: #e0f7f4; }
-.result-card.red    { background: #ffe0e0; }
+.pink { background: #ffe0ec; }
+.blue { background: #e3efff; }
+.green { background: #e6faef; }
+.purple { background: #eee4ff; }
+.yellow { background: #fff6cc; }
+.orange { background: #ffe7cc; }
+.teal { background: #e0f7f4; }
+.red { background: #ffe0e0; }
 
-/* ================================================
-   Color Palette Display
-=================================================== */
+.card-hidden {
+  display: none;
+}
+
+/* Palette */
 .palette-swatches {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 6px;
 }
-
 .swatch {
   height: 40px;
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.08);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   font-size: 0.65rem;
   font-family: monospace;
-  color: #333;
   padding-bottom: 4px;
-  background-clip: padding-box;
 }
 
-/* ================================================
-   Results Grid (Fixed 2-Column Layout)
-=================================================== */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-bottom: 20px;
-}
-
-.card-hidden {
-  display: none !important;
-}
-
-/* ================================================
-   Mix Button
-=================================================== */
+/* Button */
 .mix-btn {
+  margin: 24px auto 0;
   display: block;
-  margin: 25px auto 0;
-  background: #d9c6a6;
-  border: 2px solid #a89471;
-  padding: 12px 25px;
-  border-radius: 12px;
-  font-size: 1.2rem;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 14px;
+  border: none;
   cursor: pointer;
-  transition: 0.2s;
-}
-
-.mix-btn:hover {
-  background: #e7d7b8;
-  transform: scale(1.05);
-}
-
-/* ================================================
-   Mobile
-=================================================== */
-@media (max-width: 600px) {
-  .config-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .results-grid {
-    grid-template-columns: 1fr;
-  }
+  background: #d9c6a6;
 }
