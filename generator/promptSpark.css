@@ -45,6 +45,16 @@ body {
     transition: background 0.2s, transform 0.15s;
 }
 
+/* Icons inside tabs */
+.ps-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.ps-tab {
+    line-height: 1.2;
+}
+
 .ps-tab.active {
     background: #ffc6ec;
     font-weight: 600;
