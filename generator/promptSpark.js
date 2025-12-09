@@ -1,3 +1,10 @@
+const promptCard = document.getElementById("prompt-card");
+const inspireBtn = document.getElementById("inspire-btn");
+const tabs = document.querySelectorAll(".ps-tab");
+
+let currentTheme = "all";  // Default theme
+
+// Prompt database
 import { generalPrompts } from './prompts/general.js';
 import { slicePrompts } from './prompts/slice.js';
 import { surrealPrompts } from './prompts/surreal.js';
@@ -5,11 +12,6 @@ import { fantasyPrompts } from './prompts/fantasy.js';
 import { sciFiPrompts } from './prompts/sciFi.js';
 import { horrorPrompts } from './prompts/horror.js';
 
-const promptCard = document.getElementById("prompt-card");
-const inspireBtn = document.getElementById("inspire-btn");
-const tabs = document.querySelectorAll(".ps-tab");
-
-let currentTheme = "all";
 
 /* =========================
    Prompt Database
