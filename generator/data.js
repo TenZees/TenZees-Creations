@@ -190,6 +190,10 @@ export const DATA = {
       colors: ["#1B1B3A", "#3A0F2E", "#6D2E46", "#A23B72", "#E2C2C6"]
     },
     {
+      name: "Vampire Kiss",
+      colors: ["#7A0820", "#480E1A", "#DBC9C4", "#3C1A3F", "#0E0810"]
+    },
+    {
       name: "Cathedral Glass",
       colors: ["#2E2A4F", "#4E4A8C", "#8E9AAF", "#C9ADA7", "#F2E9E4"]
     },
@@ -213,6 +217,172 @@ export const DATA = {
       name: "Blood Cathedral",
       colors: ["#0B0A0F", "#2A0F14", "#5A1C22", "#8E2F39", "#E6A4A8"]
     },
+    [
+  {
+    name: "Jewel Berry Muffin",
+    colors: ["#B83374", "#283B80", "#F4D7B2", "#4D1E52", "#F8F2ED"]
+  },
+  {
+    name: "Tropical Frost",
+    colors: ["#F5C344", "#2FB8B2", "#D9F2A3", "#86D4E8", "#F7FBFF"]
+  },
+  {
+    name: "Winter Wonderland",
+    colors: ["#A7CBEF", "#FFFFFF", "#D7D5F5", "#3A4E52", "#CED7DD"]
+  },
+  {
+    name: "Character’s Chaos",
+    colors: ["#FF3F61", "#7CF23A", "#2C7CFF", "#FFD93B", "#1A1A1A"]
+  },
+  {
+    name: "Say No More",
+    colors: ["#2D2D2E", "#8C7468", "#C7BBAF", "#E6E3DE", "#FFFFFF"]
+  },
+  {
+    name: "Dream’s Embrace",
+    colors: ["#E7D7F7", "#F6C9D8", "#B9CCE9", "#D9DDE4", "#C6A9E1"]
+  },
+  {
+    name: "Retro Night",
+    colors: ["#FF2E82", "#4B00A5", "#22D7F2", "#742EEC", "#0A0F27"]
+  },
+  {
+    name: "War Rust",
+    colors: ["#B56A33", "#3F3F3F", "#D2A547", "#6C7B52", "#8E8E8E"]
+  },
+  {
+    name: "Kingdom of Demon Wings",
+    colors: ["#A10A1D", "#1A0F1B", "#2F1E32", "#F05B3E", "#4A185C"]
+  },
+  {
+    name: "Turtles Party",
+    colors: ["#3FB24C", "#FFC739", "#792CBA", "#2D7F76", "#9DA2A6"]
+  },
+  {
+    name: "Only Ace",
+    colors: ["#000000", "#A1A1A1", "#8B2BD4", "#FFFFFF", "#505050"]
+  },
+  {
+    name: "Jester’s Song",
+    colors: ["#D3332F", "#F6C847", "#2ABCB2", "#7A40D7", "#2E6FEB"]
+  },
+  {
+    name: "Serenity Dragon",
+    colors: ["#AEE5C8", "#C9D5D0", "#3C7764", "#E5DCCF", "#7BB9D4"]
+  },
+  {
+    name: "Twisted Druid",
+    colors: ["#5A3517", "#88A737", "#5C3B75", "#2A1A10", "#C5CBB7"]
+  },
+  {
+    name: "Magic Mayhem",
+    colors: ["#FF4DAA", "#CFFD3C", "#3BB7FF", "#832EF5", "#FAD24E"]
+  },
+  {
+    name: "Saturn’s Sunset",
+    colors: ["#F3C86A", "#F7A87C", "#7A4F9A", "#E8D7C9", "#3B2346"]
+  },
+  {
+    name: "Serene Universe",
+    colors: ["#BFD3E3", "#5D6A73", "#F4F7FA", "#D9A4B9", "#8AAFC8"]
+  },
+  {
+    name: "Cupid’s Paradise",
+    colors: ["#F2A8B8", "#FFECEA", "#E36C86", "#C93348", "#D3A4E6"]
+  },
+  {
+    name: "Razor’s Edge",
+    colors: ["#7C7F86", "#0B0C0E", "#29D7F3", "#C6FF2E", "#D8D8D8"]
+  },
+  {
+    name: "Gemtastic",
+    colors: ["#C12E45", "#0D9A6B", "#214CBA", "#F0B43C", "#8F55C8"]
+  },
+  {
+    name: "Mimic’s Taste",
+    colors: ["#D4A64A", "#7A2F1C", "#5B4326", "#6C3DA8", "#C9B9A3"]
+  },
+  {
+    name: "Underworld Sunrise",
+    colors: ["#FF8A3A", "#1A1A1A", "#D64228", "#8F8A85", "#F56273"]
+  },
+  {
+    name: "Lawn Gnome",
+    colors: ["#CC2C34", "#3A9D4E", "#F4F1EE", "#C46E33", "#3D5EBB"]
+  },
+  {
+    name: "Heavy Metal",
+    colors: ["#6F7377", "#0C0D0E", "#C4C7CC", "#F5D40E", "#2A9FD6"]
+  },
+  {
+    name: "Folk Art Flow",
+    colors: ["#C7443C", "#5A7CD1", "#F2C94D", "#E38A9B", "#F5ECD6"]
+  },
+  {
+    name: "Flash Flood",
+    colors: ["#1E6DAA", "#4CC8E8", "#A6B3BA", "#083F67", "#8D7154"]
+  },
+  {
+    name: "Tornado",
+    colors: ["#7E7E7E", "#3B3B3B", "#C7B8A3", "#D92427", "#7CA3C4"]
+  },
+  {
+    name: "Tech 101",
+    colors: ["#38C978", "#00A4FF", "#111213", "#D7DBDE", "#A48CE3"]
+  },
+  {
+    name: "Rubber Ducky",
+    colors: ["#F7D33C", "#6EC7F2", "#F9F8F3", "#F29B32", "#D9472B"]
+  },
+  {
+    name: "Monster Rush",
+    colors: ["#7CF05A", "#5A1C7C", "#D22C38", "#2F7BFF", "#111215"]
+  },
+  {
+    name: "Weird & Creepy",
+    colors: ["#4B1E3C", "#8EE38A", "#CBC7C3", "#6A35A2", "#2A242A"]
+  },
+  {
+    name: "Rogue of Olympus",
+    colors: ["#F2C468", "#EEE4D7", "#516BCE", "#B2343A", "#5E7D3A"]
+  },
+  {
+    name: "Rage Love",
+    colors: ["#E02B3E", "#9C1D29", "#514749", "#FF6A8A", "#F89D4F"]
+  },
+  {
+    name: "Eternal Peace",
+    colors: ["#E9F4FF", "#AFC9B8", "#EEC9D2", "#D7D8D3", "#8AB3C9"]
+  },
+  {
+    name: "Tree of Life",
+    colors: ["#5A3E20", "#6CB452", "#A67142", "#E6C75A", "#7FAEDB"]
+  },
+  {
+    name: "Coffee Addiction",
+    colors: ["#3B2419", "#6A4A33", "#F0E8DA", "#C18A4E", "#8AA3B8"]
+  },
+  {
+    name: "Taco Supreme",
+    colors: ["#D9382E", "#F7C648", "#6DBE58", "#D7B48A", "#7C4E2F"]
+  },
+  {
+    name: "Alter Ego",
+    colors: ["#1A1A1C", "#F5F5F7", "#7A4EE6", "#A5293E", "#7E8085"]
+  },
+  {
+    name: "Mad as a Hatter",
+    colors: ["#AEE8C8", "#7C31C7", "#FF9EC5", "#F2C85A", "#3A6CF0"]
+  },
+  {
+    name: "Zip Zap",
+    colors: ["#FFE72B", "#FF4FB8", "#36C3FF", "#FDFDFD", "#121314"]
+  },
+  {
+    name: "Valiant Ghoul",
+    colors: ["#D7D9E0", "#86C7A1", "#3A5CBF", "#7B3FA1", "#22242A"]
+  }
+],
     {
       name: "Mystic Fog",
       colors: ["#3E5A80", "#6B8E8D", "#9AC4D8", "#B9A9C7", "#E0D1DB"]
