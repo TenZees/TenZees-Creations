@@ -217,7 +217,6 @@ export const DATA = {
       name: "Blood Cathedral",
       colors: ["#0B0A0F", "#2A0F14", "#5A1C22", "#8E2F39", "#E6A4A8"]
     },
-    [
   {
     name: "Jewel Berry Muffin",
     colors: ["#B83374", "#283B80", "#F4D7B2", "#4D1E52", "#F8F2ED"]
@@ -381,8 +380,95 @@ export const DATA = {
   {
     name: "Valiant Ghoul",
     colors: ["#D7D9E0", "#86C7A1", "#3A5CBF", "#7B3FA1", "#22242A"]
-  }
-],
+  },
+  {
+    name: "The Fool",
+    colors: ["#F6EFD3", "#A9D7F8", "#69B87C", "#C6A888", "#FFE45C"]
+  },
+  {
+    name: "The Magician",
+    colors: ["#B8363E", "#EED16A", "#F7F7F0", "#8B5C3C", "#87ADEF"]
+  },
+  {
+    name: "The High Priestess",
+    colors: ["#E7E2F1", "#4B3A88", "#C5C7D1", "#1B234A", "#C895B9"]
+  },
+  {
+    name: "The Empress",
+    colors: ["#7DBA6F", "#E7C45A", "#A06A43", "#F2C7D5", "#F4E9D6"]
+  },
+  {
+    name: "The Emperor",
+    colors: ["#C7423D", "#1E1E1F", "#74777B", "#D4B465", "#A91C2A"]
+  },
+  {
+    name: "The Hierophant",
+    colors: ["#EFE9D9", "#DFC67A", "#B04743", "#AEABA3", "#677FA8"]
+  },
+  {
+    name: "The Lovers",
+    colors: ["#F4B5C7", "#ECCB6A", "#D44D57", "#9A69D8", "#F9F5F0"]
+  },
+  {
+    name: "The Chariot",
+    colors: ["#2C6EBE", "#1B1C23", "#E7C85C", "#7F848A", "#C6BBAA"]
+  },
+  {
+    name: "Strength",
+    colors: ["#D9A646", "#C9503A", "#A36A3A", "#F3E7D8", "#A0C48A"]
+  },
+  {
+    name: "The Hermit",
+    colors: ["#E8D27A", "#A9AAAE", "#6E89A8", "#4E4E54", "#E8E8EB"]
+  },
+  {
+    name: "Wheel of Fortune",
+    colors: ["#EBCB67", "#567FB6", "#B03A41", "#C0C4C7", "#7A55A8"]
+  },
+  {
+    name: "Justice",
+    colors: ["#4A6BAF", "#F5F5FA", "#B5383F", "#DDBB63", "#6C6D72"]
+  },
+  {
+    name: "The Hanged Man",
+    colors: ["#8BAED7", "#E8D88A", "#C4C8CD", "#B44544", "#FAF9F6"]
+  },
+  {
+    name: "Death",
+    colors: ["#111112", "#F2F2F2", "#D2C7B7", "#6E4A8F", "#98343A"]
+  },
+  {
+    name: "Temperance",
+    colors: ["#8DCBE5", "#F9F9F4", "#E2CF8F", "#EAAE96", "#7CBF9C"]
+  },
+  {
+    name: "The Devil",
+    colors: ["#A01624", "#1A1417", "#544F53", "#791C28", "#D6552F"]
+  },
+  {
+    name: "The Tower",
+    colors: ["#F6E454", "#C2312C", "#7C7D80", "#826756", "#F7F7F0"]
+  },
+  {
+    name: "The Star",
+    colors: ["#87C6F3", "#1E2245", "#F4DB87", "#C8B7F1", "#A4E7EB"]
+  },
+  {
+    name: "The Moon",
+    colors: ["#7AA1D9", "#D4D8E0", "#626677", "#F2F4F8", "#363A68"]
+  },
+  {
+    name: "The Sun",
+    colors: ["#FFD33E", "#F39A2E", "#FEF9E8", "#8AC76A", "#D4614B"]
+  },
+  {
+    name: "Judgement",
+    colors: ["#E5C978", "#6B92C8", "#F7F5F2", "#C14F4A", "#BFC2C7"]
+  },
+  {
+    name: "The World",
+    colors: ["#78BEA4", "#6C9BD8", "#8B6B4E", "#E3C967", "#F1EFE9"]
+  },
     {
       name: "Mystic Fog",
       colors: ["#3E5A80", "#6B8E8D", "#9AC4D8", "#B9A9C7", "#E0D1DB"]
