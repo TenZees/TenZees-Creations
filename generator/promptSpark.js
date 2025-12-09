@@ -11,7 +11,7 @@ import { generalPrompts } from './prompts/general.js';
 import { slicePrompts } from './prompts/slice.js';
 import { surrealPrompts } from './prompts/surreal.js';
 import { fantasyPrompts } from './prompts/fantasy.js';
-import { sciFiPrompts } from './prompts/scifi.js';
+import { sciFiPrompts } from './prompts/sciFi.js';
 import { horrorPrompts } from './prompts/horror.js';
 
 // Prompt categories
