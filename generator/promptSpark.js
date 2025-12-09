@@ -30,15 +30,21 @@ let promptList = prompts[currentTheme];
 
 // Function to generate a new prompt
 function newPrompt() {
-    const prompt = promptList[Math.floor(Math.random() * promptList.length)];
+    // Check if promptList is defined and is an array
+    if (Array.isArray(promptList) && promptList.length > 0) {
+        const prompt = promptList[Math.floor(Math.random() * promptList.length)];
 
-    // Add smooth fade-in effect
-    promptCard.style.opacity = 0;
-    setTimeout(() => {
-        promptCard.textContent = prompt;
-        promptCard.style.opacity = 1;
-    }, 200);
+        // Add smooth fade-in effect
+        promptCard.style.opacity = 0;
+        setTimeout(() => {
+            promptCard.textContent = prompt;
+            promptCard.style.opacity = 1;
+        }, 200);
+    } else {
+        console.error("promptList is not defined or is empty.");
+    }
 }
+
 
 // Event listener for the "Inspire Me" button
 inspireBtn.addEventListener("click", () => {
