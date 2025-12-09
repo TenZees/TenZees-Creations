@@ -16,15 +16,8 @@ import { horrorPrompts } from './prompts/horror.js';
 
 // Prompt categories
 const prompts = {
-    general: [
-        ...generalPrompts,
-        ...slicePrompts,
-        ...surrealPrompts,
-        ...fantasyPrompts,
-        ...sciFiPrompts,
-        ...horrorPrompts
-    ],
-    all: [...generalPrompts, ...slicePrompts, ...surrealPrompts, ...fantasyPrompts, ...sciFiPrompts, ...horrorPrompts],
+    general: generalPrompts,
+    all: generalPrompts.concat(slicePrompts, surrealPrompts, fantasyPrompts, sciFiPrompts, horrorPrompts),
     slice: slicePrompts,
     surreal: surrealPrompts,
     fantasy: fantasyPrompts,
