@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prompt Spark</title>
 
     <!-- Main site CSS -->
@@ -11,27 +12,28 @@
     <!-- Prompt Spark CSS -->
     <link rel="stylesheet" href="promptSpark.css">
 
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <div class="page">
-
         <!-- Back Button -->
-        <a href="index.html" class="back-btn">← Back</a>
+        <a href="index.html" class="back-btn" aria-label="Go back to the homepage">← Back</a>
 
+        <!-- Title -->
         <h1 class="ps-title">Prompt Spark</h1>
 
         <!-- Theme Selector -->
         <div class="ps-tabs">
-    <button class="ps-tab active" data-theme="all">✨ All</button>
-    <button class="ps-tab" data-theme="fantasy">🧙‍♂️ Fantasy</button>
-    <button class="ps-tab" data-theme="scifi">🚀 Sci-Fi</button>
-    <button class="ps-tab" data-theme="horror">👁 Horror</button>
-    <button class="ps-tab" data-theme="slice">🎭 Slice of Life</button>
-    <button class="ps-tab" data-theme="surreal">🌙 Surreal</button>
-</div>
+            <button class="ps-tab active" data-theme="all" aria-selected="true">✨ All</button>
+            <button class="ps-tab" data-theme="fantasy" aria-selected="false">🧙‍♂️ Fantasy</button>
+            <button class="ps-tab" data-theme="scifi" aria-selected="false">🚀 Sci-Fi</button>
+            <button class="ps-tab" data-theme="horror" aria-selected="false">👁 Horror</button>
+            <button class="ps-tab" data-theme="slice" aria-selected="false">🎭 Slice of Life</button>
+            <button class="ps-tab" data-theme="surreal" aria-selected="false">🌙 Surreal</button>
+        </div>
 
         <!-- Prompt Card -->
         <div id="prompt-card" class="ps-card">
@@ -39,15 +41,14 @@
         </div>
 
         <!-- Inspire Button -->
-        <button id="inspire-btn" class="ps-inspire">✨ Inspire Me</button>
+        <button id="inspire-btn" class="ps-inspire" aria-label="Get a new prompt">✨ Inspire Me</button>
 
+        <!-- Footer -->
         <footer class="footer">
             <p>© 2025 TenZees • All Rights Reserved</p>
         </footer>
-
     </div>
 
-<script type="module" src="promptSpark.js"></script>
-
+    <script type="module" src="promptSpark.js"></script>
 </body>
 </html>
