@@ -381,6 +381,10 @@ export const DATA = {
     name: "Valiant Ghoul",
     colors: ["#D7D9E0", "#86C7A1", "#3A5CBF", "#7B3FA1", "#22242A"]
   },
+
+  /* =================================================
+   MAJOR ARCANA
+  ================================================= */
   {
     name: "The Fool",
     colors: ["#F6EFD3", "#A9D7F8", "#69B87C", "#C6A888", "#FFE45C"]
@@ -469,6 +473,240 @@ export const DATA = {
     name: "The World",
     colors: ["#78BEA4", "#6C9BD8", "#8B6B4E", "#E3C967", "#F1EFE9"]
   },
+
+  /* =================================================
+   MINOR ARCANA
+  ================================================= */
+    {
+    name: "Ace of Wands",
+    colors: ["#F8C15D", "#D64A2A", "#A63A22", "#F3E8D3", "#8C5E33"]
+  },
+  {
+    name: "Two of Wands",
+    colors: ["#C7491D", "#F0D179", "#7E3F29", "#E4A656", "#F5EFE4"]
+  },
+  {
+    name: "Three of Wands",
+    colors: ["#E87722", "#F4D37A", "#AF542A", "#8B6535", "#F9F3E8"]
+  },
+  {
+    name: "Four of Wands",
+    colors: ["#D0522B", "#F5BF5A", "#F2E7D5", "#A4884A", "#7B3B28"]
+  },
+  {
+    name: "Five of Wands",
+    colors: ["#BD2E22", "#F9C052", "#6F3B32", "#CE8E41", "#F7EEE2"]
+  },
+  {
+    name: "Six of Wands",
+    colors: ["#E07C36", "#F2D784", "#9C4B29", "#A8773D", "#F9F4E9"]
+  },
+  {
+    name: "Seven of Wands",
+    colors: ["#A23125", "#E0B958", "#824538", "#C1793B", "#F6ECDC"]
+  },
+  {
+    name: "Eight of Wands",
+    colors: ["#F2A45C", "#D64F1E", "#9E402D", "#ECC689", "#FCF2E6"]
+  },
+  {
+    name: "Nine of Wands",
+    colors: ["#A53C24", "#F1C06A", "#8C5937", "#C78442", "#EEE4D8"]
+  },
+  {
+    name: "Ten of Wands",
+    colors: ["#82351E", "#E8A95B", "#CA7E3B", "#F4D8A2", "#F8F2E9"]
+  },
+  {
+    name: "Page of Wands",
+    colors: ["#E86F3A", "#F5C668", "#97412D", "#F6E8C9", "#B27B34"]
+  },
+  {
+    name: "Knight of Wands",
+    colors: ["#C4381D", "#F2AB57", "#7E2E24", "#D28A43", "#F4E9DA"]
+  },
+  {
+    name: "Queen of Wands",
+    colors: ["#F29A3E", "#D3452B", "#7C3B32", "#F3D07C", "#FAF4EA"]
+  },
+  {
+    name: "King of Wands",
+    colors: ["#B43A21", "#E8C46E", "#834839", "#CB9047", "#F8F1E5"]
+  },
+
+      {
+    name: "Ace of Cups",
+    colors: ["#A6D6E5", "#F7F9FA", "#6BA9C5", "#D5E6EA", "#F4C6D8"]
+  },
+  {
+    name: "Two of Cups",
+    colors: ["#89C5D8", "#F4DAE6", "#E67B96", "#B3D8E2", "#FFFFFF"]
+  },
+  {
+    name: "Three of Cups",
+    colors: ["#72B9D4", "#E7C7DA", "#F6EDEF", "#A06D9D", "#FBBBB3"]
+  },
+  {
+    name: "Four of Cups",
+    colors: ["#6BA3BB", "#D9DCE3", "#425A6A", "#F5E9F0", "#B8C5C9"]
+  },
+  {
+    name: "Five of Cups",
+    colors: ["#324A5F", "#7C94A8", "#AEBEC7", "#F5F6F7", "#C54C59"]
+  },
+  {
+    name: "Six of Cups",
+    colors: ["#9EDDE6", "#FDECE8", "#F4C5A5", "#A3CDE1", "#FBF9F4"]
+  },
+  {
+    name: "Seven of Cups",
+    colors: ["#7DADD2", "#EDE6F8", "#BEA8E6", "#93D4D7", "#F0FBFA"]
+  },
+  {
+    name: "Eight of Cups",
+    colors: ["#213447", "#8FA2B2", "#D5E0E6", "#496C89", "#EBF4FB"]
+  },
+  {
+    name: "Nine of Cups",
+    colors: ["#6FBBC8", "#F3E4B7", "#ECA297", "#F7F5F1", "#A87D7B"]
+  },
+  {
+    name: "Ten of Cups",
+    colors: ["#96D6E3", "#FFE7A1", "#ECA8C7", "#B8DDF4", "#FFFDF6"]
+  },
+  {
+    name: "Page of Cups",
+    colors: ["#A5D9E0", "#F8F3FA", "#F1C3E2", "#85BDD0", "#FDFEFF"]
+  },
+  {
+    name: "Knight of Cups",
+    colors: ["#77AFC1", "#E4E9EF", "#C9D2DA", "#4A6A7F", "#F3D3E3"]
+  },
+  {
+    name: "Queen of Cups",
+    colors: ["#8DC4D6", "#E9D5F3", "#B06FA9", "#F5F3FA", "#549BB1"]
+  },
+  {
+    name: "King of Cups",
+    colors: ["#4C7491", "#A3C0CD", "#E2D5B3", "#F9F8F4", "#8DC2D0"]
+  },
+
+      {
+    name: "Ace of Swords",
+    colors: ["#DCE3EA", "#7E92A8", "#425464", "#F9F9FA", "#9BB7CD"]
+  },
+  {
+    name: "Two of Swords",
+    colors: ["#7F8EA3", "#D3DBE3", "#3E4B5A", "#E5EFF4", "#A9B7C4"]
+  },
+  {
+    name: "Three of Swords",
+    colors: ["#C64755", "#6E7A89", "#E5DFDB", "#9DABB4", "#F8F6F7"]
+  },
+  {
+    name: "Four of Swords",
+    colors: ["#8096A9", "#C7D3DB", "#E7EEF1", "#495B67", "#F1F5F7"]
+  },
+  {
+    name: "Five of Swords",
+    colors: ["#3B4C5B", "#90A3B3", "#C3CBD1", "#ECEFF1", "#B54348"]
+  },
+  {
+    name: "Six of Swords",
+    colors: ["#6E8AA4", "#D9E3EC", "#EFF3F7", "#3D5060", "#A6B7C8"]
+  },
+  {
+    name: "Seven of Swords",
+    colors: ["#4A6680", "#9FB3C3", "#D3DCE3", "#F1F4F6", "#B28418"]
+  },
+  {
+    name: "Eight of Swords",
+    colors: ["#657A8B", "#C3CDD5", "#F1F2F3", "#455766", "#9EACB6"]
+  },
+  {
+    name: "Nine of Swords",
+    colors: ["#2F3C48", "#8694A2", "#B9C1C7", "#F4F6F7", "#D16C79"]
+  },
+  {
+    name: "Ten of Swords",
+    colors: ["#1C2530", "#6D7A88", "#A7AFB6", "#E7ECF0", "#8B3244"]
+  },
+  {
+    name: "Page of Swords",
+    colors: ["#8AA4B5", "#E0E7ED", "#F9FBFC", "#5C7385", "#C2D2DB"]
+  },
+  {
+    name: "Knight of Swords",
+    colors: ["#5B748A", "#A7B9C6", "#E7EBED", "#2E3944", "#D6DDE2"]
+  },
+  {
+    name: "Queen of Swords",
+    colors: ["#8DA2B1", "#DDE6EB", "#4B6274", "#F3F7F8", "#BFC7D0"]
+  },
+  {
+    name: "King of Swords",
+    colors: ["#3F5364", "#9FB4C1", "#D5DEE3", "#F6F8F9", "#64798A"]
+  },
+
+      {
+    name: "Ace of Pentacles",
+    colors: ["#A7C98C", "#E7E3C2", "#86B066", "#FDFBF2", "#C4A965"]
+  },
+  {
+    name: "Two of Pentacles",
+    colors: ["#8EB483", "#E4D18B", "#6E8F5F", "#F7F4E8", "#CFA96C"]
+  },
+  {
+    name: "Three of Pentacles",
+    colors: ["#89A573", "#DCCB94", "#A99D7F", "#F1EFE4", "#C6A763"]
+  },
+  {
+    name: "Four of Pentacles",
+    colors: ["#6F805C", "#C2C48E", "#DBCBA7", "#F8F4E2", "#B09563"]
+  },
+  {
+    name: "Five of Pentacles",
+    colors: ["#4F5B4A", "#A8AB8A", "#D0C8AE", "#F4F3ED", "#9B282A"]
+  },
+  {
+    name: "Six of Pentacles",
+    colors: ["#9BB47A", "#E6DDAF", "#B89363", "#FDFBF3", "#CAB982"]
+  },
+  {
+    name: "Seven of Pentacles",
+    colors: ["#769B67", "#CDBE8D", "#EDE5CF", "#B69E65", "#F2F1EA"]
+  },
+  {
+    name: "Eight of Pentacles",
+    colors: ["#87A979", "#E0D6AD", "#B38D63", "#F7F4E9", "#5D7351"]
+  },
+  {
+    name: "Nine of Pentacles",
+    colors: ["#A4CA92", "#F1E7C0", "#C2A36D", "#FFFDF4", "#8B6D3A"]
+  },
+  {
+    name: "Ten of Pentacles",
+    colors: ["#AFCC98", "#F5EBBF", "#C7A76F", "#EAE6D3", "#756344"]
+  },
+  {
+    name: "Page of Pentacles",
+    colors: ["#A2C48E", "#EDE5C9", "#799C63", "#FDFBF4", "#C1A46F"]
+  },
+  {
+    name: "Knight of Pentacles",
+    colors: ["#6D845B", "#D1CB9C", "#A4845A", "#F8F4E6", "#B9A773"]
+  },
+  {
+    name: "Queen of Pentacles",
+    colors: ["#9CB884", "#E4DDB5", "#C09D6A", "#FDFBF5", "#6E8B5B"]
+  },
+  {
+    name: "King of Pentacles",
+    colors: ["#596C4E", "#B6BA92", "#D7C599", "#EEE9D6", "#A07F53"]
+  },
+  /* =================================================
+            END OF TAROT PALETTES
+  ================================================= */
     {
       name: "Mystic Fog",
       colors: ["#3E5A80", "#6B8E8D", "#9AC4D8", "#B9A9C7", "#E0D1DB"]
