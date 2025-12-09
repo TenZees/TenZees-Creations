@@ -244,6 +244,26 @@ export const DATA = {
     name: "Say No More",
     colors: ["#2D2D2E", "#8C7468", "#C7BBAF", "#E6E3DE", "#FFFFFF"]
   },
+  {
+  name: "Mango Lollipop",
+  colors: ["#FFB74D", "#FFD180", "#FFEB3B", "#FFF3E0", "#FF8A65"]
+},
+{
+  name: "Citrus Spritz",
+  colors: ["#FFA726", "#FFE57F", "#FFD54F", "#FFF8E1", "#FF7043"]
+},
+{
+  name: "Peach Fizz",
+  colors: ["#FFCC80", "#FFE0B2", "#FFAB91", "#FFF3E0", "#FFD54F"]
+},
+{
+  name: "Sunny Pop",
+  colors: ["#FFF176", "#FFEE58", "#FFD740", "#FFF9C4", "#FF8F00"]
+},
+{
+  name: "Apricot Dreams",
+  colors: ["#FFB347", "#FFD699", "#FFE0B2", "#FFF8E1", "#FF7043"]
+},
   /* ========================
      RETRO & NEON
   ======================== */
@@ -267,6 +287,26 @@ export const DATA = {
     name: "Turtles Party",
     colors: ["#3FB24C", "#FFC739", "#792CBA", "#2D7F76", "#9DA2A6"]
   },
+  {
+  name: "Electric Tangerine",
+  colors: ["#FF6F00", "#FFAB00", "#FFC400", "#FF8F00", "#FFD740"]
+},
+{
+  name: "Laser Lemon",
+  colors: ["#FFFF33", "#FFF176", "#FFEB3B", "#FFF59D", "#FFEE58"]
+},
+{
+  name: "Neon Coral",
+  colors: ["#FF3D00", "#FF6E40", "#FF8A65", "#FF5252", "#FF1744"]
+},
+{
+  name: "Cyber Sunrise",
+  colors: ["#FF9100", "#FFC107", "#FFEA00", "#FFD600", "#FFAB00"]
+},
+{
+  name: "Glowstick",
+  colors: ["#FFEA00", "#FFFF00", "#FFEE58", "#FFFF33", "#FFF176"]
+},
   /* ========================
      CLASSIC NEUTRALS & METALLICS
   ======================== */
@@ -282,6 +322,89 @@ export const DATA = {
     name: "Twisted Druid",
     colors: ["#5A3517", "#88A737", "#5C3B75", "#2A1A10", "#C5CBB7"]
   },
+  /* ========================
+     RADIANCE / LIGHT
+  ======================== */
+  {
+  name: "Angel Wings",
+  colors: ["#FFF7E8", "#FFE9A0", "#FFD966", "#FFF1C4", "#FFEB99"]
+},
+{
+  name: "Halo Shadow",
+  colors: ["#FFF9E5", "#FFEFA3", "#FFD94D", "#FFF3B8", "#FFE680"]
+},
+{
+  name: "Sunlit Grove",
+  colors: ["#FFF8E1", "#FFEFA8", "#FFD94F", "#FFF2B9", "#FFE58F"]
+},
+{
+  name: "Golden Ember",
+  colors: ["#FFF4E0", "#FFE18C", "#FFC845", "#FFE9B2", "#FFD77A"]
+},
+{
+  name: "Harvest Glow",
+  colors: ["#FFF5E2", "#FFEB9A", "#FFD24B", "#FFEAB3", "#FFD78B"]
+},
+{
+  name: "Saffron Spell",
+  colors: ["#FFF6E3", "#FFEBA0", "#FFD552", "#FFF2B5", "#FFE18B"]
+},
+{
+  name: "Amber Mist",
+  colors: ["#FFF7E5", "#FFEFA5", "#FFD964", "#FFF3B9", "#FFE58F"]
+},
+{
+  name: "Sunbeam Shard",
+  colors: ["#FFF8E6", "#FFEFA8", "#FFD84F", "#FFF4BA", "#FFE68C"]
+},
+{
+  name: "Golden Horizon",
+  colors: ["#FFF5E1", "#FFEB9F", "#FFD64B", "#FFEAB2", "#FFD68A"]
+},
+{
+  name: "Candlelight Veil",
+  colors: ["#FFF6E2", "#FFEBA2", "#FFD552", "#FFF3B5", "#FFE38C"]
+},
+{
+  name: "Morning Nectar",
+  colors: ["#FFF8E3", "#FFEFA5", "#FFD84E", "#FFF4BA", "#FFE58D"]
+},
+{
+  name: "Sunflower Waltz",
+  colors: ["#FFF7E4", "#FFEFA6", "#FFD851", "#FFF3BB", "#FFE58F"]
+},
+{
+  name: "Golden Lyric",
+  colors: ["#FFF5E0", "#FFE99D", "#FFD44B", "#FFE9B1", "#FFD687"]
+},
+{
+  name: "Twilight Marigold",
+  colors: ["#FFF6E1", "#FFEBA0", "#FFD654", "#FFF3B5", "#FFE38B"]
+},
+{
+  name: "Luminous Leaf",
+  colors: ["#FFF8E3", "#FFEFA7", "#FFD84F", "#FFF4BB", "#FFE68E"]
+},
+{
+  name: "Solar Flare",
+  colors: ["#FFF7E2", "#FFEFA4", "#FFD851", "#FFF3BA", "#FFE58D"]
+},
+{
+  name: "Buttercup Veil",
+  colors: ["#FFF6E0", "#FFEB9F", "#FFD54B", "#FFF2B3", "#FFE38B"]
+},
+{
+  name: "Golden Mirage",
+  colors: ["#FFF8E5", "#FFEFA8", "#FFD950", "#FFF4BD", "#FFE68D"]
+},
+{
+  name: "Auric Dawn",
+  colors: ["#FFF5E1", "#FFEB9F", "#FFD44A", "#FFEAB2", "#FFD687"]
+},
+{
+  name: "Sunlit Crown",
+  colors: ["#FFF6E2", "#FFEBA2", "#FFD653", "#FFF3B6", "#FFE38C"]
+},
   /* ========================
      MAGIC & COSMIC
   ======================== */
