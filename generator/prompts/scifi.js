@@ -1,4 +1,4 @@
-export const scifiPrompts = [
+export const sciFiPrompts = [
         "A robot learning to dream for the first time.",
         "A city powered by bottled thunderstorms.",
         "A spaceship grown like a living organism.",
