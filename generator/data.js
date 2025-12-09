@@ -271,10 +271,6 @@ export const DATA = {
      CLASSIC NEUTRALS & METALLICS
   ======================== */
   {
-    name: "Only Ace",
-    colors: ["#000000", "#A1A1A1", "#8B2BD4", "#FFFFFF", "#505050"]
-  },
-  {
     name: "Jester’s Song",
     colors: ["#D3332F", "#F6C847", "#2ABCB2", "#7A40D7", "#2E6FEB"]
   },
@@ -309,6 +305,46 @@ export const DATA = {
     name: "Razor’s Edge",
     colors: ["#7C7F86", "#0B0C0E", "#29D7F3", "#C6FF2E", "#D8D8D8"]
   },
+  {
+  name: "Twilight Abyss",
+  colors: ["#9BA3E0", "#7D8BCF", "#B2B9F1", "#6672B0", "#C3C9F7"]
+},
+{
+  name: "Mystic Drift",
+  colors: ["#A1A8E5", "#7F88D1", "#B5BCF3", "#6571B3", "#C5CBF8"]
+},
+{
+  name: "Starlit Wave",
+  colors: ["#9EA0E2", "#7B7FCF", "#B3B5F1", "#6269AF", "#C2C5F6"]
+},
+{
+  name: "Aurora Veil",
+  colors: ["#A3A5E8", "#7E7FCC", "#B6B9F4", "#6369B5", "#C6C9F9"]
+},
+{
+  name: "Celestial Frost",
+  colors: ["#9DA2E1", "#7A7ECF", "#B2B6F2", "#6169B1", "#C1C5F7"]
+},
+{
+  name: "Moonlit Tide",
+  colors: ["#A0A4E6", "#7C7FCF", "#B4B8F4", "#6268B3", "#C4C8F8"]
+},
+{
+  name: "Ethereal Current",
+  colors: ["#9FA3E3", "#7B7FCF", "#B3B6F3", "#6168B0", "#C2C6F7"]
+},
+{
+  name: "Iridescent Deep",
+  colors: ["#A2A6E7", "#7E80D0", "#B6BAF4", "#636AB4", "#C5CAF9"]
+},
+{
+  name: "Nebula Drift",
+  colors: ["#9EA1E4", "#797FCC", "#B3B6F2", "#6168AF", "#C1C5F7"]
+},
+{
+  name: "Frosted Comet",
+  colors: ["#A1A5E8", "#7C7FCC", "#B5B9F4", "#6269B2", "#C4C8F8"]
+},
   
 
   /* =================================================
@@ -765,6 +801,46 @@ export const DATA = {
     colors: ["#CBE4D1", "#AABFAF", "#798F7C", "#E3F3E8", "#2C3B2F"]
 },
 {
+  name: "Mossmantle",
+  colors: ["#6B8E23", "#556B2F", "#8F9779", "#3E5129", "#A0B084"]
+},
+{
+  name: "Forest Whisper",
+  colors: ["#4F6D3A", "#2E4D23", "#7B915E", "#3B522B", "#91A77A"]
+},
+{
+  name: "Verdant Grove",
+  colors: ["#5A7A3F", "#3E562B", "#8AA278", "#2F4221", "#A1B089"]
+},
+{
+  name: "Golem’s Root",
+  colors: ["#6D7B42", "#4A5730", "#9BA587", "#37432A", "#A9B394"]
+},
+{
+  name: "Thornbriar",
+  colors: ["#5C7041", "#3B4C28", "#87977C", "#2E3B22", "#9BA98D"]
+},
+{
+  name: "Oakshade",
+  colors: ["#667344", "#495536", "#8B9B7B", "#36402A", "#A0AA85"]
+},
+{
+  name: "Earthwarden",
+  colors: ["#5F6F3E", "#3E4F2A", "#889675", "#2C3C21", "#98AA83"]
+},
+{
+  name: "Lichenveil",
+  colors: ["#6A7B45", "#4A5B30", "#9AA988", "#36422B", "#A7B194"]
+},
+{
+  name: "Wildroot",
+  colors: ["#5E6E3C", "#3F5028", "#869676", "#2F3F23", "#99AA87"]
+},
+{
+  name: "Stonebark",
+  colors: ["#657545", "#465838", "#8D9D7E", "#333F2C", "#A2B092"]
+},
+{
     name: "Moonlit Bruja",
     colors: ["#C4C3E0", "#8C8DB4", "#5D587B", "#E7E7F6", "#2D2D43"]
 },
@@ -807,6 +883,49 @@ export const DATA = {
 {
     name: "Fossil Fawn",
     colors: ["#C6B199", "#948474", "#E9DFD1", "#6F6354", "#B8A189"]
+},
+/* ===========================
+    SKY & ARCANA
+ ============================= */
+{
+  name: "Azure Sigil",
+  colors: ["#4A90E2", "#3A78C2", "#7AB1E6", "#2D5FA0", "#91C2F2"]
+},
+{
+  name: "Stormveil",
+  colors: ["#4F8ABF", "#3C6C9A", "#7FAED9", "#2B537D", "#91BEE2"]
+},
+{
+  name: "Celestial Tide",
+  colors: ["#4C9CD6", "#3A7CB5", "#7EBCE9", "#2E5F93", "#9AC8F4"]
+},
+{
+  name: "Arcane Mist",
+  colors: ["#5A9EDC", "#3D7ABB", "#82B8F0", "#2D6195", "#A2C9F7"]
+},
+{
+  name: "Sapphire Rune",
+  colors: ["#4983D2", "#3763B0", "#74A7E6", "#2C4D8E", "#8EB8F1"]
+},
+{
+  name: "Moonwater",
+  colors: ["#5B9FD9", "#3E7DB7", "#84B9F0", "#2D6195", "#A3C9F6"]
+},
+{
+  name: "Frostglimmer",
+  colors: ["#56A1E1", "#3C81C0", "#7EBDF2", "#2C6397", "#9FC9F6"]
+},
+{
+  name: "Windchime",
+  colors: ["#4F9ED4", "#397CB2", "#78BAE8", "#2D5E8E", "#95C0F2"]
+},
+{
+  name: "Ethersky",
+  colors: ["#5B9DDC", "#3C7CB7", "#83B7F0", "#2D6194", "#A1C8F6"]
+},
+{
+  name: "Glacial Ward",
+  colors: ["#4F91D8", "#386FB5", "#7DB6EE", "#2C5690", "#95BDF2"]
 },
 
 /* ===========================
@@ -851,6 +970,50 @@ export const DATA = {
 {
     name: "Crystalline Depths",
     colors: ["#05707A", "#024A52", "#29B1BB", "#8FF0F5", "#C7FFFF"]
+},
+
+/* ===========================
+    SANCTUM & HEARTH 
+ ============================= */
+{
+  name: "Ivory Lantern",
+  colors: ["#FDF5E6", "#FAEFD0", "#FFF8E1", "#F8ECD0", "#FDF7E7"]
+},
+{
+  name: "Amber Hearth",
+  colors: ["#FBE8C6", "#FADCB3", "#FFF3D9", "#F7E2C0", "#FDF0D8"]
+},
+{
+  name: "Sunlit Cloister",
+  colors: ["#FDF1E0", "#FAE6CC", "#FFF8E5", "#F8E0C9", "#FDF5E3"]
+},
+{
+  name: "Blessed Alabaster",
+  colors: ["#FEF5EB", "#FAEBDD", "#FFF9F0", "#F9E9DC", "#FEF6EC"]
+},
+{
+  name: "Golden Hearthstone",
+  colors: ["#FDE8C4", "#FADBB0", "#FFF3D6", "#F8E0BB", "#FDF0D7"]
+},
+{
+  name: "Sanctuary Veil",
+  colors: ["#FDF5E7", "#FAEED3", "#FFF8E2", "#F8ECD3", "#FDF7E8"]
+},
+{
+  name: "Warmspire",
+  colors: ["#FBE6C2", "#FAD7AD", "#FFF2D8", "#F7E0BC", "#FDF0D5"]
+},
+{
+  name: "Lumina Hearth",
+  colors: ["#FDF3E2", "#FAE8CE", "#FFF9E4", "#F8E4CC", "#FDF6E5"]
+},
+{
+  name: "Golden Lantern",
+  colors: ["#FCE7C4", "#FAD8B0", "#FFF3D7", "#F7DFC0", "#FDF0D8"]
+},
+{
+  name: "Celestial Candle",
+  colors: ["#FDF5E5", "#FAEED1", "#FFF8E3", "#F8ECD4", "#FDF7E8"]
 },
 
 /* ===========================
@@ -916,6 +1079,10 @@ export const DATA = {
   /* ============================
     RPG / DARK / MYTHICAL / MOODY
  ================================ */
+    {
+    name: "Lone Sigil",
+    colors: ["#000000", "#A1A1A1", "#8B2BD4", "#FFFFFF", "#505050"]
+  },
   {
     name: "Mimic’s Taste",
     colors: ["#D4A64A", "#7A2F1C", "#5B4326", "#6C3DA8", "#C9B9A3"]
@@ -928,6 +1095,46 @@ export const DATA = {
     name: "Underworld Sunrise",
     colors: ["#FF8A3A", "#1A1A1A", "#D64228", "#8F8A85", "#F56273"]
   },
+  {
+  name: "Harvest Lantern",
+  colors: ["#D98854", "#A65E3A", "#F2C38F", "#6E3F2B", "#E8B68B"]
+},
+{
+  name: "Ember Hollow",
+  colors: ["#C76B3B", "#8B3E28", "#E2A178", "#6F3A25", "#D9A67F"]
+},
+{
+  name: "Autumn’s Sigil",
+  colors: ["#D9946B", "#B46542", "#F2C6A3", "#7B4B2F", "#E4B38C"]
+},
+{
+  name: "Copper Warden",
+  colors: ["#B76338", "#8E4A2C", "#E6A87F", "#704129", "#D9A37B"]
+},
+{
+  name: "Fallen Leaf",
+  colors: ["#D27F4F", "#A65C3A", "#F0BA92", "#6B3B25", "#E7AD85"]
+},
+{
+  name: "Amber Veil",
+  colors: ["#C77442", "#8F4A2E", "#E3AA84", "#6F3823", "#D9A37B"]
+},
+{
+  name: "Rustfang",
+  colors: ["#B85C32", "#883F27", "#D89E7B", "#633623", "#E0AB84"]
+},
+{
+  name: "Spiced Hearth",
+  colors: ["#D68B52", "#A55E3A", "#F0C19A", "#6F3E28", "#EAB78D"]
+},
+{
+  name: "Ochre Mystic",
+  colors: ["#C67B44", "#8E4D2F", "#E4AD86", "#6D3B26", "#D9A27D"]
+},
+{
+  name: "Twilight Bonfire",
+  colors: ["#D17A3D", "#9C4B2B", "#F0B88C", "#673622", "#E6A77D"]
+},
   {
     name: "Rage Love",
     colors: ["#E02B3E", "#9C1D29", "#514749", "#FF6A8A", "#F89D4F"]
