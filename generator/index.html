@@ -6,6 +6,9 @@
     <title>TenZees | Creative Generators</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -14,7 +17,9 @@
 
         <!-- Sidebar with Dark Mode Toggle -->
         <div class="sidebar">
-            <button id="dark-mode-toggle" class="dark-mode-btn">🌙 Dark Mode</button>
+            <button id="dark-mode-toggle" class="dark-mode-btn">
+                <i id="icon" class="fas fa-moon"></i> <!-- Initial Moon Icon -->
+            </button>
         </div>
 
         <!-- Logo + Title -->
@@ -26,7 +31,6 @@
 
         <!-- Main Buttons -->
         <section class="menu">
-
             <a href="prompt.html" class="card">
                 <div class="card-icon">✨</div>
                 <h2 class="card-title">Prompt Spark</h2>
@@ -38,17 +42,6 @@
                 <h2 class="card-title">Element Mixer</h2>
                 <p class="card-desc">Roll for specific details like colors, locations, objects, and moods.</p>
             </a>
-
-        </section>
-
-        <!-- Art Block Button -->
-        <section class="artblock-area">
-            <button id="artblock-btn" class="art-btn">🧠 Art Block?</button>
-
-            <div id="artblock-box" class="art-popup hidden">
-                <p id="artblock-message">Click again to get an idea!</p>
-                <button id="artblock-roll" class="roll-btn">Roll Again</button>
-            </div>
         </section>
 
         <!-- Footer -->
@@ -58,36 +51,8 @@
 
     </div>
 
-    <script>
-        const artIdeas = [
-            "Draw a creature using only circles.",
-            "Pick 3 random colors and make a character.",
-            "Turn a random object near you into a character.",
-            "Draw your current mood as a weather pattern.",
-            "Make a doodle with your nondominant hand.",
-            "Draw a blob and turn it into a creature.",
-            "Turn your favorite snack into a monster."
-        ];
-
-        const btn = document.getElementById("artblock-btn");
-        const box = document.getElementById("artblock-box");
-        const msg = document.getElementById("artblock-message");
-        const roll = document.getElementById("artblock-roll");
-
-        function newIdea() {
-            msg.textContent = artIdeas[Math.floor(Math.random() * artIdeas.length)];
-        }
-
-        btn.addEventListener("click", () => {
-            box.classList.toggle("hidden");
-            if (!box.classList.contains("hidden")) newIdea();
-        });
-
-        roll.addEventListener("click", newIdea);
-
-    </script>
-
+    <!-- Link to Dark Mode Script -->
     <script src="darkMode.js"></script>
-    
+
 </body>
 </html>
