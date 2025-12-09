@@ -345,6 +345,46 @@ export const DATA = {
   name: "Frosted Comet",
   colors: ["#A1A5E8", "#7C7FCC", "#B5B9F4", "#6269B2", "#C4C8F8"]
 },
+{
+  name: "Twilight Ember",
+  colors: ["#9BA3E0", "#F2C87C", "#7D8BCF", "#B2B9F1", "#FFDFA0"]
+},
+{
+  name: "Mystic Sunrise",
+  colors: ["#A1A8E5", "#FFCF7B", "#7F88D1", "#B5BCF3", "#FFE3A5"]
+},
+{
+  name: "Starlit Flame",
+  colors: ["#9EA0E2", "#F9D28C", "#7B7FCF", "#B3B5F1", "#FFD9A1"]
+},
+{
+  name: "Aurora Glow",
+  colors: ["#A3A5E8", "#F6C878", "#7E7FCC", "#B6B9F4", "#FFE0A2"]
+},
+{
+  name: "Celestial Dawn",
+  colors: ["#9DA2E1", "#FFD78B", "#7A7ECF", "#B2B6F2", "#FFE6A0"]
+},
+{
+  name: "Moonlit Radiance",
+  colors: ["#A0A4E6", "#FFC87D", "#7C7FCF", "#B4B8F4", "#FFDF9F"]
+},
+{
+  name: "Ethereal Light",
+  colors: ["#9FA3E3", "#FCD18A", "#7B7FCF", "#B3B6F3", "#FFE4A3"]
+},
+{
+  name: "Iridescent Glow",
+  colors: ["#A2A6E7", "#FFD57B", "#7E80D0", "#B6BAF4", "#FFE8A0"]
+},
+{
+  name: "Nebula Fire",
+  colors: ["#9EA1E4", "#F9CC7F", "#797FCC", "#B3B6F2", "#FFE2A1"]
+},
+{
+  name: "Frosted Sun",
+  colors: ["#A1A5E8", "#FFC978", "#7C7FCC", "#B5B9F4", "#FFDF9F"]
+},
   
 
   /* =================================================
