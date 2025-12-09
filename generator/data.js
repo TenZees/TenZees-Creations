@@ -711,6 +711,198 @@ export const DATA = {
       name: "Mystic Fog",
       colors: ["#3E5A80", "#6B8E8D", "#9AC4D8", "#B9A9C7", "#E0D1DB"]
     },
+      {
+    name: "Tea Party",
+    colors: ["#A2C59B", "#F6E8C8", "#6E8B67", "#D9A78C", "#4F5A4D"]
+},
+{
+    name: "Invasion",
+    colors: ["#59FF46", "#1A331A", "#3D8C3D", "#A6FF8E", "#262E26"]
+},
+{
+    name: "Spirit of Adventure",
+    colors: ["#4E8B52", "#F2D08B", "#3C4A2A", "#88C07F", "#9E7E4D"]
+},
+{
+    name: "Grunge",
+    colors: ["#6B7D3F", "#2F2F2C", "#828B71", "#474E3B", "#C1C6AE"]
+},
+    {
+    name: "Karaoke",
+    colors: ["#FF9234", "#FFE4C0", "#FF4F57", "#663399", "#2E1A1C"]
+},
+{
+    name: "Construction Site",
+    colors: ["#F4A21C", "#1E1E1E", "#787878", "#D93F2E", "#F9D264"]
+},
+{
+    name: "Comic Book",
+    colors: ["#FF6E1D", "#FFE600", "#1E1A41", "#E21C2D", "#FFF7E0"]
+},
+{
+    name: "Carnival",
+    colors: ["#FF9A00", "#F42C04", "#FFE7A8", "#008EB4", "#7ACC5E"]
+},
+    {
+    name: "Sugar Cloud",
+    colors: ["#F7D8E7", "#B5D8FA", "#FAF2C8", "#C8E8D7", "#F9E9F4"]
+},
+{
+    name: "Bunny Boutique",
+    colors: ["#F4C8C3", "#FFF5E3", "#E7D0F6", "#C1E4EE", "#F8E3C9"]
+},
+{
+    name: "Lavender Milk",
+    colors: ["#E6DAF7", "#C2B3E0", "#FAF7FF", "#97A3CC", "#FDE7F1"]
+},
+{
+    name: "Bubble Tea",
+    colors: ["#EAD3E1", "#C8DEC5", "#F9E0B5", "#D6BFAF", "#F7F4E9"]
+},
+{
+    name: "Frosted Seashell",
+    colors: ["#FFE8E2", "#F4DCCD", "#E3CBD6", "#C8D3E1", "#F9F6F4"]
+},
+{
+    name: "Daydream Soda",
+    colors: ["#A6D9FF", "#FFEBBB", "#FFBBC8", "#C0F5D0", "#F2F2FF"]
+},
+{
+    name: "Soft Parade",
+    colors: ["#FFC6B3", "#FFDCA6", "#F6F8B8", "#B3E5BB", "#C9D7FF"]
+},
+{
+    name: "Pastel Graffiti",
+    colors: ["#F9A8D4", "#A7F3D0", "#FDE68A", "#BAE6FD", "#FEF3C7"]
+},
+{
+    name: "Moonlit Porcelain",
+    colors: ["#E4E9F1", "#D3D7E4", "#F6E8E0", "#BFC7D1", "#FFFDF8"]
+},
+{
+    name: "Café Meringue",
+    colors: ["#FDE8D0", "#E5CAB3", "#F8D8DE", "#D3CEC7", "#FFF6EC"]
+},
+    {
+    name: "Ghost Jelly",
+    colors: ["#F6E7F2", "#C8B2D9", "#8D82A6", "#FFEFFB", "#6C6D86"]
+},
+{
+    name: "Bruised Halo",
+    colors: ["#F7DDE8", "#C5A7C7", "#796689", "#E9C3D6", "#4E3F59"]
+},
+{
+    name: "Poison Baby",
+    colors: ["#DEF9E7", "#A7D8BD", "#6A9F94", "#F1FFF9", "#3C5B52"]
+},
+{
+    name: "Chalk Séance",
+    colors: ["#F3F1EC", "#CFCFDB", "#A8A3B2", "#7F7A85", "#322F35"]
+},
+{
+    name: "Cursed Confection",
+    colors: ["#FFD6E5", "#E1B2C9", "#9D7F94", "#F8E7F5", "#4A3043"]
+},
+{
+    name: "Pastel Possession",
+    colors: ["#E4C0FC", "#B38DE0", "#7A6EA0", "#D4F0FF", "#1E2335"]
+},
+{
+    name: "Hex Milk",
+    colors: ["#FFF2E3", "#C8BDA8", "#8A8778", "#F5EEE7", "#423E36"]
+},
+{
+    name: "Rotten Rosewater",
+    colors: ["#F5D2D8", "#CF9AA7", "#9C7481", "#F8E6E9", "#4C3941"]
+},
+{
+    name: "Spirit Mold",
+    colors: ["#CBE4D1", "#AABFAF", "#798F7C", "#E3F3E8", "#2C3B2F"]
+},
+{
+    name: "Moonlit Bruja",
+    colors: ["#C4C3E0", "#8C8DB4", "#5D587B", "#E7E7F6", "#2D2D43"]
+},
+    {
+    name: "Moss Mothling",
+    colors: ["#7D9867", "#C4D9B2", "#4E5B3A", "#E7EBD8", "#8C7F64"]
+},
+{
+    name: "Truffle Troll",
+    colors: ["#7B5A44", "#D9C3A4", "#A6846A", "#E8DECB", "#4F3B2F"]
+},
+{
+    name: "Pebble Sprite",
+    colors: ["#C4C3BD", "#8C8A82", "#E8E6DF", "#6A6C63", "#524F46"]
+},
+{
+    name: "Honey Gremlin",
+    colors: ["#D9A63C", "#F6E2A3", "#9B7C3A", "#ECD59D", "#6D5930"]
+},
+{
+    name: "Swamp Hugger",
+    colors: ["#5B6D48", "#A8BE90", "#3F4C35", "#DFE6D3", "#8B7E63"]
+},
+{
+    name: "Burrow Bunt",
+    colors: ["#C49F7C", "#8B6C53", "#E9D4BD", "#6E5846", "#BFA488"]
+},
+{
+    name: "Marshmallow Wendigo",
+    colors: ["#EDEAE2", "#C8C3B3", "#A4968B", "#776D65", "#F8F4ED"]
+},
+{
+    name: "Root Whisperer",
+    colors: ["#715942", "#A88D77", "#D8C4A9", "#4D3C30", "#F1E7D2"]
+},
+{
+    name: "Puddle Pooka",
+    colors: ["#A3B5B2", "#6F8683", "#D9E4E2", "#4F5F5D", "#E4EEE9"]
+},
+{
+    name: "Fossil Fawn",
+    colors: ["#C6B199", "#948474", "#E9DFD1", "#6F6354", "#B8A189"]
+},
+    {
+    name: "Tide Pool",
+    colors: ["#3AAFB9", "#0E7490", "#74C7C0", "#B9F3E4", "#114A52"]
+},
+{
+    name: "Deep Space Oxygen",
+    colors: ["#1C2332", "#233F73", "#51C0EA", "#9BF3FF", "#0D1021"]
+},
+{
+    name: "Frostbite Carnival",
+    colors: ["#9FE2F8", "#55B2C8", "#DBF6FF", "#176273", "#003C47"]
+},
+{
+    name: "Cyber Reef",
+    colors: ["#00C1B5", "#004E4E", "#2DE3E0", "#85FFF4", "#081F22"]
+},
+{
+    name: "Glacier Library",
+    colors: ["#7EA7C3", "#3F6389", "#D8E6EF", "#AEC9E2", "#20354B"]
+},
+{
+    name: "Arctic Observatory",
+    colors: ["#8FC6E8", "#24526E", "#A1E3F9", "#F7FFFF", "#092232"]
+},
+{
+    name: "Oceanographer’s Map",
+    colors: ["#4A9E9E", "#2D4C50", "#76D3C6", "#A5F6EB", "#163536"]
+},
+{
+    name: "Icebound Arcade",
+    colors: ["#6EE7F2", "#25ABBD", "#083D4C", "#47C8D9", "#D9FDFF"]
+},
+{
+    name: "Forgotten Fjord",
+    colors: ["#508AA8", "#1D3D49", "#A9D4E0", "#DDF8FF", "#0F242A"]
+},
+{
+    name: "Crystalline Depths",
+    colors: ["#05707A", "#024A52", "#29B1BB", "#8FF0F5", "#C7FFFF"]
+},
     {
       name: "Retro POP",
       colors: ["#7DC2E8", "#F48AB3", "#E1466C", "#CBA76D", "#1A1A1A"]
