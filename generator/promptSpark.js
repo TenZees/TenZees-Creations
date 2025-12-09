@@ -13,6 +13,8 @@ let currentTheme = "all";
 ========================= */
 
 const prompts = {
+    all: [],
+    
     general: [
         "A traveler who collects emotions in glass bottles.",
         "A creature made of stitched-together constellations.",
