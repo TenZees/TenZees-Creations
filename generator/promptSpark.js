@@ -50,7 +50,9 @@ function newPrompt() {
 // Event listener for the "Inspire Me" button
 inspireBtn.addEventListener("click", () => {
     newPrompt();
+    console.log("Inspire button clicked");  // Check if the button works
 });
+
 
 // Tab selection functionality
 tabs.forEach(tab => {
