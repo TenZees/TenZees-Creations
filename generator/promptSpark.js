@@ -1,10 +1,12 @@
+// Get necessary DOM elements
 const promptCard = document.getElementById("prompt-card");
 const inspireBtn = document.getElementById("inspire-btn");
 const tabs = document.querySelectorAll(".ps-tab");
 
-let currentTheme = "all";  // Default theme
+// Default theme
+let currentTheme = "all";  // 'all' as the default theme
 
-// Prompt database
+// Prompt database imports
 import { generalPrompts } from './prompts/general.js';
 import { slicePrompts } from './prompts/slice.js';
 import { surrealPrompts } from './prompts/surreal.js';
@@ -12,11 +14,7 @@ import { fantasyPrompts } from './prompts/fantasy.js';
 import { sciFiPrompts } from './prompts/sciFi.js';
 import { horrorPrompts } from './prompts/horror.js';
 
-
-/* =========================
-   Prompt Database
-========================= */
-
+// Prompt categories
 const prompts = {
     general: [
         ...generalPrompts,
@@ -26,9 +24,7 @@ const prompts = {
         ...sciFiPrompts,
         ...horrorPrompts
     ],
-
-    all: generalPrompts, // or other specific prompts for 'all' category
-
+    all: [...generalPrompts, ...slicePrompts, ...surrealPrompts, ...fantasyPrompts, ...sciFiPrompts, ...horrorPrompts],
     slice: slicePrompts,
     surreal: surrealPrompts,
     fantasy: fantasyPrompts,
@@ -36,20 +32,14 @@ const prompts = {
     horror: horrorPrompts
 };
 
-console.log(prompts.general); // This will now contain all the combined prompts
-console.log(prompts.all); // Now contains every prompt from all categories
+// Store the list based on the current theme
+let promptList = prompts[currentTheme];
 
-/* =========================
-   Generate Prompt
-========================= */
-
+// Function to generate a new prompt
 function newPrompt() {
-    const list = currentTheme === "all"
-        ? Object.values(prompts).flat()
-        : prompts[currentTheme];
+    const prompt = promptList[Math.floor(Math.random() * promptList.length)];
 
-    const prompt = list[Math.floor(Math.random() * list.length)];
-
+    // Add smooth fade-in effect
     promptCard.style.opacity = 0;
     setTimeout(() => {
         promptCard.textContent = prompt;
@@ -57,18 +47,30 @@ function newPrompt() {
     }, 200);
 }
 
-inspireBtn.addEventListener("click", newPrompt);
+// Event listener for the "Inspire Me" button
+inspireBtn.addEventListener("click", () => {
+    newPrompt();
+});
 
-/* =========================
-   Tabs
-========================= */
-
+// Tab selection functionality
 tabs.forEach(tab => {
     tab.addEventListener("click", () => {
+        // Remove active class from all tabs
         tabs.forEach(t => t.classList.remove("active"));
+
+        // Add active class to clicked tab
         tab.classList.add("active");
 
+        // Update current theme and prompt list
         currentTheme = tab.dataset.theme;
+        promptList = prompts[currentTheme];  // Update prompt list based on selected theme
+
+        // Generate a new prompt
         newPrompt();
     });
+});
+
+// Initial prompt generation on load
+document.addEventListener("DOMContentLoaded", () => {
+    newPrompt();
 });
