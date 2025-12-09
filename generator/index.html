@@ -12,6 +12,11 @@
 
     <div class="page">
 
+        <!-- Sidebar with Dark Mode Toggle -->
+        <div class="sidebar">
+            <button id="dark-mode-toggle" class="dark-mode-btn">🌙 Dark Mode</button>
+        </div>
+
         <!-- Logo + Title -->
         <header class="hero">
             <img src="assets/logo.png" class="hero-logo" alt="Logo">
@@ -53,33 +58,53 @@
 
     </div>
 
-<script>
-    const artIdeas = [
-        "Draw a creature using only circles.",
-        "Pick 3 random colors and make a character.",
-        "Turn a random object near you into a character.",
-        "Draw your current mood as a weather pattern.",
-        "Make a doodle with your nondominant hand.",
-        "Draw a blob and turn it into a creature.",
-        "Turn your favorite snack into a monster."
-    ];
+    <script>
+        const artIdeas = [
+            "Draw a creature using only circles.",
+            "Pick 3 random colors and make a character.",
+            "Turn a random object near you into a character.",
+            "Draw your current mood as a weather pattern.",
+            "Make a doodle with your nondominant hand.",
+            "Draw a blob and turn it into a creature.",
+            "Turn your favorite snack into a monster."
+        ];
 
-    const btn = document.getElementById("artblock-btn");
-    const box = document.getElementById("artblock-box");
-    const msg = document.getElementById("artblock-message");
-    const roll = document.getElementById("artblock-roll");
+        const btn = document.getElementById("artblock-btn");
+        const box = document.getElementById("artblock-box");
+        const msg = document.getElementById("artblock-message");
+        const roll = document.getElementById("artblock-roll");
 
-    function newIdea() {
-        msg.textContent = artIdeas[Math.floor(Math.random() * artIdeas.length)];
-    }
+        function newIdea() {
+            msg.textContent = artIdeas[Math.floor(Math.random() * artIdeas.length)];
+        }
 
-    btn.addEventListener("click", () => {
-        box.classList.toggle("hidden");
-        if (!box.classList.contains("hidden")) newIdea();
-    });
+        btn.addEventListener("click", () => {
+            box.classList.toggle("hidden");
+            if (!box.classList.contains("hidden")) newIdea();
+        });
 
-    roll.addEventListener("click", newIdea);
-</script>
+        roll.addEventListener("click", newIdea);
+
+        // Check if dark mode is enabled in localStorage
+        if (localStorage.getItem("dark-mode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+
+        // Get the dark mode toggle button
+        const toggleButton = document.getElementById("dark-mode-toggle");
+
+        // Add event listener to toggle dark mode
+        toggleButton.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+
+            // Save the current theme preference in localStorage
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("dark-mode", "enabled");
+            } else {
+                localStorage.setItem("dark-mode", "disabled");
+            }
+        });
+    </script>
 
 </body>
 </html>

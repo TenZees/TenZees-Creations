@@ -1,12 +1,19 @@
-/* =========================================================
-   TenZees Main Page (MuseFuse-style design)
-========================================================= */
+/* ===================================
+   TenZees Main Generators Page
+====================================== */
 
 :root {
     --card-bg: #ffffff;
     --shadow: 0 4px 0 #000;
     --radius: 26px;
     --text-dark: #222;
+    --text-light: #eaeaea;
+    --bg-light: #f7f7f7;
+    --bg-dark: #121212;
+    --card-bg-dark: #333;
+    --footer-bg-dark: #1f1f1f;
+    --button-bg-dark: #444;
+    --button-hover-dark: #666;
 }
 
 * {
@@ -18,17 +25,24 @@
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-
-    /* Multiple layered background images */
     background:
         url("assets/PinkPaint.png") top right / 320px no-repeat,
         url("assets/BluePaint.png") bottom left / 320px no-repeat,
         url("assets/splatter.png") center / cover no-repeat,
-        #f7f7f7;
-
+        var(--bg-light);
     color: var(--text-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background: 
+        url("assets/PinkPaint.png") top right / 320px no-repeat,
+        url("assets/BluePaint.png") bottom left / 320px no-repeat,
+        url("assets/splatter.png") center / cover no-repeat,
+        var(--bg-dark);
+    color: var(--text-light);
+}
 
 /* Page center wrapper */
 .page {
@@ -58,6 +72,11 @@ body {
     opacity: 0.8;
 }
 
+/* Dark Mode Hero */
+.hero.dark-mode {
+    color: var(--text-light);
+}
+
 /* ------------ MAIN MENU CARDS ------------- */
 
 .menu {
@@ -78,6 +97,13 @@ body {
     transition: transform 0.15s ease;
 }
 
+/* Dark Mode Cards */
+body.dark-mode .card {
+    background: var(--card-bg-dark);
+    border: 3px solid var(--text-light);
+}
+
+/* Card Hover */
 .card:hover {
     transform: translateY(-6px);
 }
@@ -92,9 +118,19 @@ body {
     font-weight: 700;
 }
 
+/* Dark Mode Card Titles */
+body.dark-mode .card-title {
+    color: var(--text-light);
+}
+
 .card-desc {
     font-size: 1rem;
     opacity: 0.85;
+}
+
+/* Dark Mode Card Description */
+body.dark-mode .card-desc {
+    opacity: 0.9;
 }
 
 /* ------------ BRAIN FOG BUTTON ------------- */
@@ -111,8 +147,20 @@ body {
     transition: transform 0.12s ease;
 }
 
+/* Dark Mode Button */
+body.dark-mode .art-btn {
+    background: var(--button-bg-dark);
+    border: 3px solid var(--text-light);
+}
+
+/* Button Hover */
 .art-btn:hover {
     transform: translateY(-4px);
+}
+
+/* Dark Mode Button Hover */
+body.dark-mode .art-btn:hover {
+    background: var(--button-hover-dark);
 }
 
 /* Pop-up box under button */
@@ -125,10 +173,18 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* Dark Mode Pop-up */
+body.dark-mode .art-popup {
+    background: var(--card-bg-dark);
+    border: 3px solid var(--text-light);
+}
+
+/* Hidden state for popup */
 .hidden {
     display: none;
 }
 
+/* Roll button inside pop-up */
 .roll-btn {
     margin-top: 10px;
     background: #fff;
@@ -138,8 +194,20 @@ body {
     cursor: pointer;
 }
 
+/* Dark Mode Roll Button */
+body.dark-mode .roll-btn {
+    background: var(--button-bg-dark);
+    border: 2px solid var(--text-light);
+}
+
+/* Roll Button Hover */
 .roll-btn:hover {
     transform: translateY(-2px);
+}
+
+/* Dark Mode Roll Button Hover */
+body.dark-mode .roll-btn:hover {
+    background: var(--button-hover-dark);
 }
 
 /* ------------ FOOTER ------------- */
@@ -148,4 +216,10 @@ body {
     margin-top: 60px;
     opacity: 0.6;
     font-size: 0.85rem;
+}
+
+/* Dark Mode Footer */
+body.dark-mode .footer {
+    background: var(--footer-bg-dark);
+    color: var(--text-light);
 }
