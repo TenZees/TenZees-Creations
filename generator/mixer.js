@@ -1,19 +1,19 @@
 // mixer.js — Element Mixer logic (module)
-import { DATA, sections } from './data.js'; // make sure sections is exported from data
+import { DATA, sections } from './data.js';
 
 // Utility function to pick a random element
 const rand = arr => arr[Math.floor(Math.random() * arr.length)];
 
-// Convert palette object to HTML
+// Convert palette object to HTML (updated for 'colors')
 function paletteToHtml(p) {
   if (!p) return 'Ready to roll...';
-  const swatches = p.swatches
+  const swatches = p.colors
     .map(
       hex => `<span class="swatch" style="background:${hex};display:inline-block;width:36px;height:36px;border-radius:8px;margin-right:8px;box-shadow:inset 0 -4px 6px rgba(0,0,0,0.08);vertical-align:middle;"></span>`
     )
     .join('');
   return `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-            <div style="font-weight:700">${p.title}</div>
+            <div style="font-weight:700">${p.name}</div>
             <div style="padding:8px 14px;background:rgba(0,0,0,0.06);border-radius:12px;margin-top:6px;">${swatches}</div>
           </div>`;
 }
@@ -27,13 +27,15 @@ function setSection(key, value) {
   const box = el.querySelector('.value-box');
   if (!box) return;
 
-  // If value is an object/array, stringify it for display
-  if (typeof value === 'object') {
+  if (Array.isArray(value) || typeof value === 'object') {
     box.innerHTML = JSON.stringify(value, null, 2);
   } else {
     box.innerHTML = value;
   }
 }
+
+// Keep track of locked palette
+let lockedPalette = null;
 
 // Build the final prompt
 function buildPrompt(enabledSections) {
@@ -41,14 +43,20 @@ function buildPrompt(enabledSections) {
 
   enabledSections.forEach(key => {
     if (key === 'palettes') {
-      const palette = rand(DATA.palettes);
-      promptParts.push(`Color palette: ${palette.title}`);
+      let palette;
+      if (lockedPalette) {
+        palette = lockedPalette;
+      } else {
+        palette = rand(DATA.palettes);
+        lockedPalette = palette;
+      }
+      promptParts.push(`Color palette: ${palette.name}`);
       setSection('palettes', paletteToHtml(palette));
     } else if (key === 'artStyles') {
       const style = rand(DATA.artStyles);
       promptParts.push(`Art style: ${style}`);
       setSection('artStyles', style);
-    } else {
+    } else if (DATA[key]) {
       const val = rand(DATA[key]);
       promptParts.push(`${key}: ${val}`);
       setSection(key, val);
@@ -68,7 +76,9 @@ function getEnabledToggles() {
 function roll() {
   const enabled = getEnabledToggles();
   const finalPrompt = buildPrompt(enabled);
-  setSection('prompt', finalPrompt);
+  if (sections.prompt) {
+    setSection('prompt', finalPrompt);
+  }
   console.log('Generated prompt:', finalPrompt);
 }
 
@@ -95,6 +105,15 @@ function init() {
     lockBtn.addEventListener('click', () => {
       const isLocked = lockBtn.dataset.locked === 'true';
       lockBtn.dataset.locked = (!isLocked).toString();
+      if (!isLocked) {
+        // Lock the current palette
+        const currentPalette = document.querySelector('#' + sections.palettes.id + ' .value-box');
+        if (currentPalette) {
+          lockedPalette = DATA.palettes.find(p => p.name === currentPalette.querySelector('div').textContent) || lockedPalette;
+        }
+      } else {
+        lockedPalette = null;
+      }
       lockBtn.textContent = isLocked ? '🔓' : '🔒';
       lockBtn.setAttribute('aria-pressed', (!isLocked).toString());
     });
@@ -107,10 +126,8 @@ function init() {
     const card = document.querySelector('#' + cardId);
     if (!card) return;
 
-    // Initial visibility
     card.classList.toggle('hidden', !toggle.checked);
 
-    // Listen for changes
     toggle.addEventListener('change', () => {
       card.classList.toggle('hidden', !toggle.checked);
     });
