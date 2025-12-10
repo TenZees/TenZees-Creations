@@ -1,17 +1,16 @@
 // mixer.js — Element Mixer logic (module)
-import { DATA, sections } from './data.js'; // make sure sections is exported from dataSource
+import { DATA, sections } from './data.js'; // make sure sections is exported from data
 
 // Utility function to pick a random element
 const rand = arr => arr[Math.floor(Math.random() * arr.length)];
-const lockBtn = document.querySelector('#lock-palettes');
-const paletteLocked = document.querySelector('#lock-palettes')?.dataset.locked === 'true';
-
 
 // Convert palette object to HTML
 function paletteToHtml(p) {
   if (!p) return 'Ready to roll...';
   const swatches = p.swatches
-    .map(hex => `<span class="swatch" style="background:${hex};display:inline-block;width:36px;height:36px;border-radius:8px;margin-right:8px;box-shadow:inset 0 -4px 6px rgba(0,0,0,0.08);vertical-align:middle;"></span>`)
+    .map(
+      hex => `<span class="swatch" style="background:${hex};display:inline-block;width:36px;height:36px;border-radius:8px;margin-right:8px;box-shadow:inset 0 -4px 6px rgba(0,0,0,0.08);vertical-align:middle;"></span>`
+    )
     .join('');
   return `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
             <div style="font-weight:700">${p.title}</div>
@@ -29,29 +28,34 @@ function setSection(key, value) {
   if (!box) return;
 
   // If value is an object/array, stringify it for display
-  if (typeof value === 'objects') {
+  if (typeof value === 'object') {
     box.innerHTML = JSON.stringify(value, null, 2);
   } else {
     box.innerHTML = value;
   }
 }
 
-// Main roll function
-function roll(enabledSections) {
-  const paletteLocked = document.querySelector('#lock-palettes')?.dataset.locked === 'true';
+// Build the final prompt
+function buildPrompt(enabledSections) {
+  const promptParts = [];
 
-  Object.keys(sections).forEach(key => {
+  enabledSections.forEach(key => {
     if (key === 'palettes') {
-      if (enabledSections.includes('palettes')) {
-        if (!paletteLocked) setSection('palettes', paletteToHtml(rand(DATA.palettes)));
-      } else {
-        setSection('palettes', 'Ready to roll...');
-      }
+      const palette = rand(DATA.palettes);
+      promptParts.push(`Color palette: ${palette.title}`);
+      setSection('palettes', paletteToHtml(palette));
+    } else if (key === 'artStyles') {
+      const style = rand(DATA.artStyles);
+      promptParts.push(`Art style: ${style}`);
+      setSection('artStyles', style);
     } else {
-      if (enabledSections.includes(key)) setSection(key, rand(DATA[key]));
-      else setSection(key, 'Ready to roll...');
+      const val = rand(DATA[key]);
+      promptParts.push(`${key}: ${val}`);
+      setSection(key, val);
     }
   });
+
+  return promptParts.join(', ');
 }
 
 // Get all toggles that are checked
@@ -60,17 +64,24 @@ function getEnabledToggles() {
   return toggles.filter(t => t.checked).map(t => t.id.replace('toggle-', ''));
 }
 
+// Main roll function
+function roll() {
+  const enabled = getEnabledToggles();
+  const finalPrompt = buildPrompt(enabled);
+  setSection('prompt', finalPrompt);
+  console.log('Generated prompt:', finalPrompt);
+}
+
 // Initialize everything
 function init() {
   // Mix button
   const mixBtn = document.querySelector('#mix-btn');
   if (mixBtn) {
     mixBtn.addEventListener('click', () => {
-      const enabled = getEnabledToggles();
       mixBtn.disabled = true;
       mixBtn.classList.add('mixing');
       setTimeout(() => {
-        roll(enabled);
+        roll();
         mixBtn.disabled = false;
         mixBtn.classList.remove('mixing');
       }, 250);
@@ -106,7 +117,7 @@ function init() {
   });
 
   // Initial roll
-  roll(getEnabledToggles());
+  roll();
 
   // Debug
   window.__ElementMixer = { roll, sections, DATA };
