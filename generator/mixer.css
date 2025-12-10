@@ -268,22 +268,22 @@ body.dark-mode .value-box {
 }
 
 /* Specific card color classes */
-.result-card.palette-card { background: var(--card-palette-light); }
-.result-card.blue { background: var(--card-object-light); }
-.result-card.green { background: var(--card-location-light); }
+.result-card.palette-card { background: var(--card-palettes-light); }
+.result-card.blue { background: var(--card-objects-light); }
+.result-card.green { background: var(--card-locations-light); }
 .result-card.purple { background: var(--card-theme-light); }
-.result-card.yellow { background: var(--card-mood-light); }
-.result-card.orange { background: var(--card-season-light); }
+.result-card.yellow { background: var(--card-moods-light); }
+.result-card.orange { background: var(--card-seasons-light); }
 .result-card.teal { background: var(--card-person-light); }
 .result-card.red { background: var(--card-person-light); }
 
 /* Dark mode specific overrides */
-body.dark-mode .result-card.palette-card { background: var(--card-palette-dark); }
-body.dark-mode .result-card.blue { background: var(--card-object-dark); }
-body.dark-mode .result-card.green { background: var(--card-location-dark); }
+body.dark-mode .result-card.palette-card { background: var(--card-palettes-dark); }
+body.dark-mode .result-card.blue { background: var(--card-objects-dark); }
+body.dark-mode .result-card.green { background: var(--card-locations-dark); }
 body.dark-mode .result-card.purple { background: var(--card-theme-dark); }
-body.dark-mode .result-card.yellow { background: var(--card-mood-dark); }
-body.dark-mode .result-card.orange { background: var(--card-season-dark); }
+body.dark-mode .result-card.yellow { background: var(--card-moods-dark); }
+body.dark-mode .result-card.orange { background: var(--card-seasons-dark); }
 body.dark-mode .result-card.teal { background: var(--card-person-dark); }
 body.dark-mode .result-card.red { background: var(--card-person-dark); }
 
