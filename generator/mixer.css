@@ -1,260 +1,321 @@
 /* =========================================
-                GLOBAL BASE
+   Element Mixer — style.css
+   Midnight Ink (dark) and soft pastel light mode
 ========================================= */
-body {
-  margin: 0;
-  padding-bottom: 70px;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f8f5f0;
-  color: #111;
+
+/* -------- COLOR VARIABLES -------- */
+:root{
+  /* Dark palette (Midnight Ink) */
+  --bg-dark: #1B1125;
+  --card-bg-dark: #261831;
+  --text-primary-dark: #F4E9FF;
+  --text-secondary-dark: #CAB5E0;
+  --border-dark: #3B2A47;
+  --accent-dark: #A07BFF;
+  --button-bg-dark: #333;
+  --button-hover-dark: #444;
+  --bg-image-dark: url("assets/splatter_darkMode.png");
+
+  /* Pastel light palette (derived from dark) */
+  --bg-light: #f8f5f0;
+  --card-bg-light: #ffffff;
+  --text-dark: #111;
+  --text-muted: #666;
+
+  /* Card pastel colors (light mode) */
+  --card-palette-light: #f0e6f6; /* pastel purple */
+  --card-object-light:  #e7f0ff; /* pastel blue */
+  --card-location-light: #e9f7ef; /* pastel green */
+  --card-theme-light:    #fff3e8; /* pastel warm */
+  --card-mood-light:     #fdeef2; /* pastel rose */
+  --card-season-light:   #fff6e8; /* pastel amber */
+  --card-person-light:   #eef0ff; /* pastel indigo */
+
+  /* Card dark colors */
+  --card-palette-dark: #4c3440;
+  --card-object-dark:  #2e354a;
+  --card-location-dark: #29503b;
+  --card-theme-dark:    #3a2f46;
+  --card-mood-dark:     #4e4621;
+  --card-season-dark:   #553c23;
+  --card-person-dark:   #4c2c2c;
+
+  /* misc */
+  --radius: 24px;
+  --btn-radius: 14px;
+  --card-border-width: 2px;
+  --shadow: 0 8px 18px rgba(0,0,0,0.12);
+  --shadow-dark: 0 8px 18px rgba(255,255,255,0.04);
+  --max-width: 900px;
 }
 
-.page,
-.mixer-container {
+/* -------- GLOBAL -------- */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body{
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  color: var(--text-dark);
+  background:
+    url("assets/PinkPaint.png") top right / 320px no-repeat,
+    url("assets/BluePaint.png") bottom left / 320px no-repeat,
+    url("assets/splatter.png") center / cover no-repeat,
+    var(--bg-light);
+  transition: background 0.28s ease, color 0.22s ease;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Dark mode body */
+body.dark-mode{
+  background:
+    url("assets/PinkPaint.png") top right / 320px no-repeat,
+    url("assets/BluePaint.png") bottom left / 320px no-repeat,
+    var(--bg-image-dark) center / cover no-repeat,
+    var(--bg-dark);
+  color: var(--text-primary-dark);
+}
+
+/* page wrapper */
+.page, .mixer-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px 20px 80px;
   position: relative;
   z-index: 2;
-}
-
-.mix-btn {
-  display: block !important;
-}
-
-/* =========================================
-                  DARK MODE
-========================================= */
-body.dark-mode {
-  background: #1a0b2a; /* deep purple background */
-  color: #f4f4f4;
-}
-
-/* =========================================
-              DARK MODE TOGGLE BUTTON
-========================================= */
-.top-center-toggle {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-}
-
-.dark-mode-btn {
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.3rem;
-  transition: 0.2s;
-}
-
-.dark-mode-btn:hover { opacity: 0.8; }
-
-body.dark-mode .dark-mode-btn {
-  background: #444;
-  color: #fff;
-}
-
-/* =========================================
-                BACKGROUND PAINT
-========================================= */
-.paint-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.paint { position: absolute; }
-
-.paint-blue { left: -120px; bottom: -140px; width: 420px; }
-.paint-pink { right: -130px; top: -120px; width: 380px; }
-
-/* =========================================
-              MIXER LAYOUT & TITLES
-========================================= */
-.mixer-container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-
-.mixer-title {
   text-align: center;
-  margin-bottom: 24px;
 }
 
-/* =========================================
-            CONFIGURATION TOGGLES
-========================================= */
+/* title */
+.mixer-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 8px 0 20px;
+  letter-spacing: -0.02em;
+}
+
+/* config box */
 .config-box {
-  background: #fff;
-  padding: 16px;
-  border-radius: 14px;
-  margin-bottom: 24px;
-  transition: background 0.3s;
+  background: var(--card-bg-light);
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border: var(--card-border-width) solid rgba(0,0,0,0.06);
+  transition: background 0.24s ease, border-color 0.24s ease;
 }
 
-body.dark-mode .config-box {
-  background: #2b1a3a;
+body.dark-mode .config-box{
+  background: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
 }
 
-.config-grid {
+/* config grid */
+.config-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.toggle-row {
-  background: #f5f1ea;
-  padding: 8px 12px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.3s;
+/* toggle rows */
+.toggle-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.03);
+  color: inherit;
+  transition: background 0.18s ease;
 }
 
-body.dark-mode .toggle-row {
-  background: #3a1f5b;
+.toggle-row span { font-size: 1rem; text-align:left; }
+
+/* dark toggle row back */
+body.dark-mode .toggle-row{ background: rgba(255,255,255,0.02); }
+
+/* input hidden but available for label */
+.toggle-row input[type="checkbox"]{ display:none; }
+
+/* custom slider */
+.toggle-wrap { display:inline-block; position:relative; width:44px; height:24px; }
+.toggle-slider{
+  display:block;
+  width:100%;
+  height:100%;
+  background:#cfcfcf;
+  border-radius: 999px;
+  position:relative;
+  transition: background 0.2s ease;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.06);
+}
+.toggle-slider::after{
+  content:"";
+  position:absolute;
+  top:3px;
+  left:4px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:white;
+  transition: transform .18s cubic-bezier(.2,.95,.3,1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
-.toggle-row input { display: none; }
+/* checked state */
+.toggle-row input:checked + .toggle-slider{ background: var(--accent-dark); }
+.toggle-row input:checked + .toggle-slider::after{ transform: translateX(20px); }
 
-.toggle-slider {
-  width: 36px;
-  height: 18px;
-  background: #ccc;
-  border-radius: 20px;
-  position: relative;
-  transition: 0.3s;
-}
-
-.toggle-slider::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #fff;
-  top: 2px;
-  left: 2px;
-  border-radius: 50%;
-  transition: 0.2s;
-}
-
-.toggle-row input:checked + .toggle-slider {
-  background: #b79e7f;
-}
-
-body.dark-mode .toggle-row input:checked + .toggle-slider {
-  background: #b79e7f; /* keep the same checked color */
-}
-
-.toggle-row input:checked + .toggle-slider::after {
-  transform: translateX(18px);
-}
-
-/* =========================================
-                RESULTS SECTION
-========================================= */
-.results-grid {
-  display: grid;
-  gap: 14px;
-  margin-top: 16px;
+/* results grid */
+.results-grid{
+  display:grid;
+  gap:18px;
+  margin-top: 10px;
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 600px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 900px) { .results-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
+@media(min-width:600px){ .results-grid{ grid-template-columns: repeat(2,1fr); } }
+@media(min-width:1000px){ .results-grid{ grid-template-columns: repeat(2, minmax(260px,1fr)); } }
 
-.result-card {
+/* result card base */
+.result-card{
   padding: 18px;
   border-radius: 20px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: background .22s ease, box-shadow .22s ease, transform .12s;
+  box-shadow: var(--shadow);
+  border: var(--card-border-width) solid rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 
-body.dark-mode .result-card {
-  box-shadow: 0 8px 18px rgba(255, 255, 255, 0.05);
+/* dark card adjustments */
+body.dark-mode .result-card{
+  box-shadow: var(--shadow-dark);
+  border-color: var(--border-dark);
 }
 
-/* Card Colors */
-.pink { background: #ffe0ec; }
-.blue { background: #e3efff; }
-.green { background: #e6faef; }
-.purple { background: #eee4ff; }
-.yellow { background: #fff6cc; }
-.orange { background: #ffe7cc; }
-.teal { background: #e0f7f4; }
-.red { background: #ffe0e0; }
-
-/* Dark Mode Card Colors */
-body.dark-mode .pink { background: #4c3440; }
-body.dark-mode .blue { background: #2e354a; }
-body.dark-mode .green { background: #29503b; }
-body.dark-mode .purple { background: #3a2f46; }
-body.dark-mode .yellow { background: #4e4621; }
-body.dark-mode .orange { background: #553c23; }
-body.dark-mode .teal { background: #23534b; }
-body.dark-mode .red { background: #4c2c2c; }
-
-.result-card h3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 36px;
-  margin-bottom: 10px;
-  font-size: 0.85rem;
-  text-align: center;
+/* titles inside cards */
+.result-card h3{
+  font-size: .95rem;
+  margin: 0 0 10px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 8px;
+  text-transform:uppercase;
+  letter-spacing: 0.04em;
 }
 
-.value-box {
-  background: #fff;
-  border-radius: 14px;
-  padding: 12px;
-  text-align: center;
-  transition: background 0.3s, color 0.3s;
+/* the value box inside card */
+.value-box{
+  background: var(--card-bg-light);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  transition: background .22s ease, color .22s ease;
 }
 
-body.dark-mode .value-box {
-  background: #3c2452;
-  color: #f4f4f4;
+/* dark value box */
+body.dark-mode .value-box{
+  background: #2b1a33;
+  color: var(--text-primary-dark);
 }
 
-/* =========================================
-                BUTTONS
-========================================= */
-.mix-btn {
-  margin: 24px auto 0;
-  display: block;
-  padding: 12px 24px;
-  font-size: 1.1rem;
-  border-radius: 14px;
+/* ========== CARD COLOR CLASSES ========== */
+/* Light (pastel) */
+.result-card.palette-card { background: var(--card-palette-light); }
+.result-card.blue { background: var(--card-object-light); }
+.result-card.green { background: var(--card-location-light); }
+.result-card.purple { background: var(--card-theme-light); }
+.result-card.yellow { background: var(--card-mood-light); }
+.result-card.orange { background: var(--card-season-light); }
+.result-card.teal { background: var(--card-person-light); }
+.result-card.red { background: var(--card-person-light); }
+
+/* Dark overrides */
+body.dark-mode .result-card.palette-card { background: var(--card-palette-dark); }
+body.dark-mode .result-card.blue { background: var(--card-object-dark); }
+body.dark-mode .result-card.green { background: var(--card-location-dark); }
+body.dark-mode .result-card.purple { background: var(--card-theme-dark); }
+body.dark-mode .result-card.yellow { background: var(--card-mood-dark); }
+body.dark-mode .result-card.orange { background: var(--card-season-dark); }
+body.dark-mode .result-card.teal { background: var(--card-person-dark); }
+body.dark-mode .result-card.red { background: var(--card-person-dark); }
+
+/* value-box text contrast on light cards */
+.result-card.palette-card .value-box,
+.result-card.blue .value-box,
+.result-card.green .value-box,
+.result-card.purple .value-box,
+.result-card.yellow .value-box,
+.result-card.orange .value-box,
+.result-card.teal .value-box,
+.result-card.red .value-box {
+  background: rgba(0,0,0,0.08);
+  color: #111;
+}
+
+/* dark override for value box contrast */
+body.dark-mode .result-card .value-box { background: rgba(0,0,0,0.18); }
+
+/* mix button */
+.mix-btn{
+  margin: 28px auto 0;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 12px;
   border: none;
-  cursor: pointer;
   background: #d9c6a6;
-  transition: 0.2s;
+  color: #1b1111;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor:pointer;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, background .18s;
+}
+.mix-btn:hover{ transform: translateY(-3px); }
+body.dark-mode .mix-btn{ background: #826e4f; color: #fff; box-shadow: var(--shadow-dark); }
+
+/* lock button */
+.lock-btn{
+  background:none;
+  border:none;
+  font-size:1rem;
+  cursor:pointer;
 }
 
-body.dark-mode .mix-btn { background: #826e4f; color: #fff; }
-
-.lock-btn { background: none; border: none; cursor: pointer; font-size: 1rem; }
-.locked { color: #a07bff; }
-
-/* =========================================
-                AD FOOTER
-========================================= */
-.ad-footer {
+/* top toggle button */
+.top-center-toggle{
   position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(248, 245, 239, 0.95);
-  backdrop-filter: blur(4px);
-  z-index: 1;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
 }
+.dark-mode-btn{
+  border-radius: 10px;
+  padding: 8px 10px;
+  border:none;
+  background:#fff;
+  color:#111;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.dark-mode-btn:hover{ opacity: 0.95; }
+body.dark-mode .dark-mode-btn{ background: var(--button-bg-dark); color: var(--text-primary-dark); }
 
-body.dark-mode .ad-footer {
-  background: rgba(26, 11, 42, 0.95);
+/* paint background sizing */
+.paint-bg{ position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.95; }
+.paint{ position:absolute; }
+.paint-blue{ left:-120px; bottom:-140px; width:420px; }
+.paint-pink{ right:-120px; top:-100px; width:380px; }
+
+/* small responsive niceties */
+@media (max-width:420px){
+  .mixer-title{ font-size:2.2rem; }
+  .toggle-wrap{ transform: scale(.92); }
+  .result-card { padding:14px; border-radius:18px; }
+  .value-box{ padding:10px; font-size:1rem; }
 }
