@@ -3,11 +3,8 @@
    Midnight Ink (dark) and soft pastel light mode
 ========================================= */
 
+/* -------- COLOR VARIABLES -------- */
 :root {
-  /* =========================================
-     COLOR VARIABLES — Midnight Ink (dark) & Pastel (light)
-  ========================================= */
-
   /* -------- Dark Mode Palette -------- */
   --bg-dark: #1B1125;
   --card-bg-dark: #261831;
@@ -31,13 +28,13 @@
   /* -------- Light Mode Palette -------- */
   --bg-light: #f8f5f0;
   --card-bg-light: #ffffff;
-  --text-primary-light: #111;       /* renamed from text-dark */
-  --text-secondary-light: #666;     /* renamed from text-muted */
-  --border-light: #ccc;             /* optional, add if needed */
-  --accent-light: #A07BFF;          /* same accent can work for light mode */
-  --button-bg-light: #eee;          /* optional */
-  --button-hover-light: #ddd;       /* optional */
-  --bg-image-light: url("assets/splatter_lightMode.png"); /* optional */
+  --text-primary-light: #111;
+  --text-secondary-light: #666;
+  --border-light: #ccc;
+  --accent-light: #A07BFF;
+  --button-bg-light: #eee;
+  --button-hover-light: #ddd;
+  --bg-image-light: url("assets/splatter_lightMode.png");
 
   /* Card-specific light colors */
   --card-palette-light: #f0e6f6;
@@ -55,8 +52,12 @@
   --shadow-dark: 0 8px 18px rgba(255,255,255,0.04);
   --shadow-light: 0 8px 18px rgba(0,0,0,0.12);
   --max-width: 900px;
-}
 
+  /* Value box text */
+  --value-text-light: #111;
+  --value-bg-light: rgba(0,0,0,0.08);
+  --value-bg-dark: rgba(0,0,0,0.18);
+}
 
 /* -------- GLOBAL -------- */
 * { box-sizing: border-box; }
@@ -64,7 +65,7 @@ html,body { height: 100%; }
 body{
   margin: 0;
   font-family: "Poppins", "Segoe UI", Arial, sans-serif;
-  color: var(--text-dark);
+  color: var(--text-primary-light);
   background:
     url("assets/PinkPaint.png") top right / 320px no-repeat,
     url("assets/BluePaint.png") bottom left / 320px no-repeat,
@@ -108,9 +109,9 @@ body.dark-mode{
 .config-box {
   background: var(--card-bg-light);
   padding: 18px;
-  border-radius: 18px;
+  border-radius: var(--radius);
   margin-bottom: 20px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-light);
   border: var(--card-border-width) solid rgba(0,0,0,0.06);
   transition: background 0.24s ease, border-color 0.24s ease;
 }
@@ -140,12 +141,9 @@ body.dark-mode .config-box{
   transition: background 0.18s ease;
 }
 
-.toggle-row span { font-size: 1rem; text-align:left; }
-
-/* dark toggle row back */
 body.dark-mode .toggle-row{ background: rgba(255,255,255,0.02); }
 
-/* input hidden but available for label */
+/* input hidden */
 .toggle-row input[type="checkbox"]{ display:none; }
 
 /* custom slider */
@@ -154,7 +152,7 @@ body.dark-mode .toggle-row{ background: rgba(255,255,255,0.02); }
   display:block;
   width:100%;
   height:100%;
-  background:#cfcfcf;
+  background:var(--button-bg-light);
   border-radius: 999px;
   position:relative;
   transition: background 0.2s ease;
@@ -172,8 +170,6 @@ body.dark-mode .toggle-row{ background: rgba(255,255,255,0.02); }
   transition: transform .18s cubic-bezier(.2,.95,.3,1);
   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
-
-/* checked state */
 .toggle-row input:checked + .toggle-slider{ background: var(--accent-dark); }
 .toggle-row input:checked + .toggle-slider::after{ transform: translateX(20px); }
 
@@ -184,16 +180,15 @@ body.dark-mode .toggle-row{ background: rgba(255,255,255,0.02); }
   margin-top: 10px;
   grid-template-columns: 1fr;
 }
-
 @media(min-width:600px){ .results-grid{ grid-template-columns: repeat(2,1fr); } }
 @media(min-width:1000px){ .results-grid{ grid-template-columns: repeat(2, minmax(260px,1fr)); } }
 
 /* result card base */
 .result-card{
   padding: 18px;
-  border-radius: 20px;
+  border-radius: var(--radius);
   transition: background .22s ease, box-shadow .22s ease, transform .12s;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-light);
   border: var(--card-border-width) solid rgba(0,0,0,0.06);
   overflow: hidden;
 }
@@ -218,22 +213,19 @@ body.dark-mode .result-card{
 
 /* the value box inside card */
 .value-box{
-  background: var(--card-bg-light);
+  background: var(--value-bg-light);
   border-radius: 12px;
   padding: 14px;
   font-size: 1.05rem;
-  color: var(--text-dark);
+  color: var(--value-text-light);
   transition: background .22s ease, color .22s ease;
 }
-
-/* dark value box */
 body.dark-mode .value-box{
-  background: #2b1a33;
+  background: var(--value-bg-dark);
   color: var(--text-primary-dark);
 }
 
 /* ========== CARD COLOR CLASSES ========== */
-/* Light (pastel) */
 .result-card.palette-card { background: var(--card-palette-light); }
 .result-card.blue { background: var(--card-object-light); }
 .result-card.green { background: var(--card-location-light); }
@@ -253,39 +245,27 @@ body.dark-mode .result-card.orange { background: var(--card-season-dark); }
 body.dark-mode .result-card.teal { background: var(--card-person-dark); }
 body.dark-mode .result-card.red { background: var(--card-person-dark); }
 
-/* value-box text contrast on light cards */
-.result-card.palette-card .value-box,
-.result-card.blue .value-box,
-.result-card.green .value-box,
-.result-card.purple .value-box,
-.result-card.yellow .value-box,
-.result-card.orange .value-box,
-.result-card.teal .value-box,
-.result-card.red .value-box {
-  background: rgba(0,0,0,0.08);
-  color: #111;
-}
-
-/* dark override for value box contrast */
-body.dark-mode .result-card .value-box { background: rgba(0,0,0,0.18); }
-
 /* mix button */
 .mix-btn{
   margin: 28px auto 0;
   display: inline-block;
   padding: 12px 28px;
-  border-radius: 12px;
+  border-radius: var(--btn-radius);
   border: none;
-  background: #d9c6a6;
-  color: #1b1111;
+  background: var(--button-bg-light);
+  color: var(--text-primary-light);
   font-weight: 600;
   font-size: 1.05rem;
   cursor:pointer;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-light);
   transition: transform .12s ease, background .18s;
 }
 .mix-btn:hover{ transform: translateY(-3px); }
-body.dark-mode .mix-btn{ background: #826e4f; color: #fff; box-shadow: var(--shadow-dark); }
+body.dark-mode .mix-btn{
+  background: var(--button-bg-dark);
+  color: var(--text-primary-dark);
+  box-shadow: var(--shadow-dark);
+}
 
 /* lock button */
 .lock-btn{
@@ -307,13 +287,16 @@ body.dark-mode .mix-btn{ background: #826e4f; color: #fff; box-shadow: var(--sha
   border-radius: 10px;
   padding: 8px 10px;
   border:none;
-  background:#fff;
-  color:#111;
+  background: var(--button-bg-light);
+  color: var(--text-primary-light);
   cursor:pointer;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 .dark-mode-btn:hover{ opacity: 0.95; }
-body.dark-mode .dark-mode-btn{ background: var(--button-bg-dark); color: var(--text-primary-dark); }
+body.dark-mode .dark-mode-btn{
+  background: var(--button-bg-dark);
+  color: var(--text-primary-dark);
+}
 
 /* paint background sizing */
 .paint-bg{ position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.95; }
