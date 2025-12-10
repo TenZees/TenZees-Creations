@@ -919,6 +919,10 @@ export const DATA = {
     name: "Café Meringue",
     colors: ["#FDE8D0", "#E5CAB3", "#F8D8DE", "#D3CEC7", "#FFF6EC"]
 },
+{
+      name: "Butter Blush",
+      colors: ["#FFF4AB", "#FBC9D4", "#F7F6F2", "#DFF7D8", "#F9D8B9"]
+    },
 
 /* ==============================================
     OCCULT PASTELS / MYSTICAL & GHOSTLY
@@ -1331,20 +1335,20 @@ export const DATA = {
     colors: ["#D7D9E0", "#86C7A1", "#3A5CBF", "#7B3FA1", "#22242A"]
   },
     {
-      name: "",
+      name: "10Zees001",
       colors: ["#EDDA2B", "#2E2E2E", "#26FFF1", "#FCFFE8", "#58AD7D"]
     },
     {
-      name: "NEW NAME HERE",
+      name: "10Zees002",
       colors: ["#628A73", "#A3C0FF", "#3BC4A2", "#242424", "#499ABA"]
     },
     {
-      name: "",
-      colors: ["#FAD02E", "#F28D35", "#D83367", "#F2A7B4", "#9A5C6D"]
+      name: "10Zees003",
+      colors: ["#1A2348", "#F6F6F6", "#D278AD", "#F9F960", "#FA7689"]
     },
     {
-      name: "",
-      colors: ["#FAD02E", "#F28D35", "#D83367", "#F2A7B4", "#9A5C6D"]
+      name: "10Zees004",
+      colors: ["#FFFFFF", "#F3456F", "#AF3562", "#DFA234", "#5f65AF"]
     }
   ]
 };
