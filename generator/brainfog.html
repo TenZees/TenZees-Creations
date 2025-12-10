@@ -3,38 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beat the Brainfog</title>
+  <title>Art Block?</title>
 
-  <!-- CSS MUST be inside <style> tags -->
   <style>
     body {
       background: #faf7f2;
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: "Poppins", Arial, sans-serif;
     }
     .popup-wrapper {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
     }
     .popup-title {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.8rem;
+      font-weight: 700;
       margin-bottom: 12px;
     }
     .popup-message {
-      background: #fff;
-      padding: 12px;
-      border-radius: 10px;
+      background: #ffffff;
+      padding: 14px;
+      border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
     button {
-      padding: 10px 18px;
+      padding: 12px 18px;
       border: none;
       background: #6b5ce7;
       color: white;
-      border-radius: 8px;
+      font-size: 1rem;
+      border-radius: 10px;
       cursor: pointer;
+      transition: 0.2s;
     }
     button:hover {
       background: #5749c9;
@@ -45,25 +47,25 @@
 <body>
 
 <div class="popup-wrapper">
-  <div class="popup-title">Beat the Brainfog ✨</div>
+  <div class="popup-title">Art Block? 🎨</div>
 
   <div class="popup-message">
-    Click the button to get an idea!
+    Tap the button for a quick idea to get unstuck!
   </div>
 
-  <button onclick="generateTip()">Get Idea</button>
+  <button onclick="generateTip()">Give Me an Idea</button>
 
-  <p id="tip-output" style="margin-top:15px; font-weight:bold;"></p>
+  <p id="tip-output" style="margin-top:18px; font-weight:600; font-size:1.1rem;"></p>
 </div>
 
 <script>
   const tips = [
-    "Draw your character as a chibi.",
-    "Pick two random colors and make a quick sketch.",
-    "Draw something using only sharp shapes.",
-    "Redraw something old in your current style.",
-    "Draw your OC wearing something totally out-of-character.",
-    "Sketch using your non-dominant hand.",
+    "Draw your OC as a plushie.",
+    "Sketch something with only circles.",
+    "Draw a creature made of your favorite snack.",
+    "Pick three random colors — make a character from them.",
+    "Draw your mood as a tiny monster.",
+    "Turn a household object into a fantasy weapon.",
   ];
 
   function generateTip() {
