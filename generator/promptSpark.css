@@ -101,3 +101,13 @@ body {
 .ps-inspire:active {
     transform: translateY(2px);
 }
+
+.dark-mode-btn {
+  background: #fff;
+  color: #000;
+}
+
+body.dark-mode .dark-mode-btn {
+  background: #444;
+  color: #fff;
+}

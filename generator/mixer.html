@@ -8,6 +8,57 @@
   <!-- CSS Link -->
   <link rel="stylesheet" href="mixer.css" />
 </head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script>
+// === Apply saved theme on page load ===
+(function () {
+  const savedTheme = localStorage.getItem("theme");
+  const body = document.body;
+
+  // Default to dark if nothing saved
+  if (savedTheme === "dark" || !savedTheme) {
+    body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark");
+  } else {
+    body.classList.remove("dark-mode");
+  }
+
+  // Update icon based on current mode
+  window.addEventListener("DOMContentLoaded", () => {
+    updateIcon();
+  });
+})();
+
+// === Toggle function (with icon update) ===
+function toggleTheme() {
+  const isDark = document.body.classList.toggle("dark-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  updateIcon();
+}
+
+// === Update Toggle Icon Based on Mode ===
+function updateIcon() {
+  const icon = document.getElementById("icon");
+  const isDark = document.body.classList.contains("dark-mode");
+
+  if (isDark) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+  }
+}
+
+// === Activate button click ===
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("dark-mode-toggle").addEventListener("click", toggleTheme);
+});
+</script>
+
+
 <body>
   <!-- Sidebar with Dark Mode Toggle -->
         <div class="sidebar">
