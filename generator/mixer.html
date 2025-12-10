@@ -114,9 +114,21 @@
 
     <!-- Mix Button -->
     <button class="mix-btn art-btn" id="mix-btn">⟳ Mix Elements</button>
-  </div>
 
-  <!-- Footer Ad -->
+
+
+
+  <!-- Scripts -->
+  <script type="module">
+  import * as mixer from './mixer.js';
+  window.mixer = mixer;
+  console.log("Mixer JS loaded successfully.");
+</script>
+
+  <script src="assets/js/darkMode.js"></script>
+
+
+    <!-- Footer Ad -->
   <footer class="footer ad-footer">
     <script type="text/javascript">
       atOptions = {
@@ -129,10 +141,6 @@
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/de0da851479674baa272bb78b1388916/invoke.js"></script>
   </footer>
-
-  <!-- Scripts -->
-  <script type="module" src="mixer.js"></script>
-  <script src="assets/js/darkMode.js"></script>
 
 </body>
 </html>
