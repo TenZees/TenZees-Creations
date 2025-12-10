@@ -1,5 +1,5 @@
 // mixer.js — Element Mixer logic (module)
-import { DATA, sections } from './data.js';
+import { DATA, sections } from '/data.js';
 
 // Utility function to pick a random element
 const rand = arr => arr[Math.floor(Math.random() * arr.length)];
