@@ -1,233 +1,225 @@
-/* ===================================
-   TenZees Main Generators Page
+/* =================================== 
+   TenZees Main Generators Page - Midnight Ink Dark Mode Ready
 ====================================== */
 
+/* -------- COLOR VARIABLES -------- */
 :root {
-    --card-bg: #ffffff;
-    --shadow: 0 4px 0 #000;
-    --radius: 26px;
-    --text-dark: #222;
-    --text-light: #eaeaea;
-    --bg-light: #f7f7f7;
-    --bg-dark: #121212;
-    --card-bg-dark: #333;
-    --footer-bg-dark: #1f1f1f;
-    --button-bg-dark: #444;
-    --button-hover-dark: #666;
+  /* Light Mode Colors */
+  --bg-light: #f7f7f7;
+  --card-bg: #ffffff;
+  --text-dark: #222;
+  --text-light: #eaeaea;
+  --shadow: 0 4px 0 #000;
+  --radius: 26px;
+
+  /* Dark Mode Colors - Midnight Ink */
+  --bg-dark: #1B1125;
+  --card-bg-dark: #261831;
+  --text-primary-dark: #F4E9FF;
+  --text-secondary-dark: #CAB5E0;
+  --border-dark: #3B2A47;
+  --accent-dark: #A07BFF;
+  --button-bg-dark: #333;
+  --button-hover-dark: #444;
+  --footer-bg-dark: #1B1125;
+  --bg-image-dark: url("assets/splatter_darkMode.png");
+
+  /* Other variables */
+  --btn-radius: 40px;
+  --card-border-width: 3px;
 }
 
+/* -------- GLOBAL STYLES -------- */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-/* ------------ PAGE BACKGROUND WITH PAINT SPLASHES ------------ */
 
 body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background:
-        url("assets/PinkPaint.png") top right / 320px no-repeat,
-        url("assets/BluePaint.png") bottom left / 320px no-repeat,
-        url("assets/splatter.png") center / cover no-repeat,
-        var(--bg-light);
-    color: var(--text-dark);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+  background:
+    url("assets/PinkPaint.png") top right / 320px no-repeat,
+    url("assets/BluePaint.png") bottom left / 320px no-repeat,
+    url("assets/splatter.png") center / cover no-repeat,
+    var(--bg-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Mode */
 body.dark-mode {
-    background: 
-        url("assets/PinkPaint.png") top right / 320px no-repeat,
-        url("assets/BluePaint.png") bottom left / 320px no-repeat,
-        url("assets/splatter_darkMode.png") center / cover no-repeat,
-        var(--bg-dark);
-    color: var(--text-light);
+  background:
+    url("assets/PinkPaint.png") top right / 320px no-repeat,
+    url("assets/BluePaint.png") bottom left / 320px no-repeat,
+    var(--bg-image-dark) center / cover no-repeat,
+    var(--bg-dark);
+  color: var(--text-primary-dark);
 }
 
-/* Page center wrapper */
+/* -------- PAGE WRAPPER -------- */
 .page {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 30px 20px 60px;
-    text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+  text-align: center;
 }
 
-/* ------------ HERO ------------- */
-
+/* -------- HERO SECTION -------- */
 .hero-logo {
-    width: 110px;
-    margin-bottom: 10px;
+  width: 110px;
+  margin-bottom: 10px;
 }
 
 .hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
 }
 
 .hero-sub {
-    margin-top: 4px;
-    font-size: 1.1rem;
-    opacity: 0.8;
+  margin-top: 4px;
+  font-size: 1.1rem;
+  opacity: 0.8;
 }
 
-/* Dark Mode Hero */
-.hero.dark-mode {
-    color: var(--text-light);
+body.dark-mode .hero,
+body.dark-mode .hero-title,
+body.dark-mode .hero-sub {
+  color: var(--text-primary-dark);
 }
 
-/* ------------ MAIN MENU CARDS ------------- */
-
+/* -------- MAIN MENU CARDS -------- */
 .menu {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    padding: 28px 28px 32px;
-    text-decoration: none;
-    color: inherit;
-    border: 3px solid #000;
-    box-shadow: var(--shadow);
-    transition: transform 0.15s ease;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px 28px 32px;
+  text-decoration: none;
+  color: inherit;
+  border: var(--card-border-width) solid #000;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
 }
 
-/* Dark Mode Cards */
 body.dark-mode .card {
-    background: var(--card-bg-dark);
-    border: 3px solid var(--text-light);
+  background: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-primary-dark);
 }
 
-/* Card Hover */
 .card:hover {
-    transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 
 .card-icon {
-    font-size: 2.4rem;
+  font-size: 2.4rem;
 }
 
 .card-title {
-    margin: 12px 0 6px;
-    font-size: 1.7rem;
-    font-weight: 700;
-}
-
-/* Dark Mode Card Titles */
-body.dark-mode .card-title {
-    color: var(--text-light);
+  margin: 12px 0 6px;
+  font-size: 1.7rem;
+  font-weight: 700;
 }
 
 .card-desc {
-    font-size: 1rem;
-    opacity: 0.85;
+  font-size: 1rem;
+  opacity: 0.85;
 }
 
-/* Dark Mode Card Description */
 body.dark-mode .card-desc {
-    opacity: 0.9;
+  opacity: 0.9;
+  color: var(--text-secondary-dark);
 }
 
-/* ------------ BRAIN FOG BUTTON ------------- */
-
+/* -------- ART BUTTON -------- */
 .art-btn {
-    margin-top: 40px;
-    background: #fff;
-    border: 3px solid #000;
-    border-radius: 40px;
-    padding: 14px 28px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    transition: transform 0.12s ease;
+  margin-top: 40px;
+  background: #fff;
+  border: var(--card-border-width) solid #000;
+  border-radius: var(--btn-radius);
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.12s ease, background 0.2s ease;
 }
 
-/* Dark Mode Button */
 body.dark-mode .art-btn {
-    background: var(--button-bg-dark);
-    border: 3px solid var(--text-light);
+  background: var(--button-bg-dark);
+  border-color: var(--text-primary-dark);
+  color: var(--text-primary-dark);
 }
 
-/* Button Hover */
 .art-btn:hover {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
 }
 
-/* Dark Mode Button Hover */
 body.dark-mode .art-btn:hover {
-    background: var(--button-hover-dark);
+  background: var(--button-hover-dark);
 }
 
-/* Pop-up box under button */
+/* -------- POP-UP BOXES -------- */
 .art-popup {
-    margin-top: 18px;
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    padding: 20px;
-    border: 3px solid #000;
-    box-shadow: var(--shadow);
+  margin-top: 18px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: var(--card-border-width) solid #000;
+  box-shadow: var(--shadow);
 }
 
-/* Dark Mode Pop-up */
 body.dark-mode .art-popup {
-    background: var(--card-bg-dark);
-    border: 3px solid var(--text-light);
+  background: var(--card-bg-dark);
+  border-color: var(--text-primary-dark);
+  color: var(--text-primary-dark);
 }
 
-/* Hidden state for popup */
 .hidden {
-    display: none;
+  display: none;
 }
 
-/* Roll button inside pop-up */
 .roll-btn {
-    margin-top: 10px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 10px 16px;
-    border: 2px solid #000;
-    cursor: pointer;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 16px;
+  border: 2px solid #000;
+  cursor: pointer;
 }
 
-/* Dark Mode Roll Button */
 body.dark-mode .roll-btn {
-    background: var(--button-bg-dark);
-    border: 2px solid var(--text-light);
+  background: var(--button-bg-dark);
+  border-color: var(--text-primary-dark);
+  color: var(--text-primary-dark);
 }
 
-/* Roll Button Hover */
 .roll-btn:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-/* Dark Mode Roll Button Hover */
 body.dark-mode .roll-btn:hover {
-    background: var(--button-hover-dark);
+  background: var(--button-hover-dark);
 }
 
-/* ------------ FOOTER ------------- */
-
+/* -------- FOOTER -------- */
 .footer {
-    margin-top: 60px;
-    opacity: 0.6;
-    font-size: 0.85rem;
+  margin-top: 60px;
+  opacity: 0.6;
+  font-size: 0.85rem;
 }
 
-/* Dark Mode Footer */
 body.dark-mode .footer {
-    background: var(--footer-bg-dark);
-    color: var(--text-light);
+  background: var(--footer-bg-dark);
+  color: var(--text-primary-dark);
 }
 
-
-/* ---------------------------------------------------
-   Art Block Button (Index Page)
---------------------------------------------------- */
+/* -------- ART BLOCK BUTTONS -------- */
 .artblock-btn {
   background: #d9c6a6;
   border: 2px solid #a89471;
@@ -245,23 +237,19 @@ body.dark-mode .footer {
   transform: scale(1.05);
 }
 
-/* ---------------------------------------------------
-   Popup Overlay
---------------------------------------------------- */
+/* -------- POPUP OVERLAY -------- */
 .artblock-overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.45);
-  display: none; /* hidden by default */
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 2000;
 }
 
-/* ---------------------------------------------------
-   Popup Box
---------------------------------------------------- */
+/* -------- POPUP BOX -------- */
 .artblock-box {
   background: #ffffff;
   padding: 25px;
@@ -270,6 +258,12 @@ body.dark-mode .footer {
   border-radius: 18px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   text-align: center;
+}
+
+body.dark-mode .artblock-box {
+  background: var(--card-bg-dark);
+  color: var(--text-primary-dark);
+  border: 2px solid var(--text-primary-dark);
 }
 
 .artblock-title {
@@ -286,7 +280,12 @@ body.dark-mode .footer {
   font-size: 1rem;
 }
 
-/* Buttons inside popup */
+body.dark-mode .artblock-message {
+  background: #2a1f3a; /* subtle dark variant */
+  color: var(--text-secondary-dark);
+}
+
+/* -------- POPUP BUTTONS -------- */
 .artblock-generate,
 .artblock-close {
   padding: 10px 16px;
@@ -298,12 +297,12 @@ body.dark-mode .footer {
 }
 
 .artblock-generate {
-  background: #6b5ce7;
+  background: var(--accent-dark);
   color: #fff;
 }
 
 .artblock-generate:hover {
-  background: #5749c9;
+  background: #8f70ff; /* slightly lighter accent on hover */
 }
 
 .artblock-close {

@@ -1,25 +1,63 @@
-// darkMode.js
+// darkMode.js — Robust Midnight Ink Dark Mode
 
-// Check if dark mode is enabled in localStorage
-if (localStorage.getItem("dark-mode") === "enabled") {
-    document.body.classList.add("dark-mode");
-    document.getElementById("icon").classList.replace("fa-moon", "fa-sun"); // Swap icon to sun
-}
+(function () {
+  const body = document.body;
+  const toggleButton = document.getElementById("dark-mode-toggle");
+  const icon = document.getElementById("icon");
 
-// Get the dark mode toggle button and icon
-const toggleButton = document.getElementById("dark-mode-toggle");
-const icon = document.getElementById("icon");
+  // List of elements to apply glow/accent in dark mode
+  const accentSelectors = [
+    ".card",
+    ".art-btn",
+    ".roll-btn",
+    ".artblock-generate",
+    ".artblock-box"
+  ];
 
-// Add event listener to toggle dark mode
-toggleButton.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
+  // Apply dark mode class if stored
+  if (localStorage.getItem("dark-mode") === "enabled") {
+    enableDarkMode();
+  }
 
-    // Swap icons based on the theme
-    if (document.body.classList.contains("dark-mode")) {
-        icon.classList.replace("fa-moon", "fa-sun"); // Moon to Sun
-        localStorage.setItem("dark-mode", "enabled");
-    } else {
-        icon.classList.replace("fa-sun", "fa-moon"); // Sun to Moon
-        localStorage.setItem("dark-mode", "disabled");
-    }
-});
+  // Toggle button listener
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      if (body.classList.contains("dark-mode")) {
+        disableDarkMode();
+      } else {
+        enableDarkMode();
+      }
+    });
+  }
+
+  // Enable Dark Mode
+  function enableDarkMode() {
+    body.classList.add("dark-mode");
+    localStorage.setItem("dark-mode", "enabled");
+
+    if (icon) icon.classList.replace("fa-moon", "fa-sun");
+
+    // Apply accent glow styles
+    accentSelectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((el) => {
+        el.style.transition = "all 0.3s ease";
+        el.style.boxShadow = "0 0 12px var(--accent-dark)";
+      });
+    });
+  }
+
+  // Disable Dark Mode
+  function disableDarkMode() {
+    body.classList.remove("dark-mode");
+    localStorage.setItem("dark-mode", "disabled");
+
+    if (icon) icon.classList.replace("fa-sun", "fa-moon");
+
+    // Remove accent glow styles
+    accentSelectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((el) => {
+        el.style.boxShadow = "";
+      });
+    });
+  }
+})();
