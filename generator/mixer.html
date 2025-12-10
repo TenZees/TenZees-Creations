@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Element Mixer</title>
 
-  <!-- Midnight Ink CSS -->
+  <!-- Mixer CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
 </head>
 <body>
 
@@ -30,109 +29,91 @@
   <div class="mixer-container page">
     <h1 class="mixer-title hero-title">Element Mixer</h1>
 
-    <!-- CONFIG SECTION -->
+    <!-- CONFIGURATION -->
     <div class="config-box card">
       <h2 class="config-title">⚙️ CONFIGURE MIX</h2>
       <div class="config-grid">
-        <!-- Example toggle row -->
         <label class="toggle-row">
           <span>Color Palette</span>
-          <input type="checkbox" id="toggle-palette" checked aria-label="Toggle Color Palette" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-palette" checked />
+          <span class="toggle-slider"></span>
         </label>
-
         <label class="toggle-row">
           <span>Object</span>
-          <input type="checkbox" id="toggle-object" checked aria-label="Toggle Object" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-object" checked />
+          <span class="toggle-slider"></span>
         </label>
-
         <label class="toggle-row">
           <span>Location</span>
-          <input type="checkbox" id="toggle-location" checked aria-label="Toggle Location" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-location" checked />
+          <span class="toggle-slider"></span>
         </label>
-
         <label class="toggle-row">
           <span>Theme / Culture</span>
-          <input type="checkbox" id="toggle-theme" aria-label="Toggle Theme / Culture" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-theme" />
+          <span class="toggle-slider"></span>
         </label>
-
         <label class="toggle-row">
           <span>Mood</span>
-          <input type="checkbox" id="toggle-mood" aria-label="Toggle Mood" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-mood" />
+          <span class="toggle-slider"></span>
         </label>
-
         <label class="toggle-row">
           <span>Art Style</span>
-          <input type="checkbox" id="toggle-art" aria-label="Toggle Art Style" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-art" />
+          <span class="toggle-slider"></span>
         </label>
-
         <label class="toggle-row">
           <span>Season / Holiday</span>
-          <input type="checkbox" id="toggle-season" aria-label="Toggle Season / Holiday" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-season" />
+          <span class="toggle-slider"></span>
         </label>
-
         <label class="toggle-row">
           <span>Person / Character</span>
-          <input type="checkbox" id="toggle-person" aria-label="Toggle Person / Character" />
-          <span class="toggle-slider" aria-hidden="true"></span>
+          <input type="checkbox" id="toggle-person" />
+          <span class="toggle-slider"></span>
         </label>
       </div>
     </div>
 
-    <!-- RESULTS SECTION -->
+    <!-- RESULTS -->
     <div class="results-grid">
-      <!-- Each card has 'card' class for dark mode glow -->
       <div class="result-card pink card" id="card-palette">
-        <h3>COLOR PALETTE 
-          <button class="lock-btn" id="lock-palette" title="Lock Palette" aria-label="Lock or Unlock Palette">🔓</button>
-        </h3>
-        <div class="value-box value-palette" aria-live="polite">Ready to roll...</div>
+        <h3>COLOR PALETTE <button class="lock-btn" id="lock-palette">🔓</button></h3>
+        <div class="value-box value-palette">Ready to roll...</div>
       </div>
-
       <div class="result-card blue card" id="card-object">
         <h3>OBJECT</h3>
-        <div class="value-box value-object" aria-live="polite">Ready to roll...</div>
+        <div class="value-box value-object">Ready to roll...</div>
       </div>
-
       <div class="result-card green card" id="card-location">
         <h3>LOCATION</h3>
-        <div class="value-box value-location" aria-live="polite">Ready to roll...</div>
+        <div class="value-box value-location">Ready to roll...</div>
       </div>
-
       <div class="result-card purple card" id="card-theme">
         <h3>THEME / CULTURE</h3>
-        <div class="value-box value-theme" aria-live="polite">Ready to roll...</div>
+        <div class="value-box value-theme">Ready to roll...</div>
       </div>
-
       <div class="result-card yellow card" id="card-mood">
         <h3>MOOD</h3>
-        <div class="value-box value-mood" aria-live="polite">Ready to roll...</div>
+        <div class="value-box value-mood">Ready to roll...</div>
       </div>
-
       <div class="result-card orange card" id="card-art">
         <h3>ART STYLE</h3>
-        <div class="value-box value-art" aria-live="polite">Ready to roll...</div>
+        <div class="value-box value-art">Ready to roll...</div>
       </div>
-
       <div class="result-card teal card" id="card-season">
         <h3>SEASON / HOLIDAY</h3>
-        <div class="value-box value-season" aria-live="polite">Ready to roll...</div>
+        <div class="value-box value-season">Ready to roll...</div>
       </div>
-
       <div class="result-card red card" id="card-person">
         <h3>PERSON / CHARACTER</h3>
-        <div class="value-box value-person" aria-live="polite">Ready to roll...</div>
+        <div class="value-box value-person">Ready to roll...</div>
       </div>
     </div>
 
     <!-- Mix Button -->
-    <button class="mix-btn art-btn" id="mix-btn" aria-label="Click to mix selected elements">⟳ Mix Elements</button>
+    <button class="mix-btn art-btn" id="mix-btn">⟳ Mix Elements</button>
   </div>
 
   <!-- Footer Ad -->
