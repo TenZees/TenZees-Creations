@@ -29,7 +29,7 @@ function setSection(key, value) {
   if (!box) return;
 
   // If value is an object/array, stringify it for display
-  if (typeof value === 'object') {
+  if (typeof value === 'objects') {
     box.innerHTML = JSON.stringify(value, null, 2);
   } else {
     box.innerHTML = value;
