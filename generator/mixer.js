@@ -126,12 +126,14 @@ function init() {
     const card = document.querySelector('#' + cardId);
     if (!card) return;
 
+    // Initial visibility
     card.classList.toggle('hidden', !toggle.checked);
 
     toggle.addEventListener('change', () => {
       card.classList.toggle('hidden', !toggle.checked);
     });
   });
+
 
   // Initial roll
   roll();

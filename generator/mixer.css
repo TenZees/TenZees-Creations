@@ -6,15 +6,15 @@
 /* -------- COLOR VARIABLES -------- */
 :root {
   /* -------- Dark Mode Palette -------- */
-  --bg-dark: #1B1125;
-  --card-bg-dark: #261831;
-  --text-primary-dark: #F4E9FF;
-  --text-secondary-dark: #CAB5E0;
-  --border-dark: #3B2A47;
-  --accent-dark: #A07BFF;
-  --button-bg-dark: #333;
-  --button-hover-dark: #444;
-  --bg-image-dark: url("assets/splatter_darkMode.png");
+  --bg-dark: #1B1125; /* Background color for dark mode */
+  --card-bg-dark: #261831; /* Card background for dark mode */
+  --text-primary-dark: #F4E9FF; /* Primary text color for dark mode */
+  --text-secondary-dark: #CAB5E0; /* Secondary text color for dark mode */
+  --border-dark: #3B2A47; /* Border color for dark mode */
+  --accent-dark: #A07BFF; /* Accent color for dark mode */
+  --button-bg-dark: #333; /* Button background for dark mode */
+  --button-hover-dark: #444; /* Button hover color for dark mode */
+  --bg-image-dark: url("assets/splatter_darkMode.png"); /* Dark mode background image */
 
   /* Card-specific dark colors */
   --card-palette-dark: #4c3440;
@@ -26,15 +26,15 @@
   --card-person-dark:   #4c2c2c;
 
   /* -------- Light Mode Palette -------- */
-  --bg-light: #f8f5f0;
-  --card-bg-light: #ffffff;
-  --text-primary-light: #111;
-  --text-secondary-light: #666;
-  --border-light: #ccc;
-  --accent-light: #A07BFF;
-  --button-bg-light: #eee;
-  --button-hover-light: #ddd;
-  --bg-image-light: url("assets/splatter_lightMode.png");
+  --bg-light: #f8f5f0; /* Background color for light mode */
+  --card-bg-light: #ffffff; /* Card background for light mode */
+  --text-primary-light: #111; /* Primary text color for light mode */
+  --text-secondary-light: #666; /* Secondary text color for light mode */
+  --border-light: #ccc; /* Border color for light mode */
+  --accent-light: #A07BFF; /* Accent color for light mode */
+  --button-bg-light: #eee; /* Button background for light mode */
+  --button-hover-light: #ddd; /* Button hover color for light mode */
+  --bg-image-light: url("assets/splatter_lightMode.png"); /* Light mode background image */
 
   /* Card-specific light colors */
   --card-palette-light: #f0e6f6;
@@ -46,47 +46,54 @@
   --card-person-light:   #eef0ff;
 
   /* -------- Miscellaneous -------- */
-  --radius: 24px;
-  --btn-radius: 14px;
-  --card-border-width: 2px;
-  --shadow-dark: 0 8px 18px rgba(255,255,255,0.04);
-  --shadow-light: 0 8px 18px rgba(0,0,0,0.12);
-  --max-width: 900px;
+  --radius: 24px; /* Border radius for rounded corners */
+  --btn-radius: 14px; /* Border radius for buttons */
+  --card-border-width: 2px; /* Border width for cards */
+  --shadow-dark: 0 8px 18px rgba(255,255,255,0.04); /* Shadow for dark mode */
+  --shadow-light: 0 8px 18px rgba(0,0,0,0.12); /* Shadow for light mode */
+  --max-width: 900px; /* Maximum width for page content */
 
   /* Value box text */
-  --value-text-light: #111;
-  --value-bg-light: rgba(0,0,0,0.08);
-  --value-bg-dark: rgba(0,0,0,0.18);
+  --value-text-light: #111; /* Text color for value box in light mode */
+  --value-bg-light: rgba(0,0,0,0.08); /* Background for value box in light mode */
+  --value-bg-dark: rgba(0,0,0,0.18); /* Background for value box in dark mode */
 }
 
-/* -------- GLOBAL -------- */
-* { box-sizing: border-box; }
-html,body { height: 100%; }
-body{
+/* -------- GLOBAL STYLES -------- */
+* {
+  box-sizing: border-box; /* Ensure consistent box sizing across elements */
+}
+
+html, body {
+  height: 100%; /* Ensure full height for the body */
+}
+
+/* Body styles (light mode by default) */
+body {
   margin: 0;
-  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
-  color: var(--text-primary-light);
-  background:
-    url("assets/PinkPaint.png") top right / 320px no-repeat,
-    url("assets/BluePaint.png") bottom left / 320px no-repeat,
-    url("assets/splatter.png") center / cover no-repeat,
-    var(--bg-light);
-  transition: background 0.28s ease, color 0.22s ease;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif; /* Font family */
+  color: var(--text-primary-light); /* Text color in light mode */
+  background: 
+    url("assets/PinkPaint.png") top right / 320px no-repeat, /* Decorative paint background */
+    url("assets/BluePaint.png") bottom left / 320px no-repeat, /* Decorative paint background */
+    url("assets/splatter.png") center / cover no-repeat, /* Background image */
+    var(--bg-light); /* Background color for light mode */
+  transition: background 0.28s ease, color 0.22s ease; /* Smooth transition for background and text colors */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark mode body */
-body.dark-mode{
+/* Body styles (dark mode) */
+body.dark-mode {
   background:
-    url("assets/PinkPaint.png") top right / 320px no-repeat,
-    url("assets/BluePaint.png") bottom left / 320px no-repeat,
-    var(--bg-image-dark) center / cover no-repeat,
-    var(--bg-dark);
-  color: var(--text-primary-dark);
+    url("assets/PinkPaint.png") top right / 320px no-repeat, /* Decorative paint background */
+    url("assets/BluePaint.png") bottom left / 320px no-repeat, /* Decorative paint background */
+    var(--bg-image-dark) center / cover no-repeat, /* Dark mode background image */
+    var(--bg-dark); /* Dark mode background color */
+  color: var(--text-primary-dark); /* Text color in dark mode */
 }
 
-/* page wrapper */
+/* Page wrapper (content container) */
 .page, .mixer-container {
   width: 100%;
   max-width: var(--max-width);
@@ -97,7 +104,7 @@ body.dark-mode{
   text-align: center;
 }
 
-/* title */
+/* Main title styling */
 .mixer-title {
   font-size: 2.8rem;
   font-weight: 800;
@@ -105,35 +112,36 @@ body.dark-mode{
   letter-spacing: -0.02em;
 }
 
-/* config box */
+/* Config box for toggling settings */
 .config-box {
-  background: var(--card-bg-light);
+  background: var(--card-bg-light); /* Light mode background */
   padding: 18px;
   border-radius: var(--radius);
   margin-bottom: 20px;
-  box-shadow: var(--shadow-light);
-  border: var(--card-border-width) solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-light); /* Light mode shadow */
+  border: var(--card-border-width) solid rgba(0,0,0,0.06); /* Card border */
   transition: background 0.24s ease, border-color 0.24s ease;
 }
 
-body.dark-mode .config-box{
-  background: var(--card-bg-dark);
-  border-color: var(--border-dark);
-  box-shadow: var(--shadow-dark);
+/* Config box in dark mode */
+body.dark-mode .config-box {
+  background: var(--card-bg-dark); /* Dark mode background */
+  border-color: var(--border-dark); /* Dark mode border color */
+  box-shadow: var(--shadow-dark); /* Dark mode shadow */
 }
 
-/* config grid */
-.config-grid{
+/* Grid layout for config options */
+.config-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-/* toggle rows */
-.toggle-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+/* Toggle row for each config option */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 12px 14px;
   border-radius: 12px;
   background: rgba(0,0,0,0.03);
@@ -141,50 +149,82 @@ body.dark-mode .config-box{
   transition: background 0.18s ease;
 }
 
-body.dark-mode .toggle-row{ background: rgba(255,255,255,0.02); }
+.hidden {
+  display: none; /* Used to hide cards when toggled off */
+}
 
-/* input hidden */
-.toggle-row input[type="checkbox"]{ display:none; }
+/* Toggle row in dark mode */
+body.dark-mode .toggle-row {
+  background: rgba(255,255,255,0.02);
+}
 
-/* custom slider */
-.toggle-wrap { display:inline-block; position:relative; width:44px; height:24px; }
-.toggle-slider{
-  display:block;
-  width:100%;
-  height:100%;
-  background:var(--button-bg-light);
+/* Hide the default checkbox input */
+.toggle-row input[type="checkbox"] {
+  display: none;
+}
+
+/* Custom slider for the toggle switch */
+.toggle-wrap {
+  display: inline-block;
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-slider {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--button-bg-light); /* Light mode slider background */
   border-radius: 999px;
-  position:relative;
+  position: relative;
   transition: background 0.2s ease;
   box-shadow: inset 0 -2px 0 rgba(0,0,0,0.06);
 }
-.toggle-slider::after{
-  content:"";
-  position:absolute;
-  top:3px;
-  left:4px;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:white;
+
+.toggle-slider::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
   transition: transform .18s cubic-bezier(.2,.95,.3,1);
   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
-.toggle-row input:checked + .toggle-slider{ background: var(--accent-dark); }
-.toggle-row input:checked + .toggle-slider::after{ transform: translateX(20px); }
 
-/* results grid */
-.results-grid{
-  display:grid;
-  gap:18px;
+.toggle-row input:checked + .toggle-slider {
+  background: var(--accent-dark); /* Dark mode accent color */
+}
+
+.toggle-row input:checked + .toggle-slider::after {
+  transform: translateX(20px); /* Move the slider when checked */
+}
+
+/* Results grid for displaying the mixed elements */
+.results-grid {
+  display: grid;
+  gap: 18px;
   margin-top: 10px;
   grid-template-columns: 1fr;
 }
-@media(min-width:600px){ .results-grid{ grid-template-columns: repeat(2,1fr); } }
-@media(min-width:1000px){ .results-grid{ grid-template-columns: repeat(2, minmax(260px,1fr)); } }
 
-/* result card base */
-.result-card{
+@media(min-width:600px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media(min-width:1000px) {
+  .results-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr)); /* 2 columns with minimum width on large screens */
+  }
+}
+
+/* Result card base styling */
+.result-card {
   padding: 18px;
   border-radius: var(--radius);
   transition: background .22s ease, box-shadow .22s ease, transform .12s;
@@ -193,26 +233,26 @@ body.dark-mode .toggle-row{ background: rgba(255,255,255,0.02); }
   overflow: hidden;
 }
 
-/* dark card adjustments */
-body.dark-mode .result-card{
+/* Dark mode card adjustments */
+body.dark-mode .result-card {
   box-shadow: var(--shadow-dark);
   border-color: var(--border-dark);
 }
 
-/* titles inside cards */
-.result-card h3{
+/* Card titles (inside each result card) */
+.result-card h3 {
   font-size: .95rem;
   margin: 0 0 10px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
-  text-transform:uppercase;
+  text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
-/* the value box inside card */
-.value-box{
+/* Value box inside the result cards */
+.value-box {
   background: var(--value-bg-light);
   border-radius: 12px;
   padding: 14px;
@@ -220,12 +260,14 @@ body.dark-mode .result-card{
   color: var(--value-text-light);
   transition: background .22s ease, color .22s ease;
 }
-body.dark-mode .value-box{
+
+/* Value box in dark mode */
+body.dark-mode .value-box {
   background: var(--value-bg-dark);
   color: var(--text-primary-dark);
 }
 
-/* ========== CARD COLOR CLASSES ========== */
+/* Specific card color classes */
 .result-card.palette-card { background: var(--card-palette-light); }
 .result-card.blue { background: var(--card-object-light); }
 .result-card.green { background: var(--card-location-light); }
@@ -235,7 +277,7 @@ body.dark-mode .value-box{
 .result-card.teal { background: var(--card-person-light); }
 .result-card.red { background: var(--card-person-light); }
 
-/* Dark overrides */
+/* Dark mode specific overrides */
 body.dark-mode .result-card.palette-card { background: var(--card-palette-dark); }
 body.dark-mode .result-card.blue { background: var(--card-object-dark); }
 body.dark-mode .result-card.green { background: var(--card-location-dark); }
@@ -245,69 +287,115 @@ body.dark-mode .result-card.orange { background: var(--card-season-dark); }
 body.dark-mode .result-card.teal { background: var(--card-person-dark); }
 body.dark-mode .result-card.red { background: var(--card-person-dark); }
 
-/* mix button */
-.mix-btn{
+/* Mix button styling */
+.mix-btn {
   margin: 28px auto 0;
   display: inline-block;
   padding: 12px 28px;
   border-radius: var(--btn-radius);
   border: none;
-  background: var(--button-bg-light);
-  color: var(--text-primary-light);
+  background: var(--button-bg-light); /* Light mode button background */
+  color: var(--text-primary-light); /* Button text color in light mode */
   font-weight: 600;
   font-size: 1.05rem;
-  cursor:pointer;
+  cursor: pointer;
   box-shadow: var(--shadow-light);
   transition: transform .12s ease, background .18s;
 }
-.mix-btn:hover{ transform: translateY(-3px); }
-body.dark-mode .mix-btn{
-  background: var(--button-bg-dark);
-  color: var(--text-primary-dark);
-  box-shadow: var(--shadow-dark);
+
+/* Hover effect for mix button */
+.mix-btn:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
 }
 
-/* lock button */
-.lock-btn{
-  background:none;
-  border:none;
-  font-size:1rem;
-  cursor:pointer;
+/* Dark mode mix button */
+body.dark-mode .mix-btn {
+  background: var(--button-bg-dark); /* Dark mode button background */
+  color: var(--text-primary-dark); /* Button text color in dark mode */
+  box-shadow: var(--shadow-dark); /* Dark mode shadow */
 }
 
-/* top toggle button */
-.top-center-toggle{
+/* Lock button (for locking the palette) */
+.lock-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Dark mode toggle button position */
+.top-center-toggle {
   position: fixed;
   top: 12px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9999;
 }
-.dark-mode-btn{
+
+/* Dark mode toggle button styling */
+.dark-mode-btn {
   border-radius: 10px;
   padding: 8px 10px;
-  border:none;
+  border: none;
   background: var(--button-bg-light);
   color: var(--text-primary-light);
-  cursor:pointer;
+  cursor: pointer;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
-.dark-mode-btn:hover{ opacity: 0.95; }
-body.dark-mode .dark-mode-btn{
+
+/* Hover effect for dark mode button */
+.dark-mode-btn:hover {
+  opacity: 0.95;
+}
+
+/* Dark mode toggle button styling in dark mode */
+body.dark-mode .dark-mode-btn {
   background: var(--button-bg-dark);
   color: var(--text-primary-dark);
 }
 
-/* paint background sizing */
-.paint-bg{ position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.95; }
-.paint{ position:absolute; }
-.paint-blue{ left:-120px; bottom:-140px; width:420px; }
-.paint-pink{ right:-120px; top:-100px; width:380px; }
+/* Background paint images */
+.paint-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+}
 
-/* small responsive niceties */
-@media (max-width:420px){
-  .mixer-title{ font-size:2.2rem; }
-  .toggle-wrap{ transform: scale(.92); }
-  .result-card { padding:14px; border-radius:18px; }
-  .value-box{ padding:10px; font-size:1rem; }
+.paint {
+  position: absolute;
+}
+
+.paint-blue {
+  left: -120px;
+  bottom: -140px;
+  width: 420px;
+}
+
+.paint-pink {
+  right: -120px;
+  top: -100px;
+  width: 380px;
+}
+
+/* Small responsive tweaks */
+@media (max-width:420px) {
+  .mixer-title {
+    font-size: 2.2rem;
+  }
+
+  .toggle-wrap {
+    transform: scale(.92);
+  }
+
+  .result-card {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .value-box {
+    padding: 10px;
+    font-size: 1rem;
+  }
 }
