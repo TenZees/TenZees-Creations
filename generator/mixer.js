@@ -1,8 +1,11 @@
 // mixer.js — Element Mixer logic (module)
-import { DATA, sections } from './dataSource'; // make sure sections is exported from dataSource
+import { DATA, sections } from './data.js'; // make sure sections is exported from dataSource
 
 // Utility function to pick a random element
 const rand = arr => arr[Math.floor(Math.random() * arr.length)];
+const lockBtn = document.querySelector('#lock-palettes');
+const paletteLocked = document.querySelector('#lock-palettes')?.dataset.locked === 'true';
+
 
 // Convert palette object to HTML
 function paletteToHtml(p) {
@@ -35,14 +38,14 @@ function setSection(key, value) {
 
 // Main roll function
 function roll(enabledSections) {
-  const paletteLocked = document.querySelector('#lock-palette')?.dataset.locked === 'true';
+  const paletteLocked = document.querySelector('#lock-palettes')?.dataset.locked === 'true';
 
   Object.keys(sections).forEach(key => {
-    if (key === 'palette') {
-      if (enabledSections.includes('palette')) {
-        if (!paletteLocked) setSection('palette', paletteToHtml(rand(DATA.palettes)));
+    if (key === 'palettes') {
+      if (enabledSections.includes('palettes')) {
+        if (!paletteLocked) setSection('palettes', paletteToHtml(rand(DATA.palettes)));
       } else {
-        setSection('palette', 'Ready to roll...');
+        setSection('palettes', 'Ready to roll...');
       }
     } else {
       if (enabledSections.includes(key)) setSection(key, rand(DATA[key]));
@@ -75,7 +78,7 @@ function init() {
   }
 
   // Lock palette button
-  const lockBtn = document.querySelector('#lock-palette');
+  const lockBtn = document.querySelector('#lock-palettes');
   if (lockBtn) {
     lockBtn.dataset.locked = 'false';
     lockBtn.addEventListener('click', () => {
