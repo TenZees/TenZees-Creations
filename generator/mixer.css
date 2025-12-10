@@ -1,133 +1,200 @@
-/* General body styles */
+/* =========================================
+                GLOBAL BASE
+========================================= */
 body {
-  margin: 0; /* Removes default margins */
-  font-family: "Segoe UI", Arial, sans-serif; /* Sets font style */
-  background: #f8f5ef; /* Light background color */
-  color: #333; /* Dark text color */
+  margin: 0;
+  padding-bottom: 70px; /* Space for ad */
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f8f5ef;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Paint Background */
+/* Dark Mode (Global) */
+body.dark-mode {
+  background: #0d0d0d;
+  color: #f4f4f4;
+}
+
+/* =========================================
+              DARK MODE BUTTON
+========================================= */
+.top-center-toggle {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+.dark-mode-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: 0.2s;
+}
+
+.dark-mode-btn:hover {
+  opacity: 0.8;
+}
+
+body.dark-mode .dark-mode-btn {
+  background: #444;
+  color: #fff;
+}
+
+/* =========================================
+                 BACKGROUND PAINT
+========================================= */
 .paint-bg {
-  position: fixed; /* Fixes the paint to the background */
-  inset: 0; /* Ensures it covers the full viewport */
-  z-index: 0; /* Makes sure it’s behind other elements */
-  pointer-events: none; /* Disables interaction with the background */
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .paint {
-  position: absolute; /* Positions paint elements absolutely */
+  position: absolute;
 }
 
 .paint-blue {
-  left: -120px; /* Positions blue paint off-screen */
-  bottom: -140px; /* Positions blue paint off-screen */
-  width: 420px; /* Sets width */
+  left: -120px;
+  bottom: -140px;
+  width: 420px;
 }
 
 .paint-pink {
-  right: -130px; /* Positions pink paint off-screen */
-  top: -120px; /* Positions pink paint off-screen */
-  width: 380px; /* Sets width */
+  right: -130px;
+  top: -120px;
+  width: 380px;
 }
 
-/* Mixer container styles */
+/* =========================================
+              MIXER LAYOUT & TITLES
+========================================= */
 .mixer-container {
-  max-width: 900px; /* Limits max width */
-  margin: auto; /* Centers the container */
-  padding: 20px; /* Adds padding */
-  position: relative; /* Allows layering with z-index */
-  z-index: 2; /* Makes sure it’s above the paint background */
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
-/* Mixer title */
 .mixer-title {
-  text-align: center; /* Centers the title */
-  margin-bottom: 24px; /* Adds space below the title */
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-/* Configuration Section */
+/* =========================================
+            CONFIGURATION TOGGLES
+========================================= */
 .config-box {
-  background: #fff; /* White background */
-  padding: 16px; /* Padding around content */
-  border-radius: 14px; /* Rounded corners */
-  margin-bottom: 24px; /* Adds space below */
+  background: #fff;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  transition: background 0.3s;
+}
+
+body.dark-mode .config-box {
+  background: #1b1b1b;
 }
 
 .config-grid {
-  display: grid; /* Uses grid layout for toggle rows */
-  grid-template-columns: 1fr 1fr; /* Two columns */
-  gap: 12px; /* Adds space between grid items */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .toggle-row {
-  background: #f5f1ea; /* Light background for toggle rows */
-  padding: 8px 12px; /* Padding around toggle content */
-  border-radius: 10px; /* Rounded corners */
-  display: flex; /* Flexbox for centering content */
-  justify-content: space-between; /* Space between label and checkbox */
-  align-items: center; /* Centers items vertically */
+  background: #f5f1ea;
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+body.dark-mode .toggle-row {
+  background: #222;
 }
 
 .toggle-row input {
-  display: none; /* Hides the checkbox */
+  display: none;
 }
 
 .toggle-slider {
-  width: 36px; /* Sets slider width */
-  height: 18px; /* Sets slider height */
-  background: #ccc; /* Gray slider background */
-  border-radius: 20px; /* Rounds the slider */
-  position: relative; /* Positions the slider handle */
+  width: 36px;
+  height: 18px;
+  background: #ccc;
+  border-radius: 20px;
+  position: relative;
+  transition: background 0.3s;
 }
 
 .toggle-slider::after {
-  content: ""; /* Adds a circle inside the slider */
+  content: "";
   position: absolute;
-  width: 14px; /* Circle width */
-  height: 14px; /* Circle height */
-  background: #fff; /* White color for the circle */
-  top: 2px; /* Positions circle */
-  left: 2px; /* Positions circle */
-  border-radius: 50%; /* Makes the circle round */
-  transition: 0.2s; /* Smooth transition */
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: 0.2s;
 }
 
-/* Changes the background when checkbox is checked */
 .toggle-row input:checked + .toggle-slider {
-  background: #b79e7f; /* Changes background color */
+  background: #b79e7f;
 }
 
-/* Moves the circle to the right when checked */
 .toggle-row input:checked + .toggle-slider::after {
-  transform: translateX(18px); /* Moves circle */
+  transform: translateX(18px);
 }
 
-/* Results Section */
+/* =========================================
+                RESULTS SECTION
+========================================= */
 .results-grid {
-  display: grid; /* Uses grid layout for results */
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 14px; /* Adds space between cards */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 .result-card {
-  padding: 18px; /* Padding inside cards */
-  border-radius: 20px; /* Rounded corners */
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06); /* Subtle shadow effect */
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s;
+}
+
+body.dark-mode .result-card {
+  box-shadow: 0 8px 18px rgba(255, 255, 255, 0.04);
 }
 
 .result-card h3 {
-  text-align: center; /* Centers the heading */
-  font-size: 0.85rem; /* Reduces font size */
+  text-align: center;
+  font-size: 0.85rem;
 }
 
 .value-box {
-  background: #fff; /* White background */
-  border-radius: 14px; /* Rounded corners */
-  padding: 12px; /* Padding inside the box */
-  text-align: center; /* Centers text */
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  transition: background 0.3s;
 }
 
-/* Color Scheme for result cards */
+body.dark-mode .value-box {
+  background: #2b2b2b;
+}
+
+/* Card Background Colors */
 .pink { background: #ffe0ec; }
 .blue { background: #e3efff; }
 .green { background: #e6faef; }
@@ -137,84 +204,89 @@ body {
 .teal { background: #e0f7f4; }
 .red { background: #ffe0e0; }
 
-/* Hide cards when toggled off */
-.card-hidden {
-  display: none; /* Hides elements with this class */
-}
+body.dark-mode .pink { background: #4c3440; }
+body.dark-mode .blue { background: #2e354a; }
+body.dark-mode .green { background: #29503b; }
+body.dark-mode .purple { background: #3a2f46; }
+body.dark-mode .yellow { background: #4e4621; }
+body.dark-mode .orange { background: #553c23; }
+body.dark-mode .teal { background: #23534b; }
+body.dark-mode .red { background: #4c2c2c; }
 
-/* Palette Swatches Style */
+.card-hidden { display: none; }
+
+/* =========================================
+              PALETTE SWATCHES
+========================================= */
 .palette-swatches {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 swatches per row */
+  grid-template-columns: repeat(5, 1fr);
   gap: 6px;
 }
 
 .swatch {
-  height: 40px; /* Size of the swatch */
+  height: 40px;
   border-radius: 8px;
   display: flex;
-  align-items: flex-end; /* Align the text to the bottom */
-  justify-content: center; /* Center the text */
-  font-size: 0.65rem; /* Smaller font size for the color code */
-  font-family: monospace; /* Monospace font for the color code */
-  padding-bottom: 4px; /* Space between the text and the bottom of the swatch */
-  color: #333; /* Default text color */
-  transition: 0.3s; /* Optional: smooth transition for hover effects */
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-family: monospace;
+  padding-bottom: 4px;
+  color: #333;
+  transition: 0.3s;
 }
 
 .swatch:hover {
-  opacity: 0.8; /* Optional: slightly fade on hover */
+  opacity: 0.8;
 }
 
-/* Button Styles */
+body.dark-mode .swatch {
+  color: #fff;
+}
+
+/* =========================================
+                BUTTONS
+========================================= */
 .mix-btn {
-  margin: 24px auto 0; /* Adds space above and centers the button */
-  display: block; /* Makes the button block level */
-  padding: 12px 24px; /* Padding inside button */
-  font-size: 1.1rem; /* Font size */
-  border-radius: 14px; /* Rounded corners */
-  border: none; /* Removes border */
-  cursor: pointer; /* Adds pointer cursor */
-  background: #d9c6a6; /* Background color */
+  margin: 24px auto 0;
+  display: block;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: #d9c6a6;
+}
+
+body.dark-mode .mix-btn {
+  background: #826e4f;
+  color: #fff;
 }
 
 .lock-btn {
-  background: none; /* No background */
-  border: none; /* No border */
-  cursor: pointer; /* Adds pointer cursor */
-  font-size: 1rem; /* Font size */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-/* Locked state style for the lock button */
 .locked {
-  color: #a07bff; /* Purple color when locked */
+  color: #a07bff;
 }
 
-/* Footer for the ad */
-body {
-  padding-bottom: 70px; /* 50px for the ad and 20px padding */
-}
-
-/* Ad footer styling */
+/* =========================================
+                AD FOOTER
+========================================= */
 .ad-footer {
-  background: rgba(248, 245, 239, 0.95); /* Light background with transparency */
-  backdrop-filter: blur(4px); /* Adds blur effect to the background */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(248, 245, 239, 0.95);
+  backdrop-filter: blur(4px);
+  z-index: 1;
 }
 
-.ad-footer {
-  position: fixed; /* Keeps the ad fixed at the bottom */
-  bottom: 0; /* Positions at the bottom */
-  width: 100%; /* Full width */
-  z-index: 1; /* Ensures the ad is below the mixer content */
-}
-
-
-.dark-mode-btn {
-  background: #fff;
-  color: #000;
-}
-
-body.dark-mode .dark-mode-btn {
-  background: #444;
-  color: #fff;
+body.dark-mode .ad-footer {
+  background: rgba(20, 20, 20, 0.95);
 }

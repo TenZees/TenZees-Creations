@@ -7,7 +7,36 @@
 
   <!-- CSS Link -->
   <link rel="stylesheet" href="mixer.css" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script defer>
+  // === Apply saved theme on page load ===
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    const isDark = savedTheme === "dark" || !savedTheme;
+    document.body.classList.toggle("dark-mode", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    updateIcon();
+  });
+
+  // === Toggle Dark Mode ===
+  function toggleTheme() {
+    const isDark = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    updateIcon();
+  }
+
+  // === Update Toggle Icon ===
+  function updateIcon() {
+    const icon = document.getElementById("icon");
+    const isDark = document.body.classList.contains("dark-mode");
+    icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+  }
+  </script>
 </head>
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -60,12 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <body>
-  <!-- Sidebar with Dark Mode Toggle -->
-        <div class="sidebar">
-            <button id="dark-mode-toggle" class="dark-mode-btn">
-                <i id="icon" class="fas fa-moon"></i> <!-- Initial Moon Icon -->
-            </button>
-        </div>
+  <!-- Dark Mode Toggle -->
+      <div class="top-center-toggle">
+        <button id="dark-mode-toggle" class="dark-mode-btn" onclick="toggleTheme()">
+          <i id="icon" class="fas fa-moon"></i>
+        </button>
+      </div>
 
 <!-- Paint Background -->
 <div class="paint-bg">
