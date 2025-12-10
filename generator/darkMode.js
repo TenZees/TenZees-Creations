@@ -1,63 +1,68 @@
-// darkMode.js — Robust Midnight Ink Dark Mode
-
+// darkMode.js — robust toggle with localStorage and visual accents
 (function () {
   const body = document.body;
   const toggleButton = document.getElementById("dark-mode-toggle");
   const icon = document.getElementById("icon");
 
-  // List of elements to apply glow/accent in dark mode
+  // selectors to apply subtle glow in dark mode
   const accentSelectors = [
-    ".card",
-    ".art-btn",
-    ".roll-btn",
-    ".artblock-generate",
-    ".artblock-box"
+    ".result-card",
+    ".mix-btn",
+    ".lock-btn",
+    ".config-box",
+    ".art-btn"
   ];
 
-  // Apply dark mode class if stored
-  if (localStorage.getItem("dark-mode") === "enabled") {
-    enableDarkMode();
+  // init from storage
+  const stored = localStorage.getItem("dark-mode");
+  if (stored === "enabled") {
+    enableDarkMode(false);
   }
 
-  // Toggle button listener
   if (toggleButton) {
     toggleButton.addEventListener("click", () => {
       if (body.classList.contains("dark-mode")) {
-        disableDarkMode();
+        disableDarkMode(true);
       } else {
-        enableDarkMode();
+        enableDarkMode(true);
       }
     });
   }
 
-  // Enable Dark Mode
-  function enableDarkMode() {
+  // enable
+  function enableDarkMode(save = true) {
     body.classList.add("dark-mode");
-    localStorage.setItem("dark-mode", "enabled");
+    if (save) localStorage.setItem("dark-mode", "enabled");
+    if (icon) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    }
 
-    if (icon) icon.classList.replace("fa-moon", "fa-sun");
-
-    // Apply accent glow styles
-    accentSelectors.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((el) => {
-        el.style.transition = "all 0.3s ease";
-        el.style.boxShadow = "0 0 12px var(--accent-dark)";
+    accentSelectors.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        el.style.transition = "box-shadow .26s ease, transform .18s ease";
+        // small glow adapted to dark mode
+        el.style.boxShadow = "0 10px 28px rgba(160,123,255,0.06)";
       });
     });
   }
 
-  // Disable Dark Mode
-  function disableDarkMode() {
+  // disable
+  function disableDarkMode(save = true) {
     body.classList.remove("dark-mode");
-    localStorage.setItem("dark-mode", "disabled");
+    if (save) localStorage.setItem("dark-mode", "disabled");
+    if (icon) {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    }
 
-    if (icon) icon.classList.replace("fa-sun", "fa-moon");
-
-    // Remove accent glow styles
-    accentSelectors.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((el) => {
-        el.style.boxShadow = "";
+    accentSelectors.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        el.style.boxShadow = ""; // revert
       });
     });
   }
+
+  // expose for debug
+  window.__DarkModeController = { enableDarkMode, disableDarkMode };
 })();

@@ -1,266 +1,198 @@
-// Import the data from the data.js file
-import { DATA } from "./data.js"; 
+// mixer.js — simple but robust mixer logic
+// exported as module and attached to window for debugging
 
-let paletteLocked = false; // To track whether the palette is locked or not
-let currentPalette = null; // To store the currently displayed palette
+const sections = {
+  palette: {
+    id: 'card-palette',
+    name: 'Color Palette',
+    locked: false
+  },
+  object: {
+    id: 'card-object',
+    name: 'Object'
+  },
+  location: {
+    id: 'card-location',
+    name: 'Location'
+  },
+  theme: { id: 'card-theme', name: 'Theme / Culture' },
+  mood: { id: 'card-mood', name: 'Mood' },
+  art: { id: 'card-art', name: 'Art Style' },
+  season: { id: 'card-season', name: 'Season / Holiday' },
+  person: { id: 'card-person', name: 'Person / Character' }
+};
 
-/* =================================================
-   HELPERS
-================================================= */
+// small sample data — expand as needed
+const DATA = {
+  palette: [
+    { title: "Azure Sigil", swatches: ["#4A90E2","#3A78C2","#7AB1E6","#2D5FA0","#91C2F2"] },
+    { title: "Sage Mist", swatches: ["#CFEAD6","#A7C9B6","#88B08F","#6B9D77","#93C9A8"] },
+    { title: "Sunlit Terrace", swatches: ["#FFDDAA","#F6C79E","#E3A86C","#F9D9B6","#FFD1A6"] }
+  ],
+  object: [
+    "Ceremonial Dagger",
+    "Glass Orb",
+    "Mechanical Compass",
+    "Brass Key",
+    "Ancient Tome"
+  ],
+  location: [
+    "Desert Oasis",
+    "Frozen Harbor",
+    "Hidden Grotto",
+    "Forgotten Library",
+    "Sky Bazaar"
+  ],
+  theme: [
+    "Neo-Victorian",
+    "Mythic Arabian",
+    "Cyberpunk Ritual",
+    "Folk Horror",
+    "Arcane Academia"
+  ],
+  mood: [
+    "Melancholic",
+    "Euphoric",
+    "Mysterious",
+    "Playful",
+    "Tense"
+  ],
+  art: [
+    "Painterly",
+    "Vector Minimal",
+    "Film Noir",
+    "High Fantasy Illustration",
+    "Pixel Art"
+  ],
+  season: [
+    "Autumn Harvest",
+    "Winter Solstice",
+    "Summer Carnival",
+    "Spring Bloom",
+    "Midnight Festival"
+  ],
+  person: [
+    "Wandering Bard",
+    "Weathered Captain",
+    "Gilded Merchant",
+    "Young Inventor",
+    "Silent Oracle"
+  ]
+};
 
-// Randomly pick an item from an array
-function pick(arr) {
-  if (!arr || !arr.length) return "—"; // Return a fallback if array is empty or undefined
-  return arr[Math.floor(Math.random() * arr.length)];
+
+// utilities
+function qs(sel){ return document.querySelector(sel); }
+function qsa(sel){ return Array.from(document.querySelectorAll(sel)); }
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+// fill a section with provided value(s)
+function setSection(sectionKey, htmlContent){
+  const s = sections[sectionKey];
+  if(!s) return;
+  const el = qs('#' + s.id);
+  if(!el) return;
+  const box = el.querySelector('.value-box');
+  if(box) box.innerHTML = htmlContent;
 }
 
-// Pick an item from a specific category of DATA
-function pickFromData(key) {
-  return pick(DATA[key]); // Access the appropriate category from the DATA object
+// generate palette HTML for swatches
+function paletteToHtml(p){
+  if(!p) return 'Ready to roll...';
+  const sw = p.swatches.map(hex => `<span class="swatch" style="background:${hex};display:inline-block;width:36px;height:36px;border-radius:8px;margin-right:8px;box-shadow:inset 0 -4px 6px rgba(0,0,0,0.08);vertical-align:middle;"></span>`).join('');
+  return `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="font-weight:700">${p.title}</div><div style="padding:8px 14px;background:rgba(0,0,0,0.06);border-radius:12px;margin-top:6px;">${sw}</div></div>`;
 }
 
-// Generate a random color palette with a 70% chance of being curated from data, 30% being randomly generated
-function generatePalette() {
-  if (Math.random() < 0.7) {
-    return pickFromData("palettes"); // 70% chance to pick from predefined palettes
-  }
-  return generateSmartPalette(); // 30% chance to generate a random palette
-}
+// main roll function
+function roll(enabledSections){
+  // if palette locked, keep previous
+  const paletteLocked = qs('#lock-palette')?.dataset.locked === 'true';
 
-// Function to check if any checkboxes are selected
-function hasAnyEnabled() {
-  const isChecked = [...document.querySelectorAll("input[type=checkbox]")].some(cb => cb.checked);
-  console.log('Any checkbox checked?', isChecked); // Debugging output
-  return isChecked;
-}
-
-/* =================================================
-   HSL to Hex Conversion
-================================================= */
-
-// Convert HSL to Hexadecimal
-function hslToHex(h, s, l) {
-  s /= 100;
-  l /= 100;
-
-  const c = (1 - Math.abs(2 * l - 1)) * s;
-  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
-  const m = l - c / 2;
-
-  let r, g, b;
-
-  if (h >= 0 && h < 60) {
-    r = c;
-    g = x;
-    b = 0;
-  } else if (h >= 60 && h < 120) {
-    r = x;
-    g = c;
-    b = 0;
-  } else if (h >= 120 && h < 180) {
-    r = 0;
-    g = c;
-    b = x;
-  } else if (h >= 180 && h < 240) {
-    r = 0;
-    g = x;
-    b = c;
-  } else if (h >= 240 && h < 300) {
-    r = x;
-    g = 0;
-    b = c;
+  if(enabledSections.includes('palette') && !paletteLocked){
+    const p = rand(DATA.palette);
+    setSection('palette', paletteToHtml(p));
+  } else if(enabledSections.includes('palette') && paletteLocked) {
+    // do nothing (keeps current)
   } else {
-    r = c;
-    g = 0;
-    b = x;
+    setSection('palette', 'Ready to roll...');
   }
 
-  r = Math.round((r + m) * 255);
-  g = Math.round((g + m) * 255);
-  b = Math.round((b + m) * 255);
+  if(enabledSections.includes('object')) setSection('object', rand(DATA.object));
+  else setSection('object', 'Ready to roll...');
 
-  // Convert to Hex and return
-  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+  if(enabledSections.includes('location')) setSection('location', rand(DATA.location));
+  else setSection('location', 'Ready to roll...');
+
+  if(enabledSections.includes('theme')) setSection('theme', rand(DATA.theme));
+  else setSection('theme', 'Ready to roll...');
+
+  if(enabledSections.includes('mood')) setSection('mood', rand(DATA.mood));
+  else setSection('mood', 'Ready to roll...');
+
+  if(enabledSections.includes('art')) setSection('art', rand(DATA.art));
+  else setSection('art', 'Ready to roll...');
+
+  if(enabledSections.includes('season')) setSection('season', rand(DATA.season));
+  else setSection('season', 'Ready to roll...');
+
+  if(enabledSections.includes('person')) setSection('person', rand(DATA.person));
+  else setSection('person', 'Ready to roll...');
 }
 
-// Generate a "smart" random palette based on HSL color model
-function generateSmartPalette() {
-  const baseHue = Math.floor(Math.random() * 360); // Randomize the hue for colors
-  return {
-    name: "Generated Palette", // Name for the generated palette
-    colors: Array.from({ length: 5 }, (_, i) => {
-      const h = (baseHue + i * 20) % 360; // Hue value
-      const s = 70; // Saturation (fixed to 70%)
-      const l = 55; // Lightness (fixed to 55%)
 
-      return hslToHex(h, s, l); // Convert HSL to Hex and return
-    })
-  };
+// collect enabled toggles
+function getEnabledToggles(){
+  const toggles = qsa('.config-grid input[type="checkbox"]');
+  return toggles.filter(i => i.checked).map(i => i.id.replace('toggle-',''));
 }
 
-/* =================================================
-   LOCK PALETTE
-================================================= */
 
-// Get reference to the "lock palette" button
-const lockPaletteBtn = document.getElementById("lock-palette");
+// initialize controls & events
+function init(){
+  // ensure the mix button is always visible (fallback)
+  const mixBtn = qs('#mix-btn');
+  if(mixBtn){
+    mixBtn.addEventListener('click', (e) => {
+      const enabled = getEnabledToggles();
+      // user-friendly feedback: brief button animation
+      mixBtn.disabled = true;
+      mixBtn.classList.add('mixing');
+      setTimeout(()=> {
+        roll(enabled);
+        mixBtn.disabled = false;
+        mixBtn.classList.remove('mixing');
+      }, 250);
+    });
+  }
 
-// Add an event listener to toggle the lock state of the palette when the lock button is clicked
-if (lockPaletteBtn) {
-  lockPaletteBtn.addEventListener("click", () => {
-    paletteLocked = !paletteLocked; // Toggle the locked state
-    lockPaletteBtn.textContent = paletteLocked ? "🔒" : "🔓"; // Update button text based on lock state
-    lockPaletteBtn.classList.toggle("locked", paletteLocked); // Add 'locked' class if locked
-  });
+  // lock palette button behavior
+  const lockBtn = qs('#lock-palette');
+  if(lockBtn){
+    lockBtn.dataset.locked = 'false';
+    lockBtn.addEventListener('click', () => {
+      const isLocked = lockBtn.dataset.locked === 'true';
+      lockBtn.dataset.locked = (!isLocked).toString();
+      lockBtn.textContent = isLocked ? '🔓' : '🔒';
+      // small aria change
+      lockBtn.setAttribute('aria-pressed', (!isLocked).toString());
+    });
+  }
+
+  // populate initial state (run a roll for enabled toggles)
+  const initialEnabled = getEnabledToggles();
+  roll(initialEnabled);
+
+  // expose a debug function
+  window.__ElementMixer = { roll, sections, DATA };
 }
 
-/* =================================================
-   TOGGLES
-================================================= */
 
-// Toggle visibility of result cards based on checkbox state
-const TOGGLE_MAP = [
-  ["toggle-palette", "card-palette"],
-  ["toggle-object", "card-object"],
-  ["toggle-location", "card-location"],
-  ["toggle-theme", "card-theme"],
-  ["toggle-mood", "card-mood"],
-  ["toggle-art", "card-art"],
-  ["toggle-season", "card-season"],
-  ["toggle-person", "card-person"]
-];
-
-// This function toggles whether the cards are hidden or shown
-function applyToggles() {
-  TOGGLE_MAP.forEach(([toggleId, cardId]) => {
-    const toggle = document.getElementById(toggleId);
-    const card = document.getElementById(cardId);
-    if (!toggle || !card) return; // Skip if elements are not found
-    card.classList.toggle("card-hidden", !toggle.checked); // Hide card if checkbox is unchecked
-  });
+// auto-init when DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
 }
 
-/* =================================================
-   MIX LOGIC
-================================================= */
-
-// Main function that handles the mixing of all the elements
-function doMix() {
-  /* ===============================
-     PALETTE
-  =============================== */
-  const paletteToggle = document.getElementById("toggle-palette");
-  const paletteBox = document.querySelector(".value-palette");
-
-  if (paletteToggle && paletteToggle.checked && paletteBox) {
-    // Generate a new palette if it's not locked
-    if (!paletteLocked || !currentPalette) {
-      currentPalette = generatePalette();
-    }
-
-    // SAFEGUARD to ensure currentPalette.colors is an array
-    if (!currentPalette.colors || !Array.isArray(currentPalette.colors)) {
-      console.warn("Invalid palette format", currentPalette);
-      return;
-    }
-
-    paletteBox.innerHTML = `
-      ${currentPalette.name ? `<span class="palette-name">${currentPalette.name}</span>` : ""}
-      <div class="palette-swatches">
-        ${currentPalette.colors
-          .map(color => {
-            const textColor = parseInt(color.slice(1), 16) < 0x888888 ? "#fff" : "#333"; // Check brightness for text color
-            return `
-              <div class="swatch" style="background:${color}; color:${textColor}">
-                ${color} <!-- Display the color code inside the swatch -->
-              </div>
-            `;
-          })
-          .join("")}
-      </div>
-    `;
-  }
-
-  /* ===============================
-     OBJECT, LOCATION, THEME, etc...
-  =============================== */
-  const objectToggle = document.getElementById("toggle-object");
-  const objectBox = document.querySelector(".value-object");
-
-  if (objectToggle?.checked && objectBox) {
-    objectBox.textContent = pickFromData("objects"); // Pick a random object from the data
-  }
-
-  // LOCATION
-  const locationToggle = document.getElementById("toggle-location");
-  const locationBox = document.querySelector(".value-location");
-
-  if (locationToggle?.checked && locationBox) {
-    locationBox.textContent = pickFromData("locations"); // Pick a random location from the data
-  }
-
-  // THEME
-  const themeToggle = document.getElementById("toggle-theme");
-  const themeBox = document.querySelector(".value-theme");
-
-  if (themeToggle?.checked && themeBox) {
-    themeBox.textContent = pickFromData("themes"); // Pick a random theme from the data
-  }
-
-  // MOOD
-  const moodToggle = document.getElementById("toggle-mood");
-  const moodBox = document.querySelector(".value-mood");
-
-  if (moodToggle?.checked && moodBox) {
-    moodBox.textContent = pickFromData("moods"); // Pick a random mood from the data
-  }
-
-  // ART STYLE
-  const artToggle = document.getElementById("toggle-art");
-  const artBox = document.querySelector(".value-art");
-
-  if (artToggle?.checked && artBox) {
-    artBox.textContent = pickFromData("artStyles"); // Pick a random art style from the data
-  }
-
-  // SEASON
-  const seasonToggle = document.getElementById("toggle-season");
-  const seasonBox = document.querySelector(".value-season");
-
-  if (seasonToggle?.checked && seasonBox) {
-    seasonBox.textContent = pickFromData("seasons"); // Pick a random season from the data
-  }
-
-  // PERSON
-  const personToggle = document.getElementById("toggle-person");
-  const personBox = document.querySelector(".value-person");
-
-  if (personToggle?.checked && personBox) {
-    personBox.textContent = pickFromData("people"); // Pick a random person/character from the data
-  }
-}
-
-/* =================================================
-   EVENTS
-================================================= */
-
-// Add event listener for the "Mix Elements" button
-const mixBtn = document.getElementById("mix-btn");
-if (mixBtn) {
-  mixBtn.addEventListener("click", () => {
-    // Ensure that at least one option is enabled before mixing
-    if (!hasAnyEnabled()) {
-      console.log("No options selected, cannot mix.");
-      return; // Do nothing if no checkboxes are checked
-    }
-    doMix(); // Proceed with mixing
-  });
-}
-
-// Add event listener for checkbox state changes to apply toggle visibility
-document
-  .querySelectorAll("input[type=checkbox]")
-  .forEach(cb => cb.addEventListener("change", applyToggles));
-
-// Initial check to apply the visibility toggle based on current checkbox state
-applyToggles();
+// export nothing in particular (module used mainly to surface loading)
+export { roll, DATA, sections };

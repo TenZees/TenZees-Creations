@@ -1,135 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Element Mixer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Element Mixer — Midnight Ink</title>
 
-  <!-- Mixer CSS -->
+  <!-- Style -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome (icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Dark Mode Toggle -->
+  <!-- Dark Mode Toggle (top center) -->
   <div class="top-center-toggle">
-    <button id="dark-mode-toggle" class="dark-mode-btn">
-      <i id="icon" class="fas fa-moon"></i>
+    <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+      <i id="icon" class="fas fa-moon" aria-hidden="true"></i>
     </button>
   </div>
 
-  <!-- Paint Background -->
-  <div class="paint-bg">
-    <img src="assets/BluePaint.png" class="paint paint-blue" alt="Blue paint background">
-    <img src="assets/PinkPaint.png" class="paint paint-pink" alt="Pink paint background">
+  <!-- Decorative paint background (fixed) -->
+  <div class="paint-bg" aria-hidden="true">
+    <img src="assets/BluePaint.png" class="paint paint-blue" alt="" />
+    <img src="assets/PinkPaint.png" class="paint paint-pink" alt="" />
   </div>
 
-  <div class="mixer-container page">
+  <main class="page mixer-container" id="app">
     <h1 class="mixer-title hero-title">Element Mixer</h1>
 
-    <!-- CONFIGURATION -->
-    <div class="config-box card">
-      <h2 class="config-title">⚙️ CONFIGURE MIX</h2>
+    <!-- CONFIG -->
+    <section class="config-box card" aria-labelledby="config-title">
+      <h2 id="config-title" class="config-title">⚙️ CONFIGURE MIX</h2>
+
       <div class="config-grid">
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-palette">
           <span>Color Palette</span>
-          <input type="checkbox" id="toggle-palette" checked />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-palette" checked />
+            <span class="toggle-slider" aria-hidden="true"></span>
+          </div>
         </label>
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-object">
           <span>Object</span>
-          <input type="checkbox" id="toggle-object" checked />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-object" checked />
+            <span class="toggle-slider"></span>
+          </div>
         </label>
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-location">
           <span>Location</span>
-          <input type="checkbox" id="toggle-location" checked />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-location" checked />
+            <span class="toggle-slider"></span>
+          </div>
         </label>
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-theme">
           <span>Theme / Culture</span>
-          <input type="checkbox" id="toggle-theme" />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-theme" />
+            <span class="toggle-slider"></span>
+          </div>
         </label>
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-mood">
           <span>Mood</span>
-          <input type="checkbox" id="toggle-mood" />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-mood" />
+            <span class="toggle-slider"></span>
+          </div>
         </label>
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-art">
           <span>Art Style</span>
-          <input type="checkbox" id="toggle-art" />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-art" />
+            <span class="toggle-slider"></span>
+          </div>
         </label>
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-season">
           <span>Season / Holiday</span>
-          <input type="checkbox" id="toggle-season" />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-season" />
+            <span class="toggle-slider"></span>
+          </div>
         </label>
-        <label class="toggle-row">
+
+        <label class="toggle-row" for="toggle-person">
           <span>Person / Character</span>
-          <input type="checkbox" id="toggle-person" />
-          <span class="toggle-slider"></span>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="toggle-person" />
+            <span class="toggle-slider"></span>
+          </div>
         </label>
+
       </div>
-    </div>
+    </section>
 
     <!-- RESULTS -->
-    <div class="results-grid">
-      <div class="result-card pink card" id="card-palette">
-        <h3>COLOR PALETTE <button class="lock-btn" id="lock-palette">🔓</button></h3>
+    <section class="results-grid" aria-live="polite">
+      <article class="result-card palette-card card" id="card-palette" data-section="palette">
+        <h3>COLOR PALETTE <button class="lock-btn" id="lock-palette" title="Lock / Unlock palette">🔓</button></h3>
         <div class="value-box value-palette">Ready to roll...</div>
-      </div>
-      <div class="result-card blue card" id="card-object">
+      </article>
+
+      <article class="result-card blue card" id="card-object" data-section="object">
         <h3>OBJECT</h3>
         <div class="value-box value-object">Ready to roll...</div>
-      </div>
-      <div class="result-card green card" id="card-location">
+      </article>
+
+      <article class="result-card green card" id="card-location" data-section="location">
         <h3>LOCATION</h3>
         <div class="value-box value-location">Ready to roll...</div>
-      </div>
-      <div class="result-card purple card" id="card-theme">
+      </article>
+
+      <article class="result-card purple card" id="card-theme" data-section="theme">
         <h3>THEME / CULTURE</h3>
         <div class="value-box value-theme">Ready to roll...</div>
-      </div>
-      <div class="result-card yellow card" id="card-mood">
+      </article>
+
+      <article class="result-card yellow card" id="card-mood" data-section="mood">
         <h3>MOOD</h3>
         <div class="value-box value-mood">Ready to roll...</div>
-      </div>
-      <div class="result-card orange card" id="card-art">
+      </article>
+
+      <article class="result-card orange card" id="card-art" data-section="art">
         <h3>ART STYLE</h3>
         <div class="value-box value-art">Ready to roll...</div>
-      </div>
-      <div class="result-card teal card" id="card-season">
+      </article>
+
+      <article class="result-card teal card" id="card-season" data-section="season">
         <h3>SEASON / HOLIDAY</h3>
         <div class="value-box value-season">Ready to roll...</div>
-      </div>
-      <div class="result-card red card" id="card-person">
+      </article>
+
+      <article class="result-card red card" id="card-person" data-section="person">
         <h3>PERSON / CHARACTER</h3>
         <div class="value-box value-person">Ready to roll...</div>
-      </div>
-    </div>
+      </article>
+    </section>
 
     <!-- Mix Button -->
-    <button class="mix-btn art-btn" id="mix-btn">⟳ Mix Elements</button>
+    <button class="mix-btn art-btn" id="mix-btn" aria-label="Mix Elements">⟳ Mix Elements</button>
 
+  </main>
 
-
-
-  <!-- Scripts -->
+  <!-- Inline import to surface module errors in console (prevents silent failures) -->
   <script type="module">
-  import * as mixer from './mixer.js';
-  window.mixer = mixer;
-  console.log("Mixer JS loaded successfully.");
-</script>
+    import * as mixer from './mixer.js';
+    window.mixer = mixer;
+    console.log('mixer.js loaded');
+  </script>
 
-  <script src="assets/js/darkMode.js"></script>
+  <!-- Dark mode controller (non-module for compatibility) -->
+  <script src="darkMode.js"></script>
 
-
-    <!-- Footer Ad -->
-  <footer class="footer ad-footer">
+  <!-- Ad moved below JS to avoid blocking initialization (keeps functionality stable) -->
+  <footer class="footer ad-footer" aria-hidden="true">
     <script type="text/javascript">
       atOptions = {
         'key' : 'de0da851479674baa272bb78b1388916',
