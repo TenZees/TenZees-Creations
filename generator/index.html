@@ -43,12 +43,22 @@
                 <p class="card-desc">Roll for specific details like colors, locations, objects, and moods.</p>
             </a>
 
-            <!-- 🧠 Brainfog Button -->
-            <div class="brainfog-wrapper">
-                <a href="brainfog.html" class="brainfog-btn">
-                    🎨 Art Block?
-                </a>
-            </div>
+            <!-- 🧠 Art Block Button -->
+            <button class="artblock-btn" onclick="openArtBlock()">Art Block?</button>
+
+            <!-- Art Block Popup -->
+            <div id="artblock-popup" class="artblock-overlay">
+            <div class="artblock-box">
+                <h2 class="artblock-title">Art Block? 🎨</h2>
+
+                <p id="artblock-output" class="artblock-message">
+                Tap the button to get an idea!
+                </p>
+
+    <button class="artblock-generate" onclick="generateArtBlock()">Give Me an Idea</button>
+    <button class="artblock-close" onclick="closeArtBlock()">Close</button>
+  </div>
+</div>
 
         </section>
 
@@ -61,6 +71,34 @@
 
     <!-- Link to Dark Mode Script -->
     <script src="darkMode.js"></script>
+
+    <script>
+    const artBlockIdeas = [
+        "Draw a creature using only circles.",
+        "Pick 3 random colors and make a character.",
+        "Create a hybrid animal you've never seen.",
+        "Turn a random object near you into a character.",
+        "Draw your current mood as a weather pattern.",
+        "Draw a blob and turn it into a creature.",
+        "Sketch something tiny — 1 inch only.",
+        "Draw your OC in a silly style.",
+        "Imagine a world made of candy — draw a piece of it."
+    ];
+
+    function openArtBlock() {
+        document.getElementById("artblock-popup").style.display = "flex";
+    }
+
+    function closeArtBlock() {
+        document.getElementById("artblock-popup").style.display = "none";
+    }
+
+    function generateArtBlock() {
+        const random = artBlockIdeas[Math.floor(Math.random() * artBlockIdeas.length)];
+        document.getElementById("artblock-output").textContent = random;
+    }
+    </script>
+
 
 </body>
 </html>

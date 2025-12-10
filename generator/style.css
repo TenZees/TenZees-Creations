@@ -223,3 +223,94 @@ body.dark-mode .footer {
     background: var(--footer-bg-dark);
     color: var(--text-light);
 }
+
+
+/* ---------------------------------------------------
+   Art Block Button (Index Page)
+--------------------------------------------------- */
+.artblock-btn {
+  background: #d9c6a6;
+  border: 2px solid #a89471;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 30px auto;
+  display: block;
+  transition: 0.2s ease;
+}
+
+.artblock-btn:hover {
+  background: #e7d7b8;
+  transform: scale(1.05);
+}
+
+/* ---------------------------------------------------
+   Popup Overlay
+--------------------------------------------------- */
+.artblock-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* ---------------------------------------------------
+   Popup Box
+--------------------------------------------------- */
+.artblock-box {
+  background: #ffffff;
+  padding: 25px;
+  width: 90%;
+  max-width: 340px;
+  border-radius: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.artblock-title {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.artblock-message {
+  background: #faf7f2;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-size: 1rem;
+}
+
+/* Buttons inside popup */
+.artblock-generate,
+.artblock-close {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 5px;
+}
+
+.artblock-generate {
+  background: #6b5ce7;
+  color: #fff;
+}
+
+.artblock-generate:hover {
+  background: #5749c9;
+}
+
+.artblock-close {
+  background: #c75c5c;
+  color: white;
+}
+
+.artblock-close:hover {
+  background: #a94b4b;
+}

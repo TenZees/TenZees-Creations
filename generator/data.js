@@ -1051,6 +1051,11 @@ export const DATA = {
     name: "Fossil Fawn",
     colors: ["#C6B199", "#948474", "#E9DFD1", "#6F6354", "#B8A189"]
 },
+{
+    name: "Molly Malone",
+    colors: ["#7C7E80", "#5E8F8B", "#B46A3C", "#E7C58A", "#D9A8A3"]
+},
+
 /* ===========================
     SKY & ARCANA
  ============================= */
