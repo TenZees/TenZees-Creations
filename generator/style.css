@@ -219,7 +219,7 @@ body.dark-mode .footer {
   color: var(--text-primary-dark);
 }
 
-/* -------- ART BLOCK BUTTONS -------- */
+/* -------- ART BLOCK BUTTON -------- */
 .artblock-btn {
   background: #d9c6a6;
   border: 2px solid #a89471;
@@ -229,7 +229,7 @@ body.dark-mode .footer {
   cursor: pointer;
   margin: 30px auto;
   display: block;
-  transition: 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .artblock-btn:hover {
@@ -237,77 +237,90 @@ body.dark-mode .footer {
   transform: scale(1.05);
 }
 
-/* -------- POPUP OVERLAY -------- */
+/* -------- ART BLOCK OVERLAY -------- */
 .artblock-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.45);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 2000;
 }
 
-/* -------- POPUP BOX -------- */
+/* -------- ART BLOCK POPUP -------- */
 .artblock-box {
   background: #ffffff;
-  padding: 25px;
+  padding: 24px;
   width: 90%;
-  max-width: 340px;
+  max-width: 360px;
   border-radius: 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  color: #222;
 }
 
+/* DARK MODE POPUP */
 body.dark-mode .artblock-box {
-  background: var(--card-bg-dark);
+  background: #241933; /* slightly lighter than card-bg-dark */
+  border: 2px solid var(--border-dark);
   color: var(--text-primary-dark);
-  border: 2px solid var(--text-primary-dark);
 }
 
+/* -------- TITLE -------- */
 .artblock-title {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
+body.dark-mode .artblock-title {
+  color: var(--text-primary-dark);
+}
+
+/* -------- MESSAGE -------- */
 .artblock-message {
-  background: #faf7f2;
-  padding: 12px;
-  border-radius: 10px;
+  background: #f3efe8;
+  padding: 14px;
+  border-radius: 12px;
   margin-bottom: 18px;
   font-size: 1rem;
+  line-height: 1.4;
+  color: #333;
 }
 
 body.dark-mode .artblock-message {
-  background: #2a1f3a; /* subtle dark variant */
+  background: #2e2144;
   color: var(--text-secondary-dark);
+  border: 1px solid var(--border-dark);
 }
 
 /* -------- POPUP BUTTONS -------- */
 .artblock-generate,
 .artblock-close {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 10px;
+  padding: 12px 18px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
-  margin: 5px;
+  font-weight: 600;
+  margin: 6px;
+  border: none;
 }
 
+/* Generate */
 .artblock-generate {
   background: var(--accent-dark);
   color: #fff;
 }
 
 .artblock-generate:hover {
-  background: #8f70ff; /* slightly lighter accent on hover */
+  background: #8f70ff;
 }
 
+/* Close */
 .artblock-close {
   background: #c75c5c;
-  color: white;
+  color: #fff;
 }
 
 .artblock-close:hover {

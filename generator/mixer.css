@@ -1,3 +1,4 @@
+/* Mixer */
 /* =========================================
                 GLOBAL BASE
 ========================================= */
@@ -162,9 +163,25 @@ body.dark-mode .toggle-row {
 ========================================= */
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 14px;
+  margin-top: 16px;
 }
+
+/* Tablet */
+@media (min-width: 600px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
 
 .result-card {
   padding: 18px;
@@ -180,6 +197,25 @@ body.dark-mode .result-card {
 .result-card h3 {
   text-align: center;
   font-size: 0.85rem;
+}
+
+.result-card h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 599px) {
+  .result-card {
+    padding: 16px;
+  }
+
+  .value-box {
+    font-size: 0.95rem;
+  }
 }
 
 .value-box {
