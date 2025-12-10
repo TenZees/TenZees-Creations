@@ -1357,3 +1357,12 @@ export const DATA = {
     }
   ]
 };
+
+
+export const sections = {
+  palettes: { id: "card-palettes" },
+  artStyles: { id: "card-artStyles" },
+  objects: { id: "card-objects" },
+  locations: { id: "card-locations" },
+  prompt: { id: "card-prompt" }, // Make sure this is added for the final prompt
+};
