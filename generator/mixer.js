@@ -1,6 +1,18 @@
 // mixer.js — Element Mixer logic (module)
 import { DATA, sections } from './data.js';
 
+export const sections = {
+  palettes: { id: 'card-palettes', title: 'Color Palette' },
+  artStyles: { id: 'card-artStyles', title: 'Art Style' },
+  objects: { id: 'card-objects', title: 'Object' },
+  locations: { id: 'card-locations', title: 'Location' },
+  themes: { id: 'card-theme', title: 'Theme / Culture' },
+  moods: { id: 'card-moods', title: 'Mood' },
+  seasons: { id: 'card-seasons', title: 'Season / Holiday' },
+  people: { id: 'card-people', title: 'Person / Character' }
+};
+
+
 // Utility function to pick a random element
 const rand = arr => arr[Math.floor(Math.random() * arr.length)];
 
@@ -43,15 +55,15 @@ function buildPrompt(enabledSections) {
 
   enabledSections.forEach(key => {
     if (key === 'palettes') {
-      let palette;
+      let palettes;
       if (lockedPalette) {
         palette = lockedPalette;
       } else {
         palette = rand(DATA.palettes);
-        lockedPalette = palette;
+        lockedPalette = palettes;
       }
-      promptParts.push(`Color palette: ${palette.name}`);
-      setSection('palettes', paletteToHtml(palette));
+      promptParts.push(`Color palette: ${palettes.name}`);
+      setSection('palettes', paletteToHtml(palettes));
     } else if (key === 'artStyles') {
       const style = rand(DATA.artStyles);
       promptParts.push(`Art style: ${style}`);

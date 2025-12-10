@@ -14,7 +14,7 @@
   --accent-dark: #A07BFF; /* Accent color for dark mode */
   --button-bg-dark: #333; /* Button background for dark mode */
   --button-hover-dark: #444; /* Button hover color for dark mode */
-  --bg-image-dark: url("assets/splatter_darkMode.png"); /* Dark mode background image */
+  --bg-image-dark: url("/assets/splatter_darkMode.png"); /* Dark mode background image */
 
   /* Card-specific dark colors */
   --card-palette-dark: #4c3440;
@@ -34,7 +34,7 @@
   --accent-light: #A07BFF; /* Accent color for light mode */
   --button-bg-light: #eee; /* Button background for light mode */
   --button-hover-light: #ddd; /* Button hover color for light mode */
-  --bg-image-light: url("assets/splatter_lightMode.png"); /* Light mode background image */
+  --bg-image-light: url("/assets/splatter_lightMode.png"); /* Light mode background image */
 
   /* Card-specific light colors */
   --card-palette-light: #f0e6f6;
