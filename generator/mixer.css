@@ -3,9 +3,12 @@
    Midnight Ink (dark) and soft pastel light mode
 ========================================= */
 
-/* -------- COLOR VARIABLES -------- */
-:root{
-  /* Dark palette (Midnight Ink) */
+:root {
+  /* =========================================
+     COLOR VARIABLES — Midnight Ink (dark) & Pastel (light)
+  ========================================= */
+
+  /* -------- Dark Mode Palette -------- */
   --bg-dark: #1B1125;
   --card-bg-dark: #261831;
   --text-primary-dark: #F4E9FF;
@@ -16,22 +19,7 @@
   --button-hover-dark: #444;
   --bg-image-dark: url("assets/splatter_darkMode.png");
 
-  /* Pastel light palette (derived from dark) */
-  --bg-light: #f8f5f0;
-  --card-bg-light: #ffffff;
-  --text-dark: #111;
-  --text-muted: #666;
-
-  /* Card pastel colors (light mode) */
-  --card-palette-light: #f0e6f6; /* pastel purple */
-  --card-object-light:  #e7f0ff; /* pastel blue */
-  --card-location-light: #e9f7ef; /* pastel green */
-  --card-theme-light:    #fff3e8; /* pastel warm */
-  --card-mood-light:     #fdeef2; /* pastel rose */
-  --card-season-light:   #fff6e8; /* pastel amber */
-  --card-person-light:   #eef0ff; /* pastel indigo */
-
-  /* Card dark colors */
+  /* Card-specific dark colors */
   --card-palette-dark: #4c3440;
   --card-object-dark:  #2e354a;
   --card-location-dark: #29503b;
@@ -40,14 +28,35 @@
   --card-season-dark:   #553c23;
   --card-person-dark:   #4c2c2c;
 
-  /* misc */
+  /* -------- Light Mode Palette -------- */
+  --bg-light: #f8f5f0;
+  --card-bg-light: #ffffff;
+  --text-primary-light: #111;       /* renamed from text-dark */
+  --text-secondary-light: #666;     /* renamed from text-muted */
+  --border-light: #ccc;             /* optional, add if needed */
+  --accent-light: #A07BFF;          /* same accent can work for light mode */
+  --button-bg-light: #eee;          /* optional */
+  --button-hover-light: #ddd;       /* optional */
+  --bg-image-light: url("assets/splatter_lightMode.png"); /* optional */
+
+  /* Card-specific light colors */
+  --card-palette-light: #f0e6f6;
+  --card-object-light:  #e7f0ff;
+  --card-location-light: #e9f7ef;
+  --card-theme-light:    #fff3e8;
+  --card-mood-light:     #fdeef2;
+  --card-season-light:   #fff6e8;
+  --card-person-light:   #eef0ff;
+
+  /* -------- Miscellaneous -------- */
   --radius: 24px;
   --btn-radius: 14px;
   --card-border-width: 2px;
-  --shadow: 0 8px 18px rgba(0,0,0,0.12);
   --shadow-dark: 0 8px 18px rgba(255,255,255,0.04);
+  --shadow-light: 0 8px 18px rgba(0,0,0,0.12);
   --max-width: 900px;
 }
+
 
 /* -------- GLOBAL -------- */
 * { box-sizing: border-box; }
