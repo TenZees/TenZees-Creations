@@ -1,5 +1,5 @@
 // mixer.js — Element Mixer logic (module)
-import { DATA, sections } from '/data.js';
+import { DATA, sections } from './data.js';
 
 // Utility function to pick a random element
 const rand = arr => arr[Math.floor(Math.random() * arr.length)];
@@ -122,17 +122,20 @@ function init() {
   // Toggle show/hide cards
   const toggles = Array.from(document.querySelectorAll('.config-grid input[type="checkbox"]'));
   toggles.forEach(toggle => {
-    const cardId = 'card-' + toggle.id.replace('toggle-', '');
+    const cardId = 'card-' + toggle.id.replace('toggle-', ''); // This is expected to match the card IDs like "card-palettes", etc.
     const card = document.querySelector('#' + cardId);
+  
     if (!card) return;
 
-    // Initial visibility
+    // Ensure card visibility based on initial checkbox state
     card.classList.toggle('hidden', !toggle.checked);
 
+    // Listen for change to toggle visibility
     toggle.addEventListener('change', () => {
       card.classList.toggle('hidden', !toggle.checked);
     });
   });
+
 
 
   // Initial roll
