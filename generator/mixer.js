@@ -1,4 +1,7 @@
 // mixer.js — Element Mixer logic (module)
+
+console.log('mixer.js loaded');
+
 import { DATA, sections } from './data.js';
 
 export const sections = {
@@ -59,7 +62,7 @@ function buildPrompt(enabledSections) {
       if (lockedPalette) {
         palette = lockedPalette;
       } else {
-        palette = rand(DATA.palettes);
+        palettes = rand(DATA.palettes);
         lockedPalette = palettes;
       }
       promptParts.push(`Color palette: ${palettes.name}`);
