@@ -2,7 +2,7 @@
 
 console.log('mixer.js loaded');
 
-import { DATA, sections } from './data.js';
+import { DATA, sections } from 'data.js';
 
 export const sections = {
   palettes: { id: 'card-palettes', title: 'Color Palette' },
